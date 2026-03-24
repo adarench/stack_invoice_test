@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Dark theme (default) ─────────────────────────────────── */
+:root {
+  --bg:             #0F172A;
+  --bg-secondary:   #0B1120;
+  --surface:        #111827;
+  --surface-alt:    #0F172A;
+  --surface-input:  #111827;
+  --border:         #1E2D3D;
+  --border-subtle:  #1F2937;
+  --border-strong:  #374151;
+  --text-1:         #F1F5F9;
+  --text-2:         #E5E7EB;
+  --text-3:         #D1D5DB;
+  --text-4:         #9CA3AF;
+  --text-5:         #6B7280;
+  --text-6:         #4B5563;
+  --text-7:         #374151;
+  --hover-xs:       rgba(255,255,255,0.018);
+  --hover-sm:       rgba(255,255,255,0.028);
+  --hover-md:       rgba(255,255,255,0.045);
+  --scrollbar-track:#111827;
+  --scrollbar-thumb:#374151;
+  --shadow:         none;
+  --shadow-card:    none;
+}
+
+/* ─── Light theme ───────────────────────────────────────────── */
+:root.light-mode {
+  --bg:             #F1F5F9;
+  --bg-secondary:   #FFFFFF;
+  --surface:        #FFFFFF;
+  --surface-alt:    #F8FAFC;
+  --surface-input:  #F8FAFC;
+  --border:         #E2E8F0;
+  --border-subtle:  #EFF2F7;
+  --border-strong:  #CBD5E1;
+  --text-1:         #0F172A;
+  --text-2:         #1E293B;
+  --text-3:         #334155;
+  --text-4:         #475569;
+  --text-5:         #64748B;
+  --text-6:         #94A3B8;
+  --text-7:         #CBD5E1;
+  --hover-xs:       rgba(0,0,0,0.025);
+  --hover-sm:       rgba(0,0,0,0.035);
+  --hover-md:       rgba(0,0,0,0.055);
+  --scrollbar-track:#F1F5F9;
+  --scrollbar-thumb:#CBD5E1;
+  --shadow:         0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-card:    0 1px 4px rgba(0,0,0,0.06);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-1);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ─── Scrollbars ───────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+
+/* ─── Hover utility classes ────────────────────────────────── */
+.row-hover { transition: background-color 0.1s ease; }
+.row-hover:hover { background-color: var(--hover-xs) !important; }
+.item-hover { transition: background-color 0.1s ease; }
+.item-hover:hover { background-color: var(--hover-sm) !important; }
+
+/* ─── Animations ───────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--border) 50%, var(--surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.2s ease-out; }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.pulse-dot { animation: pulse-dot 1.5s ease-in-out infinite; }
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.spin-slow { animation: spin-slow 1s linear infinite; }
+
+/* ─── Theme transition on layout elements ──────────────────── */
+aside, header, main, .themed {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
