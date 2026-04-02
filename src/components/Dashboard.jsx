@@ -1,6 +1,7 @@
 import { AlertTriangle, CheckCircle, Clock, TrendingUp, ArrowRight, FileText } from 'lucide-react'
 import StatusBadge from './StatusBadge'
 import { useTheme } from '../context/ThemeContext'
+import { normalizeWorkflowStatus } from '../data/demoUsers'
 
 const fmt = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n)
 
@@ -28,8 +29,14 @@ function TypeBadge({ type }) {
 
 export default function Dashboard({ invoices, onSelectInvoice, setActiveView }) {
   const { isDark } = useTheme()
-  const pending = invoices.filter(i => i.status === 'Awaiting Approval' || i.status === 'Flagged')
-  const processedToday = invoices.filter(i => ['Approved', 'Payment Scheduled', 'Paid'].includes(i.status))
+  const pending = invoices.filter(i => {
+    const s = normalizeWorkflowStatus(i.status)
+    return s === 'uploaded' || s === 'in_review'
+  })
+  const processedToday = invoices.filter(i => {
+    const s = normalizeWorkflowStatus(i.status)
+    return s === 'approved' || s === 'paid'
+  })
   const riskFlags = invoices.filter(i => i.risk_flag)
   const totalPendingValue = pending.reduce((s, i) => s + i.amount, 0)
 
@@ -192,7 +199,7 @@ export default function Dashboard({ invoices, onSelectInvoice, setActiveView }) 
                     <div className="min-w-0">
                       <p className="text-xs font-medium truncate" style={{ color: '#FCA5A5' }}>{inv.vendor_name}</p>
                       <p className="text-xs mt-0.5" style={{ color: 'var(--text-5)' }}>
-                        {inv.id} · ${inv.amount.toLocaleString()}
+                        {inv.id} · {inv.amount != null ? `$${Number(inv.amount).toLocaleString()}` : '—'}
                       </p>
                       <p className="text-xs mt-1" style={{ color: '#F59E0B', fontSize: '11px' }}>
                         ⚠ {inv.ai_insights.risk_message?.slice(0, 60)}…
@@ -276,7 +283,7 @@ export default function Dashboard({ invoices, onSelectInvoice, setActiveView }) 
                 </td>
                 <td className="px-4 py-3">
                   <span className="text-sm font-semibold tabular-nums" style={{ color: 'var(--text-1)' }}>
-                    ${inv.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                    {inv.amount != null ? `$${Number(inv.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '—'}
                   </span>
                 </td>
                 <td className="px-4 py-3"><TypeBadge type={inv.invoice_type} /></td>

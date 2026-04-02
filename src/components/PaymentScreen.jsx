@@ -156,7 +156,7 @@ export default function PaymentScreen({ invoices, onAction, onSelectInvoice }) {
                           {inv.vendor_name}
                         </td>
                         <td className="px-4 py-3 font-semibold text-sm tabular-nums" style={{ color: 'var(--text-1)' }}>
-                          ${inv.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                          {inv.amount != null ? `$${Number(inv.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '—'}
                         </td>
                         <td className="px-4 py-3">
                           <span
@@ -234,7 +234,7 @@ function PaymentCard({ inv, method, onMethodChange, onSchedule, onProcess, onSel
             </div>
             <div className="text-right ml-4">
               <div className="text-xl font-bold tabular-nums" style={{ color: 'var(--text-1)', letterSpacing: '-0.02em' }}>
-                ${inv.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                {inv.amount != null ? `$${Number(inv.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '—'}
               </div>
             </div>
           </div>

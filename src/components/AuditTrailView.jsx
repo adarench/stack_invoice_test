@@ -147,7 +147,7 @@ export default function AuditTrailView({ invoices, onSelectInvoice }) {
                               </p>
                               {selectedInvoiceId === 'all' && (
                                 <p className="text-xs mt-0.5" style={{ color: 'var(--text-6)' }}>
-                                  {event.vendor} · ${event.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                                  {event.vendor} · {event.amount != null ? `$${Number(event.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '—'}
                                 </p>
                               )}
                             </div>

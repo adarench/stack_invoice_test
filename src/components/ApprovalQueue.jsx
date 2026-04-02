@@ -187,7 +187,7 @@ function InvoiceRow({ inv, priority, processing, onSelect, onApprove, onFlag }) 
             </div>
             <div className="text-right">
               <div className="text-lg font-bold tabular-nums" style={{ color: 'var(--text-1)', letterSpacing: '-0.02em' }}>
-                ${inv.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                {inv.amount != null ? `$${Number(inv.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '—'}
               </div>
               <div className="text-xs" style={{ color: 'var(--text-5)' }}>Due {inv.due_date}</div>
             </div>
