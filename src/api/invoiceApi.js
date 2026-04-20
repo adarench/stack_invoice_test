@@ -1,11 +1,28 @@
 import { supabase } from '../lib/supabaseClient'
 import { DEMO_USERS } from '../data/demoUsers'
+import { normalizeGlSplits } from '../lib/invoiceAccounting'
 
 // Demo user IDs
 const DEMO_USER_IDS = new Set(DEMO_USERS.map(u => u.id))
 
 // Cache: have we verified/seeded demo users in profiles?
 let demoUsersVerified = false
+
+function normalizeNotifications(notifications) {
+  if (!notifications || typeof notifications !== 'object' || Array.isArray(notifications)) {
+    return {}
+  }
+
+  const reviewEmailSent = notifications.reviewEmailSent === true
+  return {
+    ...notifications,
+    reviewEmailSent,
+    lastNotifiedAt: typeof notifications.lastNotifiedAt === 'string' ? notifications.lastNotifiedAt : null,
+    lastNotifiedUserId: typeof notifications.lastNotifiedUserId === 'string' ? notifications.lastNotifiedUserId : null,
+    lastNotifiedEmail: typeof notifications.lastNotifiedEmail === 'string' ? notifications.lastNotifiedEmail : null,
+    lastNotifiedName: typeof notifications.lastNotifiedName === 'string' ? notifications.lastNotifiedName : null,
+  }
+}
 
 async function ensureDemoUsersExist() {
   if (demoUsersVerified) return true
@@ -77,7 +94,11 @@ export async function fetchInvoices() {
       .order('created_at', { ascending: false }))
     if (error) throw error
   }
-  return data
+  return (data || []).map(invoice => ({
+    ...invoice,
+    gl_splits: normalizeGlSplits(invoice.gl_splits, invoice),
+    notifications: normalizeNotifications(invoice.notifications),
+  }))
 }
 
 /**
@@ -105,7 +126,11 @@ export async function fetchInvoice(id) {
   } else if (error) {
     throw error
   }
-  return data
+  return {
+    ...data,
+    gl_splits: normalizeGlSplits(data.gl_splits, data),
+    notifications: normalizeNotifications(data.notifications),
+  }
 }
 
 /**
@@ -115,7 +140,7 @@ export async function fetchInvoice(id) {
 export async function createInvoice({
   vendorName, propertyName, invoiceNumber, amount, fileUrl, uploadedBy,
   invoiceDate, dueDate, billToName, description, lineItems, rawText,
-  parseStatus, parseErrors, source, vendorEmail, documentType, notes,
+  parseStatus, parseErrors, source, vendorEmail, documentType, notes, glSplits,
 }) {
   // Determine a safe value for uploaded_by:
   // - If it's a demo user ID, only use it if demo users are in the DB
@@ -137,7 +162,7 @@ export async function createInvoice({
     vendor_name:    vendorName || 'Unknown Vendor',
     property_name:  propertyName || null,
     invoice_number: invoiceNumber || null,
-    amount:         amount || null,
+    amount:         amount ?? null,
     status:         'uploaded',
     file_url:       fileUrl,
     uploaded_by:    safeUploadedBy,
@@ -153,6 +178,9 @@ export async function createInvoice({
     vendor_email:   vendorEmail || null,
     document_type:  documentType || null,
     notes:          notes || null,
+    gl_splits:      JSON.stringify(normalizeGlSplits(glSplits)),
+    portfolio_override: null,
+    notifications:  {},
   }
 
   console.debug('[invoiceApi] createInvoice row:', row)
@@ -165,19 +193,27 @@ export async function createInvoice({
 
   if (error) {
     // If the error is about unknown columns (migration 006 not applied), retry without them
-    const vendorCols = ['vendor_email', 'document_type', 'notes']
-    if (error.message && vendorCols.some(c => error.message.includes(c))) {
+    const optionalCols = ['vendor_email', 'document_type', 'notes', 'gl_splits', 'portfolio_override', 'notifications']
+    if (error.message && optionalCols.some(c => error.message.includes(c))) {
       console.warn('[invoiceApi] vendor columns not found, retrying without them:', error.message)
       const safeRow = Object.fromEntries(
-        Object.entries(row).filter(([k]) => !vendorCols.includes(k))
+        Object.entries(row).filter(([k]) => !optionalCols.includes(k))
       )
       const retry = await supabase.from('invoices').insert(safeRow).select().single()
       if (retry.error) throw retry.error
-      return retry.data
+      return {
+        ...retry.data,
+        gl_splits: normalizeGlSplits(retry.data.gl_splits, retry.data),
+        notifications: normalizeNotifications(retry.data.notifications),
+      }
     }
     throw error
   }
-  return data
+  return {
+    ...data,
+    gl_splits: normalizeGlSplits(data.gl_splits, data),
+    notifications: normalizeNotifications(data.notifications),
+  }
 }
 
 /**
@@ -206,6 +242,15 @@ export async function updateInvoice(id, updates) {
     'paid_at',
     'last_action_at',
   ]
+  if ('gl_splits' in sanitized) {
+    sanitized.gl_splits = normalizeGlSplits(sanitized.gl_splits, sanitized)
+  }
+
+  if ('notifications' in sanitized) {
+    sanitized.notifications = normalizeNotifications(sanitized.notifications)
+  }
+
+  const optionalCols = ['gl_splits', 'portfolio_override', 'notifications']
 
   const { data, error } = await supabase
     .from('invoices')
@@ -215,6 +260,25 @@ export async function updateInvoice(id, updates) {
     .single()
 
   if (error) {
+    if (error.message && optionalCols.some(col => error.message.includes(col))) {
+      const safe = Object.fromEntries(
+        Object.entries(sanitized).filter(([k]) => !optionalCols.includes(k))
+      )
+      if (Object.keys(safe).length === 0) return { id, ...sanitized }
+      const retry = await supabase
+        .from('invoices')
+        .update(safe)
+        .eq('id', id)
+        .select()
+        .single()
+      if (retry.error) throw retry.error
+      return {
+        ...retry.data,
+        gl_splits: normalizeGlSplits(retry.data.gl_splits, retry.data),
+        notifications: normalizeNotifications(retry.data.notifications),
+      }
+    }
+
     // Enum values added by migration 003: map to closest existing value so the workflow
     // still persists correctly even if migrations haven't been applied yet.
     const ENUM_REMAP = { 'in_review': 'under_review', 'paid': null }
@@ -264,11 +328,45 @@ export async function updateInvoice(id, updates) {
         }
         throw retry.error
       }
-      return retry.data
+      return {
+        ...retry.data,
+        gl_splits: normalizeGlSplits(retry.data.gl_splits, retry.data),
+        notifications: normalizeNotifications(retry.data.notifications),
+      }
     }
     throw error
   }
-  return data
+  return {
+    ...data,
+    gl_splits: normalizeGlSplits(data.gl_splits, data),
+    notifications: normalizeNotifications(data.notifications),
+  }
+}
+
+/**
+ * Delete an invoice by ID. Also attempts to remove the PDF from storage.
+ */
+export async function deleteInvoice(id, fileUrl) {
+  if (!supabase) return
+
+  if (fileUrl) {
+    try {
+      const url = new URL(fileUrl)
+      const pathMatch = url.pathname.match(/\/storage\/v1\/object\/public\/invoices\/(.+)/)
+      if (pathMatch?.[1]) {
+        await supabase.storage.from('invoices').remove([decodeURIComponent(pathMatch[1])])
+      }
+    } catch (e) {
+      console.warn('[invoiceApi] Could not remove PDF from storage:', e.message)
+    }
+  }
+
+  const { error } = await supabase
+    .from('invoices')
+    .delete()
+    .eq('id', id)
+
+  if (error) throw error
 }
 
 /**

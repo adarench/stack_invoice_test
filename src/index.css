@@ -110,3 +110,26 @@ body {
 aside, header, main, .themed {
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
+
+/* ─── Number input spinners — removed globally ────────────── */
+input[inputmode="decimal"]::-webkit-outer-spin-button,
+input[inputmode="decimal"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[inputmode="decimal"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ─── Textarea resize only (inputs/selects left alone) ────── */
+textarea {
+  resize: both;
+}

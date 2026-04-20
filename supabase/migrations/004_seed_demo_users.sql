@@ -17,10 +17,10 @@ END $$;
 
 -- Insert pilot demo team
 INSERT INTO public.profiles (id, email, full_name, role) VALUES
-  ('00000000-0000-0000-0000-000000000001', 'ops@pilot.opsflow.local',        'Ops User',        'uploader'),
-  ('00000000-0000-0000-0000-000000000002', 'reviewer@pilot.opsflow.local',   'Reviewer User',   'reviewer'),
-  ('00000000-0000-0000-0000-000000000003', 'accounting@pilot.opsflow.local', 'Accounting User', 'accounting'),
-  ('00000000-0000-0000-0000-000000000004', 'admin@pilot.opsflow.local',      'Admin User',      'admin')
+  ('00000000-0000-0000-0000-000000000001', 'sharon@stackwithus.com', 'Sharon', 'uploader'),
+  ('00000000-0000-0000-0000-000000000002', 'jen@stackwithus.com',    'Jen',    'reviewer'),
+  ('00000000-0000-0000-0000-000000000003', 'kelson@stackwithus.com', 'Kelson', 'accounting'),
+  ('00000000-0000-0000-0000-000000000004', 'andrew@stackwithus.com', 'Andrew', 'admin')
 ON CONFLICT (id) DO UPDATE SET
   role = EXCLUDED.role,
   full_name = EXCLUDED.full_name,

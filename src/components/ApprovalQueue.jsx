@@ -205,7 +205,7 @@ function InvoiceRow({ inv, priority, processing, onSelect, onApprove, onFlag }) 
               AI: <span style={{
                 color: inv.ai_confidence >= 90 ? '#6EE7B7' : inv.ai_confidence >= 70 ? '#FCD34D' : '#FCA5A5'
               }}>
-                {inv.ai_confidence}% confidence
+                {inv.ai_confidence}% extraction confidence
               </span>
             </span>
             <div className="ml-auto flex items-center gap-1.5">

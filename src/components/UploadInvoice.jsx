@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext'
 import { useTheme } from '../context/ThemeContext'
 import { supabase } from '../lib/supabaseClient'
 import { uploadInvoiceFile, createInvoice, checkDuplicateInvoice } from '../api/invoiceApi'
-import { parsePdfInvoice } from '../lib/parsePdf'
+import { parseAndNormalizeInvoice, buildInvoiceDraft } from '../lib/invoiceIngestion'
 
 export default function UploadInvoice({ onClose, onUploaded }) {
   const { user, isMockMode } = useAuth()
@@ -15,6 +15,7 @@ export default function UploadInvoice({ onClose, onUploaded }) {
   const [file, setFile] = useState(null)
   const [parsing, setParsing] = useState(false)
   const [parsed, setParsed] = useState(null) // parsed fields from PDF
+  const [parseError, setParseError] = useState(null)
 
   // Form fields — pre-filled from parsed data, user-editable
   const [fields, setFields] = useState({ vendorName: '', propertyName: '', invoiceNumber: '', amount: '' })
@@ -37,24 +38,28 @@ export default function UploadInvoice({ onClose, onUploaded }) {
     setErrorMsg('')
     setFile(f)
     setParsed(null)
+    setParseError(null)
 
     // ── Parse PDF text immediately on file selection ──────────────────────
     setParsing(true)
+    const { parsed: parsedInvoice, parseError: nextParseError } = await parseAndNormalizeInvoice(f, { channel: 'internal' })
     try {
-      const result = await parsePdfInvoice(f)
-      console.debug('[UploadInvoice] parsed invoice:', result)
-      setParsed(result)
+      setParsed(parsedInvoice)
+      setParseError(nextParseError)
       // Pre-fill form fields with parsed values — user can still override
       setFields({
-        vendorName:    result.vendorName    || '',
-        propertyName:  result.propertyName  || '',
-        invoiceNumber: result.invoiceNumber || '',
-        amount:        result.amount != null ? String(result.amount) : '',
+        vendorName:    parsedInvoice?.vendorName    || '',
+        propertyName:  parsedInvoice?.propertyName  || '',
+        invoiceNumber: parsedInvoice?.invoiceNumber || '',
+        amount:        parsedInvoice?.amount != null ? String(parsedInvoice.amount) : '',
       })
-    } catch (err) {
-      console.error('[UploadInvoice] PDF parse error:', err)
+      if (nextParseError) {
+        console.error('[UploadInvoice] PDF parse error:', nextParseError)
+      }
       // Non-fatal — user can fill in fields manually
-      setFields({ vendorName: f.name.replace(/\.pdf$/i, '').replace(/[-_]/g, ' '), propertyName: '', invoiceNumber: '', amount: '' })
+      if (!parsedInvoice) {
+        setFields({ vendorName: f.name.replace(/\.pdf$/i, '').replace(/[-_]/g, ' '), propertyName: '', invoiceNumber: '', amount: '' })
+      }
     } finally {
       setParsing(false)
     }
@@ -70,12 +75,20 @@ export default function UploadInvoice({ onClose, onUploaded }) {
     e.preventDefault()
     if (!file) return
 
+    const { invoiceData, createInvoiceInput } = buildInvoiceDraft({
+      channel: 'internal',
+      source: 'upload',
+      submittedFields: fields,
+      parsed,
+      parseError,
+    })
+
     // Duplicate check (before file upload to save storage)
     if (!duplicateAccepted && !isMockMode) {
       const result = await checkDuplicateInvoice({
-        vendorName: fields.vendorName,
-        invoiceNumber: fields.invoiceNumber,
-        amount: fields.amount,
+        vendorName: invoiceData.vendor_name,
+        invoiceNumber: invoiceData.invoice_number,
+        amount: invoiceData.amount,
       })
       if (result.isDuplicate) {
         setDuplicateWarning(result)
@@ -87,42 +100,14 @@ export default function UploadInvoice({ onClose, onUploaded }) {
     setStatus('uploading')
 
     try {
-      // Build the full invoice object, merging parsed data + any manual overrides
-      // Parsed data is the ground truth; form fields are the user-confirmed final values
-      const invoiceData = {
-        vendor_name:    fields.vendorName    || parsed?.vendorName    || null,
-        property_name:  fields.propertyName  || parsed?.propertyName  || null,
-        invoice_number: fields.invoiceNumber || parsed?.invoiceNumber || null,
-        amount:         fields.amount ? parseFloat(fields.amount) : (parsed?.amount ?? null),
-        invoice_date:   parsed?.invoiceDate  || null,
-        due_date:       parsed?.dueDate      || null,
-        bill_to_name:   parsed?.billTo       || null,
-        line_items:     parsed?.lineItems    || [],
-        description:    parsed?.description  || null,
-        parse_status:   parsed ? 'parsed' : 'manual',
-        source:         'upload',
-      }
-
       console.debug('[UploadInvoice] final invoice data:', invoiceData)
 
       if (!isMockMode && supabase) {
         const fileUrl = await uploadInvoiceFile(file, user.id)
         const invoice = await createInvoice({
-          vendorName:    invoiceData.vendor_name,
-          propertyName:  invoiceData.property_name,
-          invoiceNumber: invoiceData.invoice_number,
-          amount:        invoiceData.amount,
           fileUrl,
           uploadedBy:    user.id,
-          invoiceDate:   invoiceData.invoice_date,
-          dueDate:       invoiceData.due_date,
-          billToName:    invoiceData.bill_to_name,
-          description:   invoiceData.description,
-          lineItems:     invoiceData.line_items,
-          rawText:       parsed?.rawText || null,
-          parseStatus:   invoiceData.parse_status,
-          parseErrors:   null,
-          source:        invoiceData.source,
+          ...createInvoiceInput,
         })
         console.debug('[UploadInvoice] saved invoice from DB:', invoice)
         setStatus('success')
@@ -141,6 +126,7 @@ export default function UploadInvoice({ onClose, onUploaded }) {
           ai_confidence: null,
           ai_insights:   null,
           budget_used:   null,
+          gl_splits:     [],
           // Legacy fields for existing mock-data components
           invoice_type: 'Work Order',
           gl_code:      'TBD',
@@ -261,6 +247,7 @@ export default function UploadInvoice({ onClose, onUploaded }) {
                       e.stopPropagation()
                       setFile(null)
                       setParsed(null)
+                      setParseError(null)
                       setFields({ vendorName: '', propertyName: '', invoiceNumber: '', amount: '' })
                     }}
                     style={{ color: 'var(--text-6)', flexShrink: 0 }}
@@ -327,9 +314,9 @@ export default function UploadInvoice({ onClose, onUploaded }) {
                   <label className="text-xs font-medium block mb-1" style={{ color: 'var(--text-5)' }}>
                     Amount
                   </label>
-                  <input style={inputStyle} type="number" step="0.01" min="0"
+                  <input style={inputStyle} type="text" inputMode="decimal"
                     value={fields.amount}
-                    onChange={e => { setFields(f => ({ ...f, amount: e.target.value })); setDuplicateWarning(null); setDuplicateAccepted(false) }}
+                    onChange={e => { setFields(f => ({ ...f, amount: e.target.value.replace(/[^0-9.\-]/g, '') })); setDuplicateWarning(null); setDuplicateAccepted(false) }}
                     placeholder="0.00" />
                 </div>
               </div>

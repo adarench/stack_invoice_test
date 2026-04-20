@@ -22,6 +22,7 @@ function money(value) {
 
 export default function ParsedInvoiceView({ invoice }) {
   const lineItems = invoice.line_items || []
+  const glSplits = Array.isArray(invoice.gl_splits) ? invoice.gl_splits : []
 
   return (
     <div
@@ -149,6 +150,36 @@ export default function ParsedInvoiceView({ invoice }) {
             </div>
           </div>
         </div>
+
+        {glSplits.length > 0 && (
+          <div className="mb-6">
+            <div className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#9CA3AF' }}>
+              Accounting Allocation
+            </div>
+            <table className="w-full" style={{ fontSize: '12px' }}>
+              <thead>
+                <tr style={{ borderBottom: '1px solid #D1D5DB' }}>
+                  <th className="text-left pb-2 font-semibold" style={{ color: '#1a1a1a' }}>Entity</th>
+                  <th className="text-left pb-2 font-semibold" style={{ color: '#1a1a1a' }}>G/L</th>
+                  <th className="text-left pb-2 font-semibold" style={{ color: '#1a1a1a' }}>Description</th>
+                  <th className="text-right pb-2 font-semibold" style={{ color: '#1a1a1a' }}>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                {glSplits.map((split, index) => (
+                  <tr key={index} style={{ borderBottom: '1px solid #F3F4F6' }}>
+                    <td className="py-2" style={{ color: '#374151' }}>{split.entity_name || split.entity_code || '—'}</td>
+                    <td className="py-2" style={{ color: '#374151' }}>{split.gl_code || '—'}</td>
+                    <td className="py-2" style={{ color: '#6B7280' }}>{split.description || '—'}</td>
+                    <td className="py-2 text-right tabular-nums" style={{ color: '#1a1a1a' }}>
+                      {split.amount != null ? `$${Number(split.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}` : '—'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
 
         {/* Parse status notice */}
         <div className="text-xs pt-4" style={{ borderTop: '1px solid #E5E7EB', color: '#9CA3AF' }}>

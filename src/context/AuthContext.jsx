@@ -1,29 +1,74 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { supabase, skipAuth } from '../lib/supabaseClient'
-import { DEMO_USERS, ROLE_PERMISSIONS } from '../data/demoUsers'
+import { supabase, skipAuth, hasSupabaseCredentials, missingSupabaseConfigMessage } from '../lib/supabaseClient'
+import { DEMO_USERS, ROLE_PERMISSIONS, normalizeRole } from '../data/demoUsers'
 
 const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
   const isMockMode = !supabase
   const isDemoMode = !!supabase && skipAuth  // DB connected but no login
+  const isExplicitMockMode = isMockMode && skipAuth
 
-  const [user, setUser] = useState((isMockMode || isDemoMode) ? DEMO_USERS[0] : null)
+  const [user, setUser] = useState((isDemoMode || isExplicitMockMode) ? DEMO_USERS[0] : null)
   const [session, setSession] = useState(null)
-  const [loading, setLoading] = useState(!isMockMode && !isDemoMode)
+  const [loading, setLoading] = useState(hasSupabaseCredentials && !isDemoMode)
 
   useEffect(() => {
     if (isMockMode || isDemoMode) return
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-      setUser(session?.user ?? null)
+    async function hydrateUser(nextSession) {
+      setSession(nextSession)
+
+      if (!nextSession?.user) {
+        setUser(null)
+        setLoading(false)
+        return
+      }
+
+      const authUser = nextSession.user
+      const fallbackUser = {
+        id: authUser.id,
+        email: authUser.email,
+        full_name: authUser.user_metadata?.full_name || authUser.email?.split('@')[0] || 'User',
+        role: 'ops',
+        user_metadata: authUser.user_metadata || {},
+      }
+
+      const { data: profile, error } = await supabase
+        .from('profiles')
+        .select('id, email, full_name, role')
+        .eq('id', authUser.id)
+        .maybeSingle()
+
+      if (error) {
+        console.warn('[AuthContext] Failed to load profile:', error.message)
+        setUser(fallbackUser)
+      } else {
+        setUser({
+          ...authUser,
+          ...fallbackUser,
+          ...profile,
+          user_metadata: authUser.user_metadata || {},
+        })
+      }
+
       setLoading(false)
+    }
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      hydrateUser(session).catch(err => {
+        console.warn('[AuthContext] Session hydration failed:', err)
+        setUser(null)
+        setLoading(false)
+      })
     })
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-      setUser(session?.user ?? null)
+      hydrateUser(session).catch(err => {
+        console.warn('[AuthContext] Auth state hydration failed:', err)
+        setUser(session?.user ?? null)
+        setLoading(false)
+      })
     })
 
     return () => subscription.unsubscribe()
@@ -44,6 +89,18 @@ export function AuthProvider({ children }) {
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: { emailRedirectTo: window.location.origin },
+    })
+    return { error }
+  }
+
+  async function signInWithPassword(email, password) {
+    if (isMockMode || isDemoMode) {
+      setUser(DEMO_USERS[0])
+      return { error: null }
+    }
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
     })
     return { error }
   }
@@ -71,17 +128,19 @@ export function AuthProvider({ children }) {
     return name.slice(0, 2).toUpperCase()
   }
 
-  const role = user?.role || 'uploader'
-  const permissions = ROLE_PERMISSIONS[role] || ROLE_PERMISSIONS.uploader
+  const role = normalizeRole(user?.role)
+  const permissions = ROLE_PERMISSIONS[role] || ROLE_PERMISSIONS.ops
 
   return (
     <AuthContext.Provider value={{
       user, session, loading,
-      isMockMode, isDemoMode,
+      isMockMode, isDemoMode, isExplicitMockMode,
+      isConfigured: hasSupabaseCredentials,
+      missingConfigMessage: missingSupabaseConfigMessage,
       role, permissions,
       demoUsers: DEMO_USERS,
       switchUser,
-      signIn, signOut, displayName, initials,
+      signIn, signInWithPassword, signOut, displayName, initials,
     }}>
       {children}
     </AuthContext.Provider>

@@ -4,9 +4,11 @@ import { useAuth } from '../context/AuthContext'
 import { useTheme } from '../context/ThemeContext'
 
 export default function LoginScreen() {
-  const { signIn } = useAuth()
+  const { signIn, signInWithPassword } = useAuth()
   const { isDark } = useTheme()
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [mode, setMode] = useState('password') // password | magic-link
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
   const [errorMsg, setErrorMsg] = useState('')
 
@@ -14,7 +16,10 @@ export default function LoginScreen() {
     e.preventDefault()
     if (!email.trim()) return
     setStatus('sending')
-    const { error } = await signIn(email.trim().toLowerCase())
+    const normalizedEmail = email.trim().toLowerCase()
+    const { error } = mode === 'password'
+      ? await signInWithPassword(normalizedEmail, password)
+      : await signIn(normalizedEmail)
     if (error) {
       setErrorMsg(error.message)
       setStatus('error')
@@ -87,6 +92,32 @@ export default function LoginScreen() {
                 </p>
               </div>
 
+              <div className="flex rounded-lg p-1"
+                style={{ backgroundColor: 'var(--surface-alt)', border: '1px solid var(--border)' }}>
+                <button
+                  type="button"
+                  onClick={() => { setMode('password'); setStatus('idle'); setErrorMsg('') }}
+                  className="flex-1 rounded-md px-3 py-2 text-xs font-semibold transition-colors"
+                  style={{
+                    backgroundColor: mode === 'password' ? '#1D4ED8' : 'transparent',
+                    color: mode === 'password' ? 'white' : 'var(--text-5)',
+                  }}
+                >
+                  Password
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { setMode('magic-link'); setStatus('idle'); setErrorMsg('') }}
+                  className="flex-1 rounded-md px-3 py-2 text-xs font-semibold transition-colors"
+                  style={{
+                    backgroundColor: mode === 'magic-link' ? '#1D4ED8' : 'transparent',
+                    color: mode === 'magic-link' ? 'white' : 'var(--text-5)',
+                  }}
+                >
+                  Magic Link
+                </button>
+              </div>
+
               <div>
                 <label className="text-xs font-medium block mb-1.5" style={{ color: 'var(--text-4)' }}>
                   Work email
@@ -115,32 +146,59 @@ export default function LoginScreen() {
                 )}
               </div>
 
+              {mode === 'password' && (
+                <div>
+                  <label className="text-xs font-medium block mb-1.5" style={{ color: 'var(--text-4)' }}>
+                    Password
+                  </label>
+                  <div
+                    className="flex items-center gap-2 rounded-lg px-3 py-2.5"
+                    style={{
+                      backgroundColor: 'var(--surface-alt)',
+                      border: `1px solid ${status === 'error' ? 'rgba(239,68,68,0.5)' : 'var(--border-strong)'}`,
+                    }}
+                  >
+                    <input
+                      type="password"
+                      value={password}
+                      onChange={e => { setPassword(e.target.value); if (status === 'error') setStatus('idle') }}
+                      placeholder="Enter your password"
+                      required={mode === 'password'}
+                      className="bg-transparent outline-none flex-1 text-sm"
+                      style={{ color: 'var(--text-2)' }}
+                    />
+                  </div>
+                </div>
+              )}
+
               <button
                 type="submit"
-                disabled={status === 'sending' || !email.trim()}
+                disabled={status === 'sending' || !email.trim() || (mode === 'password' && !password)}
                 className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold transition-all"
                 style={{
                   backgroundColor: status === 'sending' ? 'rgba(37,99,235,0.7)' : '#1D4ED8',
                   color: 'white',
-                  opacity: !email.trim() ? 0.6 : 1,
-                  cursor: !email.trim() ? 'not-allowed' : 'pointer',
+                  opacity: (!email.trim() || (mode === 'password' && !password)) ? 0.6 : 1,
+                  cursor: (!email.trim() || (mode === 'password' && !password)) ? 'not-allowed' : 'pointer',
                 }}
               >
                 {status === 'sending'
-                  ? <><Loader size={14} className="spin-slow" /> Sending link…</>
-                  : <><span>Send magic link</span><ArrowRight size={14} /></>
+                  ? <><Loader size={14} className="spin-slow" /> {mode === 'password' ? 'Signing in…' : 'Sending link…'}</>
+                  : <><span>{mode === 'password' ? 'Sign in with password' : 'Send magic link'}</span><ArrowRight size={14} /></>
                 }
               </button>
 
               <p className="text-center text-xs" style={{ color: 'var(--text-6)' }}>
-                No password required — we'll email you a one-click link.
+                {mode === 'password'
+                  ? 'Use your pilot password for repeat sign-ins. Switch to Magic Link if you need a one-time email sign-in.'
+                  : "We'll email you a one-click sign-in link."}
               </p>
             </form>
           )}
         </div>
 
         <p className="text-center text-xs mt-6" style={{ color: 'var(--text-7)' }}>
-          Internal tool · Premier Properties Operations
+          Hosted demo · Property operations workflow
         </p>
       </div>
     </div>

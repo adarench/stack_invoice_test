@@ -1,157 +1,140 @@
-import { useState, useMemo } from 'react'
-import { AlertTriangle, Clock, CheckCircle, FileText, X, ArrowRight } from 'lucide-react'
-import { useTheme } from '../context/ThemeContext'
+import { useState, useMemo, useEffect } from 'react'
+import { X, Loader, Check } from 'lucide-react'
 import { normalizeWorkflowStatus } from '../data/demoUsers'
+import { fetchPrimaryUser } from '../api/userApi'
+import { allocationBlockReason, normalizeGlSplits } from '../lib/invoiceAccounting'
+const fmt = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n)
 
-export default function ActionRequiredBanner({ invoices, user, role, setActiveView }) {
-  const { isDark } = useTheme()
+export default function ActionRequiredBanner({ invoices, user, role, setActiveView, onAction }) {
   const [dismissed, setDismissed] = useState(false)
+  const [acting, setActing] = useState(null)
+  const [completed, setCompleted] = useState(null)
+  const [defaultApprover, setDefaultApprover] = useState(null)
+
+  useEffect(() => {
+    fetchPrimaryUser('approver').then(setDefaultApprover).catch(console.error)
+  }, [])
 
   const alerts = useMemo(() => {
     if (!invoices || !user) return []
     const items = []
     const now = new Date()
+    const normalized = invoices.map(i => ({ ...i, _status: normalizeWorkflowStatus(i.status) }))
 
-    const normalized = invoices.map(i => ({
-      ...i,
-      _status: normalizeWorkflowStatus(i.status),
-    }))
-
-    // ── Ops / Uploader alerts ──────────────────────────────────────────────
-    if (role === 'uploader' || role === 'admin') {
-      const needsAssignment = normalized.filter(i =>
-        i._status === 'uploaded' && !i.assigned_to
-      )
-      if (needsAssignment.length > 0) {
+    if (role === 'ops' || role === 'admin') {
+      const unassigned = normalized.filter(i => i._status === 'uploaded' && !i.assigned_to)
+      if (unassigned.length > 0) {
         items.push({
-          id: 'needs-assignment',
-          icon: FileText,
-          color: '#F59E0B',
-          bg: 'rgba(245,158,11,0.08)',
-          border: 'rgba(245,158,11,0.25)',
-          text: `${needsAssignment.length} invoice${needsAssignment.length !== 1 ? 's' : ''} need${needsAssignment.length === 1 ? 's' : ''} assignment`,
-          action: () => setActiveView('invoices'),
-        })
-      }
-
-      // Sent-back invoices: uploaded status but last_action_at > created_at (been through workflow)
-      const sentBack = normalized.filter(i =>
-        i._status === 'uploaded' && i.last_action_at && i.created_at &&
-        new Date(i.last_action_at) > new Date(i.created_at)
-      )
-      if (sentBack.length > 0) {
-        items.push({
-          id: 'sent-back',
-          icon: AlertTriangle,
-          color: '#EF4444',
-          bg: 'rgba(239,68,68,0.08)',
-          border: 'rgba(239,68,68,0.25)',
-          text: `${sentBack.length} invoice${sentBack.length !== 1 ? 's' : ''} sent back for revision`,
-          action: () => setActiveView('invoices'),
+          id: 'assign',
+          label: `Assign (${unassigned.length})`,
+          canAct: true,
+          run: async () => {
+            for (const inv of unassigned) {
+              await onAction(inv.id, 'submit_for_review', { userId: defaultApprover?.id, userProfile: defaultApprover })
+            }
+          },
+          fallback: () => setActiveView('invoices'),
         })
       }
     }
 
-    // ── Reviewer alerts ────────────────────────────────────────────────────
-    if (role === 'reviewer' || role === 'admin') {
-      const needsReview = normalized.filter(i =>
-        i._status === 'in_review' && (
-          i.assigned_to === user.id ||
-          i.assigned_reviewer_id === user.id
-        )
+    if (role === 'approver' || role === 'admin') {
+      const review = normalized.filter(i =>
+        i._status === 'in_review' && (i.assigned_to === user.id || i.assigned_reviewer_id === user.id || role === 'admin')
       )
-      if (needsReview.length > 0) {
+      if (review.length > 0) {
         items.push({
-          id: 'needs-review',
-          icon: Clock,
-          color: '#3B82F6',
-          bg: 'rgba(59,130,246,0.08)',
-          border: 'rgba(59,130,246,0.25)',
-          text: `${needsReview.length} invoice${needsReview.length !== 1 ? 's' : ''} need${needsReview.length === 1 ? 's' : ''} your review`,
-          action: () => setActiveView('review'),
+          id: 'review',
+          label: `Review (${review.length})`,
+          canAct: false,
+          fallback: () => setActiveView('review'),
         })
       }
     }
 
-    // ── Accounting alerts ──────────────────────────────────────────────────
     if (role === 'accounting' || role === 'admin') {
-      const readyForPayment = normalized.filter(i => i._status === 'approved')
-      if (readyForPayment.length > 0) {
+      const ready = normalized.filter(i =>
+        i._status === 'approved' &&
+        !allocationBlockReason(i.amount, normalizeGlSplits(i.gl_splits, i))
+      )
+      if (ready.length > 0) {
         items.push({
-          id: 'ready-payment',
-          icon: CheckCircle,
-          color: '#10B981',
-          bg: 'rgba(16,185,129,0.08)',
-          border: 'rgba(16,185,129,0.25)',
-          text: `${readyForPayment.length} approved invoice${readyForPayment.length !== 1 ? 's' : ''} ready for payment`,
-          action: () => setActiveView('accounting'),
+          id: 'pay',
+          label: `Pay (${ready.length})`,
+          canAct: true,
+          run: async () => {
+            for (const inv of ready) await onAction(inv.id, 'mark_paid')
+          },
+          fallback: () => setActiveView('accounting'),
         })
       }
 
-      const overdue = normalized.filter(i =>
-        i._status === 'approved' && i.due_date && new Date(i.due_date) < now
-      )
+      const overdue = normalized.filter(i => i._status === 'approved' && i.due_date && new Date(i.due_date) < now)
       if (overdue.length > 0) {
         items.push({
           id: 'overdue',
-          icon: AlertTriangle,
-          color: '#EF4444',
-          bg: 'rgba(239,68,68,0.08)',
-          border: 'rgba(239,68,68,0.25)',
-          text: `${overdue.length} invoice${overdue.length !== 1 ? 's' : ''} overdue`,
-          action: () => setActiveView('accounting'),
+          label: `Overdue (${overdue.length})`,
+          canAct: false,
+          isWarning: true,
+          fallback: () => setActiveView('accounting'),
         })
       }
     }
 
     return items
-  }, [invoices, user, role, setActiveView])
+  }, [invoices, user, role, setActiveView, onAction])
 
-  // Don't render for vendor role or when dismissed or nothing to show
   if (role === 'vendor' || dismissed || alerts.length === 0) return null
 
-  return (
-    <div
-      className="flex items-center gap-2 px-4 py-2 flex-shrink-0 overflow-x-auto"
-      style={{
-        backgroundColor: isDark ? 'rgba(245,158,11,0.04)' : 'rgba(245,158,11,0.03)',
-        borderBottom: '1px solid var(--border)',
-      }}
-    >
-      <span className="text-xs font-semibold uppercase tracking-wider flex-shrink-0"
-        style={{ color: 'var(--text-6)' }}>
-        Action needed
-      </span>
+  const handleClick = async (alert) => {
+    if (alert.canAct && alert.run) {
+      setActing(alert.id)
+      try {
+        await alert.run()
+        setCompleted(alert.id)
+        setTimeout(() => setCompleted(null), 1500)
+      } catch (err) { console.error('Bulk action failed:', err) }
+      finally { setActing(null) }
+    } else {
+      alert.fallback?.()
+    }
+  }
 
-      <div className="flex items-center gap-2 flex-1 overflow-x-auto">
+  return (
+    <div className="flex items-center gap-3 px-4 py-1.5 flex-shrink-0"
+      style={{ borderBottom: '1px solid var(--border)' }}>
+      <span className="text-xs flex-shrink-0" style={{ color: 'var(--text-7)' }}>Actions</span>
+
+      <div className="flex items-center gap-1.5 flex-1 overflow-x-auto">
         {alerts.map(alert => {
-          const Icon = alert.icon
+          const isActing = acting === alert.id
+          const isDone = completed === alert.id
           return (
-            <button
-              key={alert.id}
-              onClick={alert.action}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-colors flex-shrink-0"
+            <button key={alert.id}
+              onClick={() => handleClick(alert)}
+              disabled={isActing || isDone}
+              className="flex items-center gap-1.5 h-6 px-2.5 rounded text-xs font-medium transition-all duration-150 flex-shrink-0"
               style={{
-                backgroundColor: alert.bg,
-                color: alert.color,
-                border: `1px solid ${alert.border}`,
+                backgroundColor: isDone ? 'rgba(16,185,129,0.08)' : 'transparent',
+                color: isDone ? '#10B981' : alert.isWarning ? '#EF4444' : 'var(--text-4)',
+                border: `1px solid ${isDone ? 'rgba(16,185,129,0.25)' : alert.isWarning ? 'rgba(239,68,68,0.25)' : 'var(--border-strong)'}`,
+                cursor: isActing ? 'wait' : isDone ? 'default' : 'pointer',
               }}
-            >
-              <Icon size={12} />
-              {alert.text}
-              <ArrowRight size={10} style={{ opacity: 0.6 }} />
+              onMouseEnter={e => { if (!isActing && !isDone) e.currentTarget.style.borderColor = alert.isWarning ? 'rgba(239,68,68,0.5)' : 'var(--text-6)' }}
+              onMouseLeave={e => { if (!isDone) e.currentTarget.style.borderColor = alert.isWarning ? 'rgba(239,68,68,0.25)' : 'var(--border-strong)' }}>
+              {isActing ? <Loader size={10} className="spin-slow" /> : isDone ? <Check size={10} /> : null}
+              {isDone ? 'Done' : alert.label}
             </button>
           )
         })}
       </div>
 
-      <button
-        onClick={() => setDismissed(true)}
-        className="flex-shrink-0 p-1 rounded transition-colors"
-        style={{ color: 'var(--text-6)' }}
-        title="Dismiss for this session"
-      >
-        <X size={12} />
+      <button onClick={() => setDismissed(true)}
+        className="flex-shrink-0 p-1 rounded transition-colors duration-150"
+        style={{ color: 'var(--text-7)' }}
+        onMouseEnter={e => e.currentTarget.style.color = 'var(--text-5)'}
+        onMouseLeave={e => e.currentTarget.style.color = 'var(--text-7)'}>
+        <X size={11} />
       </button>
     </div>
   )

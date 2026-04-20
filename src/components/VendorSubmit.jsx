@@ -3,6 +3,7 @@ import { Upload, X, FileText, CheckCircle, Loader, AlertTriangle, Send } from 'l
 import { useTheme } from '../context/ThemeContext'
 import { supabase } from '../lib/supabaseClient'
 import { uploadInvoiceFile, createInvoice } from '../api/invoiceApi'
+import { parseAndNormalizeInvoice, buildInvoiceDraft } from '../lib/invoiceIngestion'
 
 export default function VendorSubmit({ onSubmitted }) {
   const { isDark } = useTheme()
@@ -10,6 +11,9 @@ export default function VendorSubmit({ onSubmitted }) {
 
   const [dragOver, setDragOver] = useState(false)
   const [file, setFile] = useState(null)
+  const [parsing, setParsing] = useState(false)
+  const [parsed, setParsed] = useState(null)
+  const [parseError, setParseError] = useState(null)
 
   const [fields, setFields] = useState({
     vendorName: '',
@@ -24,7 +28,7 @@ export default function VendorSubmit({ onSubmitted }) {
   const [status, setStatus] = useState('idle') // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = useState('')
 
-  const acceptFile = useCallback((f) => {
+  const acceptFile = useCallback(async (f) => {
     if (!f) return
     if (f.type !== 'application/pdf') {
       setErrorMsg('Only PDF files are supported.')
@@ -36,6 +40,21 @@ export default function VendorSubmit({ onSubmitted }) {
     }
     setErrorMsg('')
     setFile(f)
+    setParsed(null)
+    setParseError(null)
+    setParsing(true)
+
+    const { parsed: parsedInvoice, parseError: nextParseError } = await parseAndNormalizeInvoice(f, { channel: 'vendor' })
+    setParsed(parsedInvoice)
+    setParseError(nextParseError)
+    setFields(current => ({
+      ...current,
+      vendorName: current.vendorName || parsedInvoice?.vendorName || '',
+      propertyName: current.propertyName || parsedInvoice?.propertyName || '',
+      invoiceNumber: current.invoiceNumber || parsedInvoice?.invoiceNumber || '',
+      amount: current.amount || (parsedInvoice?.amount != null ? String(parsedInvoice.amount) : ''),
+    }))
+    setParsing(false)
   }, [])
 
   const handleDrop = useCallback((e) => {
@@ -48,9 +67,17 @@ export default function VendorSubmit({ onSubmitted }) {
     e.preventDefault()
 
     // Validate required fields
-    if (!fields.vendorName.trim()) { setErrorMsg('Vendor / company name is required.'); return }
+    const { invoiceData, createInvoiceInput } = buildInvoiceDraft({
+      channel: 'vendor',
+      source: 'external_submission',
+      submittedFields: fields,
+      parsed,
+      parseError,
+    })
+
+    if (!invoiceData.vendor_name) { setErrorMsg('Vendor / company name is required.'); return }
     if (!fields.contactEmail.trim()) { setErrorMsg('Contact email is required.'); return }
-    if (!fields.propertyName.trim()) { setErrorMsg('Property name is required.'); return }
+    if (!invoiceData.property_name) { setErrorMsg('Property name is required when it cannot be parsed from the PDF.'); return }
     if (!file) { setErrorMsg('Please attach an invoice PDF.'); return }
 
     setErrorMsg('')
@@ -61,24 +88,9 @@ export default function VendorSubmit({ onSubmitted }) {
         // Upload file under a "vendor" folder since there's no authenticated user
         const fileUrl = await uploadInvoiceFile(file, 'vendor')
         const invoice = await createInvoice({
-          vendorName: fields.vendorName.trim(),
-          propertyName: fields.propertyName.trim(),
-          invoiceNumber: fields.invoiceNumber.trim() || null,
-          amount: fields.amount ? parseFloat(fields.amount) : null,
           fileUrl,
           uploadedBy: null, // no authenticated user
-          invoiceDate: null,
-          dueDate: null,
-          billToName: null,
-          description: fields.notes.trim() || null,
-          lineItems: [],
-          rawText: null,
-          parseStatus: 'manual',
-          parseErrors: null,
-          source: 'external_submission',
-          vendorEmail: fields.contactEmail.trim(),
-          documentType: fields.documentType,
-          notes: fields.notes.trim() || null,
+          ...createInvoiceInput,
         })
         setStatus('success')
         onSubmitted?.(invoice)
@@ -88,18 +100,11 @@ export default function VendorSubmit({ onSubmitted }) {
         const mockInvoice = {
           id: `INV-${String(Date.now()).slice(-6)}`,
           status: 'uploaded',
-          vendor_name: fields.vendorName.trim(),
-          vendor_email: fields.contactEmail.trim(),
-          property_name: fields.propertyName.trim(),
-          invoice_number: fields.invoiceNumber.trim() || null,
-          amount: fields.amount ? parseFloat(fields.amount) : null,
-          document_type: fields.documentType,
-          notes: fields.notes.trim() || null,
-          source: 'external_submission',
           file_url: null,
           created_at: new Date().toISOString(),
           assigned_to: null,
           assigned_user: null,
+          ...invoiceData,
         }
         setStatus('success')
         onSubmitted?.(mockInvoice)
@@ -149,6 +154,9 @@ export default function VendorSubmit({ onSubmitted }) {
             onClick={() => {
               setStatus('idle')
               setFile(null)
+              setParsed(null)
+              setParseError(null)
+              setParsing(false)
               setFields({ vendorName: '', contactEmail: '', propertyName: '', invoiceNumber: '', amount: '', documentType: 'invoice', notes: '' })
             }}
             className="px-5 py-2 rounded-lg text-sm font-semibold transition-colors"
@@ -240,8 +248,8 @@ export default function VendorSubmit({ onSubmitted }) {
               <label className="text-xs font-medium block mb-1.5" style={{ color: 'var(--text-5)' }}>
                 Amount
               </label>
-              <input style={inputStyle} type="number" step="0.01" min="0" value={fields.amount}
-                onChange={e => setFields(f => ({ ...f, amount: e.target.value }))}
+              <input style={inputStyle} type="text" inputMode="decimal" value={fields.amount}
+                onChange={e => setFields(f => ({ ...f, amount: e.target.value.replace(/[^0-9.\-]/g, '') }))}
                 placeholder="0.00" />
             </div>
           </div>
@@ -281,11 +289,21 @@ export default function VendorSubmit({ onSubmitted }) {
                   <FileText size={18} style={{ color: '#10B981', flexShrink: 0 }} />
                   <div className="text-left flex-1 min-w-0">
                     <div className="text-sm font-medium truncate" style={{ color: 'var(--text-2)' }}>{file.name}</div>
-                    <div className="text-xs" style={{ color: 'var(--text-5)' }}>
+                    <div className="text-xs flex items-center gap-1.5" style={{ color: 'var(--text-5)' }}>
                       {(file.size / 1024).toFixed(0)} KB
+                      {parsing && (
+                        <span className="flex items-center gap-1" style={{ color: '#3B82F6' }}>
+                          <Loader size={10} className="spin-slow" /> Parsing…
+                        </span>
+                      )}
+                      {!parsing && parsed && (
+                        <span className="flex items-center gap-1" style={{ color: '#10B981' }}>
+                          <Send size={10} /> Parsed from PDF
+                        </span>
+                      )}
                     </div>
                   </div>
-                  <button type="button" onClick={e => { e.stopPropagation(); setFile(null) }}
+                  <button type="button" onClick={e => { e.stopPropagation(); setFile(null); setParsed(null); setParseError(null); setParsing(false) }}
                     style={{ color: 'var(--text-6)', flexShrink: 0 }}>
                     <X size={14} />
                   </button>

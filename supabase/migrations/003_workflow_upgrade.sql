@@ -20,10 +20,10 @@ ALTER TABLE public.invoices
 
 -- 4. Seed demo users (small team at Stack Real Estate)
 INSERT INTO public.profiles (id, email, full_name, role) VALUES
-  ('00000000-0000-0000-0000-000000000001', 'ops@stackwithus.com',        'Jordan Rivera',   'uploader'),
-  ('00000000-0000-0000-0000-000000000002', 'pm@stackwithus.com',         'Taylor Chen',     'reviewer'),
-  ('00000000-0000-0000-0000-000000000003', 'accounting@stackwithus.com', 'Morgan Brooks',   'accounting'),
-  ('00000000-0000-0000-0000-000000000004', 'admin@stackwithus.com',      'Alex Whitfield',  'admin')
+  ('00000000-0000-0000-0000-000000000001', 'sharon@stackwithus.com', 'Sharon', 'uploader'),
+  ('00000000-0000-0000-0000-000000000002', 'jen@stackwithus.com',    'Jen',    'reviewer'),
+  ('00000000-0000-0000-0000-000000000003', 'kelson@stackwithus.com', 'Kelson', 'accounting'),
+  ('00000000-0000-0000-0000-000000000004', 'andrew@stackwithus.com', 'Andrew', 'admin')
 ON CONFLICT (id) DO UPDATE SET
   role = EXCLUDED.role,
   full_name = EXCLUDED.full_name,

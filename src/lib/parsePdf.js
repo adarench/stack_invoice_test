@@ -6,27 +6,29 @@
  *
  * Works entirely in the browser — no server needed.
  */
+let pdfjsLibPromise = null
 
-import * as pdfjsLib from 'pdfjs-dist'
-
-// Vite bundles the worker as a URL so we don't have to copy it manually
-pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.mjs',
-  import.meta.url
-).href
+async function getPdfjsLib() {
+  if (!pdfjsLibPromise) {
+    pdfjsLibPromise = import('pdfjs-dist').then(mod => {
+      mod.GlobalWorkerOptions.workerSrc = new URL(
+        'pdfjs-dist/build/pdf.worker.min.mjs',
+        import.meta.url
+      ).href
+      return mod
+    })
+  }
+  return pdfjsLibPromise
+}
 
 // ─── Text extraction ──────────────────────────────────────────────────────────
 
-/**
- * Extract all text from a PDF File.
- * Returns { rawText, lines } where `lines` is text grouped by y-coordinate
- * (i.e. actual visual lines, not just arbitrary items).
- */
 export async function extractPdfText(file) {
+  const pdfjsLib = await getPdfjsLib()
   const arrayBuffer = await file.arrayBuffer()
   const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise
 
-  const lineMap = new Map() // y (rounded) → [{x, str}]
+  const lineMap = new Map()
 
   for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
     const page = await pdf.getPage(pageNum)
@@ -41,7 +43,6 @@ export async function extractPdfText(file) {
     }
   }
 
-  // Sort lines top-to-bottom (highest y first in PDF coords), left-to-right within line
   const sortedYs = [...lineMap.keys()].sort((a, b) => b - a)
   const lines = sortedYs
     .map(y =>
@@ -60,103 +61,17 @@ export async function extractPdfText(file) {
 
 // ─── Field parsing ────────────────────────────────────────────────────────────
 
-/**
- * Parse structured invoice fields from extracted text/lines.
- * Never returns wrong defaults — missing fields come back as null.
- */
 export function parseInvoiceFields(rawText, lines) {
   console.debug('[parsePdf] raw text:\n', rawText)
+  console.debug('[parsePdf] lines (' + lines.length + '):', lines)
 
-  // ── Invoice number ─────────────────────────────────────────────────────────
-  // Matches: "INVOICE # 8953", "INVOICE #8953", "Invoice No. 1234", "INV-001"
-  // The # or No. marker is required so a standalone "INVOICE" heading doesn't false-match.
-  const invoiceNumMatch = rawText.match(/INVOICE\s*#\s*(\w[\w\-]*)/i)
-    || rawText.match(/INV(?:OICE)?\s*NO\.?\s*(\w[\w\-]*)/i)
-  const invoiceNumber = invoiceNumMatch?.[1]?.trim() || null
-
-  // ── Dates ──────────────────────────────────────────────────────────────────
-  // Parse DUE DATE first, then find DATE that is NOT preceded by "DUE"
-  const dueDateMatch = rawText.match(/DUE\s*DATE[:\s]+?([\d]{1,2}[\/\-][\d]{1,2}[\/\-][\d]{2,4})/i)
-  const dueDate = dueDateMatch?.[1] ? normalizeDate(dueDateMatch[1]) : null
-
-  // For invoice date: match "DATE" not preceded by "DUE". Use a simple approach:
-  // find all "DATE <date>" occurrences, filter out the one that's part of "DUE DATE"
-  let invoiceDate = null
-  const datePattern = /(?:^|[\s])DATE[:\s]+?([\d]{1,2}[\/\-][\d]{1,2}[\/\-][\d]{2,4})/gim
-  let dm
-  while ((dm = datePattern.exec(rawText)) !== null) {
-    // Check if "DUE" appears right before this match
-    const prefix = rawText.slice(Math.max(0, dm.index - 5), dm.index)
-    if (/DUE\s*$/i.test(prefix)) continue // skip "DUE DATE"
-    invoiceDate = normalizeDate(dm[1])
-    break
-  }
-
-  // ── Amount ─────────────────────────────────────────────────────────────────
-  // Prefer BALANCE DUE → TOTAL DUE → TOTAL (most specific wins)
-  const balanceDueMatch = rawText.match(/BALANCE\s+DUE\s+\$?\s*([\d,]+\.?\d*)/i)
-  const totalDueMatch   = rawText.match(/TOTAL\s+DUE\s+\$?\s*([\d,]+\.?\d*)/i)
-  const totalMatch      = rawText.match(/\bTOTAL\b\s+\$?\s*([\d,]+\.?\d*)/i)
-  const amountStr = (
-    balanceDueMatch?.[1] ||
-    totalDueMatch?.[1]   ||
-    totalMatch?.[1]      || ''
-  ).replace(/,/g, '')
-  const amount = amountStr ? parseFloat(amountStr) : null
-
-  // ── Vendor name ────────────────────────────────────────────────────────────
-  // Heuristic: first non-trivial line before the word "INVOICE"
-  const invoiceLineIdx = lines.findIndex(l => /\bINVOICE\b/i.test(l))
-  let vendorName = null
-  for (let i = 0; i < Math.min(invoiceLineIdx > 0 ? invoiceLineIdx : 5, lines.length); i++) {
-    const l = lines[i].trim()
-    // Skip very short lines, pure numbers, or obvious header noise
-    if (l.length > 3 && !/^\d+$/.test(l) && !/^(DATE|DUE|BILL|PAGE)/i.test(l)) {
-      vendorName = l
-      break
-    }
-  }
-
-  // ── Bill To ────────────────────────────────────────────────────────────────
-  const billToLineIdx = lines.findIndex(l => /BILL\s*TO/i.test(l))
-  let billTo = null
-  if (billToLineIdx >= 0) {
-    for (let i = billToLineIdx + 1; i < Math.min(billToLineIdx + 4, lines.length); i++) {
-      const candidate = lines[i].trim()
-      if (
-        candidate.length > 2 &&
-        !/^(DESCRIPTION|QTY|UNIT|PRICE|SERVICE|DATE|DUE|INVOICE|AMOUNT)/i.test(candidate)
-      ) {
-        billTo = candidate
-        break
-      }
-    }
-  }
-
-  // ── Property name ──────────────────────────────────────────────────────────
-  // Extract from service description patterns:
-  //   "Exterior Window Cleaning at SoJo North"
-  //   "HVAC Service at MFO"
-  //   "Landscaping of the Younique Building"
-  let propertyName = null
-  const propertyPatterns = [
-    /\bat\s+([A-Z][A-Za-z0-9][A-Za-z0-9\s\-&']+?)(?:\s{2,}|\n|$)/,
-    /\bof\s+the\s+([A-Z][A-Za-z0-9][A-Za-z0-9\s\-&']+?)(?:\s{2,}|\n|$)/,
-    /\bfor\s+([A-Z][A-Za-z0-9][A-Za-z0-9\s\-&']+?)(?:\s{2,}|\n|$)/,
-  ]
-  for (const pattern of propertyPatterns) {
-    const m = rawText.match(pattern)
-    if (m?.[1]) {
-      propertyName = m[1].trim().replace(/\s+/g, ' ')
-      break
-    }
-  }
-
-  // ── Line items ─────────────────────────────────────────────────────────────
+  const invoiceNumber = parseInvoiceNumber(rawText)
+  const { invoiceDate, dueDate } = parseDates(rawText)
+  const amount = parseAmount(rawText)
+  const vendorName = parseVendorName(rawText, lines)
+  const billTo = parseBillTo(lines)
+  const propertyName = parsePropertyName(rawText)
   const lineItems = parseLineItems(lines)
-
-  // ── Description ───────────────────────────────────────────────────────────
-  // Use first line item description, or the line that yielded the property match
   const description = lineItems.length > 0 ? lineItems[0].description : null
 
   const parsed = {
@@ -176,27 +91,206 @@ export function parseInvoiceFields(rawText, lines) {
   return parsed
 }
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
+// ─── Invoice number ──────────────────────────────────────────────────────────
 
-function normalizeDate(str) {
-  // MM/DD/YYYY → YYYY-MM-DD
-  const mmddyyyy = str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/)
-  if (mmddyyyy) {
-    const [, m, d, y] = mmddyyyy
-    return `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`
+function parseInvoiceNumber(rawText) {
+  const patterns = [
+    /INVOICE\s*#\s*(\w[\w\-]*)/i,
+    /INV(?:OICE)?\s*NO\.?\s*:?\s*(\w[\w\-]*)/i,
+    /INVOICE\s*NUMBER\s*:?\s*(\w[\w\-]*)/i,
+    /INV\s*#\s*(\w[\w\-]*)/i,
+    /REFERENCE\s*#?\s*:?\s*(\w[\w\-]*)/i,
+    /INVOICE\s*:?\s+(\d[\w\-]+)/i,
+    /NUMBER\s*:?\s*(\d[\w\-]+)/i,
+  ]
+  for (const re of patterns) {
+    const m = rawText.match(re)
+    if (m?.[1]?.trim()) return m[1].trim()
   }
-  // DD-MM-YYYY or YYYY-MM-DD → leave as-is if already ISO
-  return str
+  return null
 }
 
+// ─── Dates ───────────────────────────────────────────────────────────────────
+
+const DATE_VALUE = String.raw`(\d{1,2}[\/\-\.]\d{1,2}[\/\-\.]\d{2,4})`
+const MONTH_DATE = String.raw`((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\s+\d{1,2},?\s+\d{4})`
+const ANY_DATE = `(?:${DATE_VALUE}|${MONTH_DATE})`
+
+function parseDates(rawText) {
+  let dueDate = null
+  let invoiceDate = null
+
+  const duePatterns = [
+    new RegExp(`DUE\\s*DATE[:\\s]+?${ANY_DATE}`, 'i'),
+    new RegExp(`PAYMENT\\s*DUE[:\\s]+?${ANY_DATE}`, 'i'),
+    new RegExp(`DUE[:\\s]+?${ANY_DATE}`, 'i'),
+    new RegExp(`PAY\\s*BY[:\\s]+?${ANY_DATE}`, 'i'),
+  ]
+  for (const re of duePatterns) {
+    const m = rawText.match(re)
+    const raw = m?.[1] || m?.[2]
+    if (raw) { dueDate = normalizeDate(raw); break }
+  }
+
+  const datePatterns = [
+    new RegExp(`INVOICE\\s*DATE[:\\s]+?${ANY_DATE}`, 'i'),
+    new RegExp(`(?:^|[\\s])DATE[:\\s]+?${ANY_DATE}`, 'im'),
+    new RegExp(`DATED?[:\\s]+?${ANY_DATE}`, 'i'),
+    new RegExp(`ISSUED?[:\\s]+?${ANY_DATE}`, 'i'),
+  ]
+  for (const re of datePatterns) {
+    const m = rawText.match(re)
+    const raw = m?.[1] || m?.[2]
+    if (raw) {
+      const d = normalizeDate(raw)
+      if (d !== dueDate) { invoiceDate = d; break }
+    }
+  }
+
+  return { invoiceDate, dueDate }
+}
+
+// ─── Amount ──────────────────────────────────────────────────────────────────
+
+const MONEY = String.raw`\$?\s*([\d,]+\.?\d{0,2})`
+
+function parseAmount(rawText) {
+  const labeledPatterns = [
+    new RegExp(`BALANCE\\s*DUE\\s*:?\\s*${MONEY}`, 'i'),
+    new RegExp(`AMOUNT\\s*DUE\\s*:?\\s*${MONEY}`, 'i'),
+    new RegExp(`TOTAL\\s*DUE\\s*:?\\s*${MONEY}`, 'i'),
+    new RegExp(`TOTAL\\s*AMOUNT\\s*:?\\s*${MONEY}`, 'i'),
+    new RegExp(`NET\\s*AMOUNT\\s*:?\\s*${MONEY}`, 'i'),
+    new RegExp(`NET\\s*TOTAL\\s*:?\\s*${MONEY}`, 'i'),
+    new RegExp(`INVOICE\\s*TOTAL\\s*:?\\s*${MONEY}`, 'i'),
+    new RegExp(`GRAND\\s*TOTAL\\s*:?\\s*${MONEY}`, 'i'),
+    new RegExp(`CONTRACT\\s*(?:AMOUNT|TOTAL|VALUE)\\s*:?\\s*${MONEY}`, 'i'),
+    new RegExp(`(?:SUB)?\\s*TOTAL\\s*:?\\s*${MONEY}`, 'i'),
+    new RegExp(`AMOUNT\\s*:?\\s*${MONEY}`, 'i'),
+  ]
+  for (const re of labeledPatterns) {
+    const m = rawText.match(re)
+    if (m?.[1]) {
+      const v = parseFloat(m[1].replace(/,/g, ''))
+      if (Number.isFinite(v) && v > 0) return v
+    }
+  }
+
+  // Fallback: find all dollar amounts in the document, take the largest
+  const allAmounts = []
+  const dollarRe = /\$\s*([\d,]+\.\d{2})/g
+  let dm
+  while ((dm = dollarRe.exec(rawText)) !== null) {
+    const v = parseFloat(dm[1].replace(/,/g, ''))
+    if (Number.isFinite(v) && v > 0) allAmounts.push(v)
+  }
+  if (allAmounts.length > 0) {
+    return Math.max(...allAmounts)
+  }
+
+  return null
+}
+
+// ─── Vendor name ─────────────────────────────────────────────────────────────
+
+function parseVendorName(rawText, lines) {
+  // Strategy 1: first non-trivial line before "INVOICE" keyword
+  const invoiceLineIdx = lines.findIndex(l => /\bINVOICE\b/i.test(l))
+  const searchLimit = invoiceLineIdx > 0 ? invoiceLineIdx : Math.min(8, lines.length)
+
+  for (let i = 0; i < searchLimit; i++) {
+    const l = lines[i].trim()
+    if (isViableVendorLine(l)) return cleanVendorName(l)
+  }
+
+  // Strategy 2: look for "FROM:" or "BILL FROM:" or "VENDOR:" label
+  const fromPatterns = [
+    /(?:BILL\s*FROM|FROM|VENDOR|SOLD\s*BY|COMPANY)\s*:?\s*(.+)/im,
+  ]
+  for (const re of fromPatterns) {
+    const m = rawText.match(re)
+    if (m?.[1]?.trim() && isViableVendorLine(m[1].trim())) {
+      return cleanVendorName(m[1].trim())
+    }
+  }
+
+  // Strategy 3: just use the first non-trivial line of the document
+  for (let i = 0; i < Math.min(5, lines.length); i++) {
+    const l = lines[i].trim()
+    if (l.length > 2 && !/^\d+$/.test(l)) return cleanVendorName(l)
+  }
+
+  return null
+}
+
+function isViableVendorLine(line) {
+  if (!line || line.length < 3) return false
+  if (/^\d+$/.test(line)) return false
+  if (/^(DATE|DUE|BILL\s*TO|PAGE|DESCRIPTION|QTY|AMOUNT|TOTAL|TERMS)/i.test(line)) return false
+  if (/^(PO\s*BOX|PHONE|FAX|EMAIL|WWW\.|HTTP)/i.test(line)) return false
+  return true
+}
+
+function cleanVendorName(name) {
+  return name
+    .replace(/\s*(INVOICE|INV\b|#\d+).*/i, '')
+    .replace(/[,\s]+$/, '')
+    .trim() || null
+}
+
+// ─── Bill To ─────────────────────────────────────────────────────────────────
+
+function parseBillTo(lines) {
+  const idx = lines.findIndex(l => /BILL\s*TO|SHIP\s*TO|SOLD\s*TO|CUSTOMER/i.test(l))
+  if (idx < 0) return null
+
+  for (let i = idx + 1; i < Math.min(idx + 4, lines.length); i++) {
+    const c = lines[i].trim()
+    if (c.length > 2 && !/^(DESCRIPTION|QTY|UNIT|PRICE|SERVICE|DATE|DUE|INVOICE|AMOUNT|TERMS)/i.test(c)) {
+      return c
+    }
+  }
+  return null
+}
+
+// ─── Property name ───────────────────────────────────────────────────────────
+
+function parsePropertyName(rawText) {
+  // Labeled patterns first
+  const labeled = [
+    /(?:SERVICE|JOB)\s*(?:LOCATION|ADDRESS|SITE)\s*:?\s*(.+)/im,
+    /(?:PROJECT|PROPERTY)\s*(?:NAME|SITE)?\s*:?\s*(.+)/im,
+    /(?:LOCATION|SITE)\s*:?\s*(.+)/im,
+  ]
+  for (const re of labeled) {
+    const m = rawText.match(re)
+    if (m?.[1]?.trim().length > 2) {
+      return m[1].trim().replace(/\s+/g, ' ')
+    }
+  }
+
+  // Heuristic: "at <Property>", "for <Property>", etc.
+  const heuristics = [
+    /\bat\s+([A-Z][A-Za-z0-9][A-Za-z0-9\s\-&']+?)(?:\s{2,}|\n|$)/,
+    /\bof\s+the\s+([A-Z][A-Za-z0-9][A-Za-z0-9\s\-&']+?)(?:\s{2,}|\n|$)/,
+    /\bfor\s+([A-Z][A-Za-z0-9][A-Za-z0-9\s\-&']+?)(?:\s{2,}|\n|$)/,
+  ]
+  for (const re of heuristics) {
+    const m = rawText.match(re)
+    if (m?.[1]) return m[1].trim().replace(/\s+/g, ' ')
+  }
+
+  return null
+}
+
+// ─── Line items ──────────────────────────────────────────────────────────────
+
 function parseLineItems(lines) {
-  // Find header row containing DESCRIPTION and (QTY or QUANTITY)
   const headerIdx = lines.findIndex(
-    l => /DESCRIPTION/i.test(l) && /QTY|QUANTITY/i.test(l)
+    l => /DESCRIPTION/i.test(l) && /QTY|QUANTITY|AMOUNT|PRICE|RATE/i.test(l)
   )
-  // Find end marker (SUBTOTAL or standalone TOTAL)
   const endIdx = lines.findIndex(
-    (l, i) => i > (headerIdx >= 0 ? headerIdx : 0) && /^(SUBTOTAL|TOTAL)\b/i.test(l.trim())
+    (l, i) => i > (headerIdx >= 0 ? headerIdx : 0) && /^(SUBTOTAL|TOTAL|BALANCE|AMOUNT\s*DUE)\b/i.test(l.trim())
   )
 
   if (headerIdx < 0) return []
@@ -208,7 +302,6 @@ function parseLineItems(lines) {
   for (const line of itemLines) {
     if (!line.trim()) continue
 
-    // Full match: "Description text    1    3,695.00    3,695.00"
     const full = line.match(
       /^(.+?)\s{2,}(\d+(?:\.\d+)?)\s+\$?([\d,]+\.?\d*)\s+\$?([\d,]+\.?\d*)$/
     )
@@ -222,7 +315,6 @@ function parseLineItems(lines) {
       continue
     }
 
-    // Partial match: line ending in a dollar amount, treat as lump-sum item
     const partial = line.match(/^(.+?)\s+\$?([\d,]+\.\d{2})$/)
     if (partial) {
       const total = parseFloat(partial[2].replace(/,/g, ''))
@@ -240,7 +332,37 @@ function parseLineItems(lines) {
   return items
 }
 
-// ─── Convenience: extract + parse in one call ─────────────────────────────────
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
+function normalizeDate(str) {
+  // "January 15, 2025" or "Jan 15, 2025"
+  const monthName = str.match(/^(\w+)\s+(\d{1,2}),?\s+(\d{4})$/)
+  if (monthName) {
+    const months = { jan: '01', feb: '02', mar: '03', apr: '04', may: '05', jun: '06', jul: '07', aug: '08', sep: '09', oct: '10', nov: '11', dec: '12' }
+    const mKey = monthName[1].slice(0, 3).toLowerCase()
+    const m = months[mKey]
+    if (m) return `${monthName[3]}-${m}-${monthName[2].padStart(2, '0')}`
+  }
+
+  // MM/DD/YYYY or MM-DD-YYYY or MM.DD.YYYY
+  const mmddyyyy = str.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{4})$/)
+  if (mmddyyyy) {
+    const [, m, d, y] = mmddyyyy
+    return `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`
+  }
+
+  // MM/DD/YY
+  const mmddyy = str.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2})$/)
+  if (mmddyy) {
+    const [, m, d, y] = mmddyy
+    const fullYear = parseInt(y) > 50 ? `19${y}` : `20${y}`
+    return `${fullYear}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`
+  }
+
+  return str
+}
+
+// ─── Convenience: extract + parse in one call ────────────────────────────────
 
 export async function parsePdfInvoice(file) {
   const { rawText, lines } = await extractPdfText(file)

@@ -22,3 +22,23 @@ export async function createAuditLog(invoiceId, userId, action, note = null) {
     .insert({ invoice_id: invoiceId, user_id: userId, action, note })
   if (error) throw error
 }
+
+/**
+ * Fetch the most recent activity across all invoices (for the dashboard feed).
+ */
+export async function fetchRecentActivity(limit = 12) {
+  const { data, error } = await supabase
+    .from('audit_logs')
+    .select(`
+      *,
+      user:profiles(id, full_name, email, role),
+      invoice:invoices(id, vendor_name, property_name, amount, invoice_number, status)
+    `)
+    .order('created_at', { ascending: false })
+    .limit(limit)
+  if (error) {
+    console.warn('[auditApi] fetchRecentActivity failed:', error.message)
+    return []
+  }
+  return data || []
+}

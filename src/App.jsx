@@ -9,11 +9,12 @@ import LoginScreen from './components/LoginScreen'
 import VendorSubmit from './components/VendorSubmit'
 import VendorDashboard from './components/VendorDashboard'
 import { invoices as initialInvoices } from './data/mockData'
-import { WORKFLOW_STATUSES, DEMO_USERS, normalizeWorkflowStatus } from './data/demoUsers'
+import { WORKFLOW_STATUSES, DEMO_USERS, normalizeWorkflowStatus, ROLE_DEFAULT_VIEW } from './data/demoUsers'
 import { supabase, skipAuth } from './lib/supabaseClient'
-import { fetchInvoices, updateInvoice } from './api/invoiceApi'
+import { fetchInvoices, updateInvoice, deleteInvoice } from './api/invoiceApi'
 import { createAuditLog } from './api/auditApi'
 import { sendNotification, resolveRecipients } from './api/notificationApi'
+import { allocationBlockReason, normalizeGlSplits, portfolioTabsForInvoices, portfolioState, resolvePortfolio } from './lib/invoiceAccounting'
 
 // Upsert demo users into profiles on startup (keeps names/emails in sync)
 async function seedDemoUsers() {
@@ -32,17 +33,90 @@ function displayStatus(dbStatus) {
 }
 
 // ─── Inner app ──────────────────────────────────────────────────────────────
+const UNTRACKED_EDIT_FIELDS = new Set([
+  'pdfUrl', 'file_url', 'age', 'edit_log',
+  'updated_at', 'created_at', 'last_action_at',
+  'approved_at', 'paid_at', 'rejected_at',
+])
+
+function diffEditedFields(prev, next) {
+  if (!next) return []
+  return Object.keys(next).filter(key => {
+    if (UNTRACKED_EDIT_FIELDS.has(key)) return false
+    const before = prev?.[key]
+    const after = next[key]
+    if (before === after) return false
+    try {
+      return JSON.stringify(before) !== JSON.stringify(after)
+    } catch {
+      return true
+    }
+  })
+}
+
+function normalizeNotifications(notifications) {
+  if (!notifications || typeof notifications !== 'object' || Array.isArray(notifications)) {
+    return {}
+  }
+  return {
+    ...notifications,
+    reviewEmailSent: notifications.reviewEmailSent === true,
+    lastNotifiedAt: typeof notifications.lastNotifiedAt === 'string' ? notifications.lastNotifiedAt : null,
+    lastNotifiedUserId: typeof notifications.lastNotifiedUserId === 'string' ? notifications.lastNotifiedUserId : null,
+    lastNotifiedEmail: typeof notifications.lastNotifiedEmail === 'string' ? notifications.lastNotifiedEmail : null,
+    lastNotifiedName: typeof notifications.lastNotifiedName === 'string' ? notifications.lastNotifiedName : null,
+  }
+}
+
+function mergeReviewNotificationState(currentInvoice, dbUpdate) {
+  const currentStatus = normalizeWorkflowStatus(currentInvoice?.status)
+  const nextStatus = normalizeWorkflowStatus(dbUpdate?.status || currentStatus)
+  const currentNotifications = normalizeNotifications(currentInvoice?.notifications)
+
+  if (currentStatus === 'in_review' && nextStatus !== 'in_review') {
+    return {
+      ...currentNotifications,
+      reviewEmailSent: false,
+    }
+  }
+
+  return currentNotifications
+}
+
+function buildReviewNotificationMetadata(invoice, recipient, timestamp) {
+  const currentNotifications = normalizeNotifications(invoice?.notifications)
+  return {
+    ...currentNotifications,
+    reviewEmailSent: true,
+    lastNotifiedAt: timestamp,
+    lastNotifiedUserId: invoice?.assigned_reviewer_id || invoice?.assigned_to || null,
+    lastNotifiedEmail: recipient?.email || null,
+    lastNotifiedName: recipient?.name || null,
+  }
+}
+
+function shouldSendReviewNotification(invoice, action, recipients) {
+  if (action !== 'submit_for_review' || !invoice) return false
+  if (normalizeWorkflowStatus(invoice.status) !== 'in_review') return false
+  if (!invoice.assigned_reviewer_id && !invoice.assigned_to) return false
+  if (!Array.isArray(recipients) || recipients.length === 0) return false
+  return !normalizeNotifications(invoice.notifications).reviewEmailSent
+}
+
 function AppShell() {
-  const { user, isMockMode, role } = useAuth()
+  const { user, isMockMode, role, permissions } = useAuth()
   const isVendor = role === 'vendor'
-  const [activeView, setActiveView] = useState(isVendor ? 'vendor-dashboard' : 'invoices')
+  const [activeView, setActiveView] = useState(ROLE_DEFAULT_VIEW[role] || 'dashboard')
   const [selectedInvoiceId, setSelectedInvoiceId] = useState(null)
+  const [showUpload, setShowUpload] = useState(false)
+  const [globalSearch, setGlobalSearch] = useState('')
+  const [portfolioFilter, setPortfolioFilter] = useState('all')
   const [invoices, setInvoices] = useState([])
   const [loading, setLoading] = useState(true)
 
   // Reset view when role changes (user switch)
   useEffect(() => {
-    setActiveView(role === 'vendor' ? 'vendor-dashboard' : 'invoices')
+    setActiveView(ROLE_DEFAULT_VIEW[role] || 'dashboard')
   }, [role])
 
   const nowIso = () => new Date().toISOString()
@@ -51,6 +125,9 @@ function AppShell() {
     return {
       ...invoice,
       status: normalizeWorkflowStatus(invoice.status),
+      gl_splits: normalizeGlSplits(invoice.gl_splits, invoice),
+      notifications: normalizeNotifications(invoice.notifications),
+      portfolio: portfolioState(invoice),
     }
   }, [])
 
@@ -91,6 +168,15 @@ function AppShell() {
   // ── Workflow action handler ────────────────────────────────────────────────
   const handleInvoiceAction = useCallback(async (invoiceId, action, meta = {}) => {
     const userName = user?.full_name || user?.email?.split('@')[0] || 'User'
+    const currentInvoice = invoices.find(inv => inv.id === invoiceId)
+    const allocationBlock = (action === 'approve' || action === 'mark_paid')
+      ? allocationBlockReason(currentInvoice?.amount, normalizeGlSplits(currentInvoice?.gl_splits, currentInvoice))
+      : null
+
+    if (allocationBlock) {
+      console.warn('[App] workflow blocked by allocation mismatch:', { invoiceId, action, allocationBlock })
+      return
+    }
 
     // Build the DB update based on action
     let dbUpdate = {}
@@ -154,9 +240,29 @@ function AppShell() {
           ? `Assigned to ${meta.userProfile?.full_name || meta.userId}`
           : 'Unassigned'
         break
-      case 'edit':
-        dbUpdate = meta.fields || {}
-        auditNote = 'Fields updated'
+      case 'edit': {
+        const fields = meta.fields || {}
+        const changedFields = diffEditedFields(currentInvoice, fields)
+        if (changedFields.length > 0) {
+          const entry = {
+            user: userName,
+            user_id: user?.id || null,
+            timestamp: nowIso(),
+            fields: changedFields,
+          }
+          const prevLog = Array.isArray(currentInvoice?.edit_log) ? currentInvoice.edit_log : []
+          dbUpdate = { ...fields, edit_log: [...prevLog, entry] }
+        } else {
+          dbUpdate = { ...fields }
+        }
+        auditNote = changedFields.length > 0
+          ? `Fields updated: ${changedFields.join(', ')}`
+          : 'Fields updated'
+        break
+      }
+      case 'mark_reviewed':
+        dbUpdate = { edit_log: [], last_action_at: nowIso() }
+        auditNote = auditNote || `Marked reviewed by ${userName}`
         break
       case 'reopen':
         dbUpdate = {
@@ -167,8 +273,29 @@ function AppShell() {
         }
         auditNote = auditNote || `Reopened by ${userName}`
         break
+      case 'delete': {
+        setInvoices(prev => prev.filter(inv => inv.id !== invoiceId))
+        if (selectedInvoiceId === invoiceId) {
+          setSelectedInvoiceId(null)
+          setActiveView('invoices')
+        }
+        if (!isMockMode && supabase) {
+          try {
+            await deleteInvoice(invoiceId, currentInvoice?.file_url)
+          } catch (err) {
+            console.error('Failed to delete invoice:', err)
+            loadInvoices()
+          }
+        }
+        return
+      }
       default:
         return
+    }
+
+    const nextNotifications = mergeReviewNotificationState(currentInvoice, dbUpdate)
+    if (Object.keys(nextNotifications).length > 0 || currentInvoice?.notifications) {
+      dbUpdate.notifications = nextNotifications
     }
 
     // Optimistic local update
@@ -215,24 +342,57 @@ function AppShell() {
     // Persist to Supabase
     if (!isMockMode && supabase) {
       try {
-        await updateInvoice(invoiceId, dbUpdate)
+        const persistedInvoice = normalizeInvoice(await updateInvoice(invoiceId, dbUpdate))
         if (user?.id && /^[0-9a-f-]{36}$/.test(user.id)) {
           await createAuditLog(invoiceId, user.id, auditAction, auditNote)
         }
-        // Fire-and-forget email notification
-        const inv = invoices.find(i => i.id === invoiceId)
-        if (inv) {
-          const recipients = resolveRecipients(action, inv, user, meta)
+
+        const notificationInvoice = persistedInvoice || normalizeInvoice({
+          ...currentInvoice,
+          ...dbUpdate,
+        })
+        const recipients = await resolveRecipients(action, notificationInvoice, user, meta)
+
+        if (shouldSendReviewNotification(notificationInvoice, action, recipients)) {
+          const sentAt = nowIso()
+          const result = await sendNotification({
+            action: 'review_pending',
+            invoice: {
+              id: invoiceId,
+              invoice_number: notificationInvoice.invoice_number,
+              vendor_name: notificationInvoice.vendor_name,
+              property_name: notificationInvoice.property_name,
+              amount: notificationInvoice.amount,
+              vendor_email: notificationInvoice.vendor_email,
+              source: notificationInvoice.source,
+            },
+            recipients,
+            actor: { name: userName, email: user?.email },
+            link: window.location.origin,
+          })
+
+          if (result?.success && result.sent > 0) {
+            const notificationMetadata = buildReviewNotificationMetadata(notificationInvoice, recipients[0], sentAt)
+            const notificationUpdate = await updateInvoice(invoiceId, { notifications: notificationMetadata })
+            setInvoices(prev => prev.map(inv => (
+              inv.id === invoiceId
+                ? normalizeInvoice({ ...inv, notifications: notificationUpdate.notifications })
+                : inv
+            )))
+          } else {
+            console.warn('[App] review notification failed or was skipped:', { invoiceId, result })
+          }
+        } else if (recipients.length > 0) {
           sendNotification({
             action,
             invoice: {
               id: invoiceId,
-              invoice_number: inv.invoice_number,
-              vendor_name: inv.vendor_name,
-              property_name: inv.property_name,
-              amount: inv.amount,
-              vendor_email: inv.vendor_email,
-              source: inv.source,
+              invoice_number: notificationInvoice.invoice_number,
+              vendor_name: notificationInvoice.vendor_name,
+              property_name: notificationInvoice.property_name,
+              amount: notificationInvoice.amount,
+              vendor_email: notificationInvoice.vendor_email,
+              source: notificationInvoice.source,
             },
             recipients,
             actor: { name: userName, email: user?.email },
@@ -243,12 +403,19 @@ function AppShell() {
         loadInvoices()
       }
     }
-  }, [user, role, isMockMode, loadInvoices, normalizeInvoice])
+  }, [user, role, isMockMode, loadInvoices, normalizeInvoice, invoices])
 
   const handleSelectInvoice = useCallback((invoice) => {
     setSelectedInvoiceId(invoice.id)
     setActiveView('invoice-detail')
   }, [])
+
+  const handleGlobalSearchChange = useCallback((value) => {
+    setGlobalSearch(value)
+    if (value.trim() && !isVendor) {
+      setActiveView('invoices')
+    }
+  }, [isVendor])
 
   const handleUploaded = useCallback((newInvoice) => {
     setInvoices(prev => [newInvoice, ...prev])
@@ -256,6 +423,10 @@ function AppShell() {
   }, [handleSelectInvoice])
 
   const selectedInvoice = invoices.find(i => i.id === selectedInvoiceId)
+  const portfolioTabs = portfolioTabsForInvoices(invoices)
+  const portfolioFilteredInvoices = portfolioFilter === 'all'
+    ? invoices
+    : invoices.filter(invoice => invoice.portfolio?.portfolio_key === portfolioFilter)
 
   if (loading) {
     return (
@@ -276,19 +447,27 @@ function AppShell() {
     switch (view) {
       case 'my-queue':
         return invoices.filter(i =>
+          (portfolioFilter === 'all' || i.portfolio?.portfolio_key === portfolioFilter) && (
           i.assigned_to === user?.id ||
           i.uploaded_by === user?.id
-        )
+          ))
       case 'review':
         return invoices.filter(i =>
+          (portfolioFilter === 'all' || i.portfolio?.portfolio_key === portfolioFilter) &&
           i.status === 'in_review'
         )
       case 'accounting':
-        return invoices.filter(i => i.status === 'approved')
+        return invoices.filter(i =>
+          (portfolioFilter === 'all' || i.portfolio?.portfolio_key === portfolioFilter) &&
+          i.status === 'approved'
+        )
       case 'paid':
-        return invoices.filter(i => i.status === 'paid')
+        return invoices.filter(i =>
+          (portfolioFilter === 'all' || i.portfolio?.portfolio_key === portfolioFilter) &&
+          i.status === 'paid'
+        )
       default:
-        return invoices
+        return portfolioFilteredInvoices
     }
   }
 
@@ -296,23 +475,39 @@ function AppShell() {
     <Layout
       activeView={activeView}
       setActiveView={setActiveView}
-      invoices={invoices}
+      invoices={portfolioFilteredInvoices}
+      globalSearch={globalSearch}
+      onGlobalSearchChange={handleGlobalSearchChange}
       onUploadComplete={handleUploaded}
+      showUpload={showUpload}
+      onOpenUpload={() => setShowUpload(true)}
+      onCloseUpload={() => setShowUpload(false)}
+      onAction={handleInvoiceAction}
     >
       {activeView === 'dashboard' && (
         <Dashboard
-          invoices={invoices}
+          invoices={portfolioFilteredInvoices}
           onSelectInvoice={handleSelectInvoice}
           setActiveView={setActiveView}
+          onAction={handleInvoiceAction}
+          portfolioTabs={portfolioTabs}
+          portfolioFilter={portfolioFilter}
+          onPortfolioChange={setPortfolioFilter}
         />
       )}
       {activeView === 'invoices' && (
         <InvoiceList
-          invoices={invoices}
+          invoices={portfolioFilteredInvoices}
           queueMode="all"
           title="All Invoices"
           onSelectInvoice={handleSelectInvoice}
-          onUploadClick={() => {}}
+          onUploadClick={() => setShowUpload(true)}
+          onAction={handleInvoiceAction}
+          searchQuery={globalSearch}
+          onSearchChange={setGlobalSearch}
+          portfolioTabs={portfolioTabs}
+          portfolioFilter={portfolioFilter}
+          onPortfolioChange={setPortfolioFilter}
         />
       )}
       {activeView === 'my-queue' && (
@@ -321,7 +516,13 @@ function AppShell() {
           queueMode="my-queue"
           title="My Queue"
           onSelectInvoice={handleSelectInvoice}
-          onUploadClick={() => {}}
+          onUploadClick={() => setShowUpload(true)}
+          onAction={handleInvoiceAction}
+          searchQuery={globalSearch}
+          onSearchChange={setGlobalSearch}
+          portfolioTabs={portfolioTabs}
+          portfolioFilter={portfolioFilter}
+          onPortfolioChange={setPortfolioFilter}
         />
       )}
       {activeView === 'review' && (
@@ -330,7 +531,13 @@ function AppShell() {
           queueMode="review"
           title="In Review"
           onSelectInvoice={handleSelectInvoice}
-          onUploadClick={() => {}}
+          onUploadClick={() => setShowUpload(true)}
+          onAction={handleInvoiceAction}
+          searchQuery={globalSearch}
+          onSearchChange={setGlobalSearch}
+          portfolioTabs={portfolioTabs}
+          portfolioFilter={portfolioFilter}
+          onPortfolioChange={setPortfolioFilter}
         />
       )}
       {activeView === 'accounting' && (
@@ -339,7 +546,13 @@ function AppShell() {
           queueMode="accounting"
           title="Approved"
           onSelectInvoice={handleSelectInvoice}
-          onUploadClick={() => {}}
+          onUploadClick={() => setShowUpload(true)}
+          onAction={handleInvoiceAction}
+          searchQuery={globalSearch}
+          onSearchChange={setGlobalSearch}
+          portfolioTabs={portfolioTabs}
+          portfolioFilter={portfolioFilter}
+          onPortfolioChange={setPortfolioFilter}
         />
       )}
       {activeView === 'paid' && (
@@ -348,7 +561,28 @@ function AppShell() {
           queueMode="paid"
           title="Paid Invoices"
           onSelectInvoice={handleSelectInvoice}
-          onUploadClick={() => {}}
+          onUploadClick={() => setShowUpload(true)}
+          onAction={handleInvoiceAction}
+          searchQuery={globalSearch}
+          onSearchChange={setGlobalSearch}
+          portfolioTabs={portfolioTabs}
+          portfolioFilter={portfolioFilter}
+          onPortfolioChange={setPortfolioFilter}
+        />
+      )}
+      {activeView === 'modified' && (
+        <InvoiceList
+          invoices={portfolioFilteredInvoices.filter(i => Array.isArray(i.edit_log) && i.edit_log.length > 0)}
+          queueMode="all"
+          title="Modified Invoices"
+          onSelectInvoice={handleSelectInvoice}
+          onUploadClick={() => setShowUpload(true)}
+          onAction={handleInvoiceAction}
+          searchQuery={globalSearch}
+          onSearchChange={setGlobalSearch}
+          portfolioTabs={portfolioTabs}
+          portfolioFilter={portfolioFilter}
+          onPortfolioChange={setPortfolioFilter}
         />
       )}
       {activeView === 'invoice-detail' && selectedInvoice && (
@@ -380,12 +614,43 @@ function AppShell() {
 
 // ─── Auth gate ──────────────────────────────────────────────────────────────
 function AuthGate() {
-  const { user, loading } = useAuth()
+  const { user, loading, isConfigured, isDemoMode, isExplicitMockMode, missingConfigMessage } = useAuth()
 
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="w-6 h-6 rounded border-2 border-blue-500 border-t-transparent animate-spin" />
+      </div>
+    )
+  }
+
+  if (!isConfigured && !isDemoMode && !isExplicitMockMode) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: 'var(--bg)' }}>
+        <div className="w-full max-w-lg rounded-2xl p-8"
+          style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-card)' }}>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+              style={{ background: 'linear-gradient(135deg, #2563EB, #1D4ED8)' }}>
+              <span className="text-sm font-bold text-white">OF</span>
+            </div>
+            <div>
+              <div className="font-semibold" style={{ color: 'var(--text-1)' }}>OpsFlow Setup Required</div>
+              <div className="text-sm" style={{ color: 'var(--text-5)' }}>Hosted demo configuration is incomplete.</div>
+            </div>
+          </div>
+          <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-4)' }}>
+            {missingConfigMessage}
+          </p>
+          <div className="text-xs font-mono rounded-lg p-3"
+            style={{ backgroundColor: 'var(--surface-alt)', color: 'var(--text-3)', border: '1px solid var(--border)' }}>
+            VITE_SUPABASE_URL
+            <br />
+            VITE_SUPABASE_ANON_KEY
+            <br />
+            VITE_SKIP_AUTH=false
+          </div>
+        </div>
       </div>
     )
   }

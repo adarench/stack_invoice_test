@@ -2,7 +2,7 @@ import { useState } from 'react'
 import {
   Bell, Search, Settings, FileText, CheckCircle, DollarSign,
   ChevronDown, Sun, Moon, Upload, LogOut, Inbox, ListChecks, CheckCircle2,
-  Users, ChevronUp, ExternalLink
+  Users, ChevronUp, ExternalLink, LayoutDashboard, Edit2
 } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
 import { useAuth } from '../context/AuthContext'
@@ -10,13 +10,24 @@ import { ROLE_LABELS } from '../data/demoUsers'
 import UploadInvoice from './UploadInvoice'
 import ActionRequiredBanner from './ActionRequiredBanner'
 
-export default function Layout({ children, activeView, setActiveView, invoices = [], onUploadComplete }) {
+export default function Layout({
+  children,
+  activeView,
+  setActiveView,
+  invoices = [],
+  globalSearch = '',
+  onGlobalSearchChange,
+  onUploadComplete,
+  onOpenUpload,
+  onCloseUpload,
+  showUpload,
+  onAction,
+}) {
   const { isDark, toggle } = useTheme()
   const {
     displayName, initials, signOut, isMockMode, isDemoMode,
     user, role, permissions, demoUsers, switchUser,
   } = useAuth()
-  const [showUpload, setShowUpload] = useState(false)
   const [showUserMenu, setShowUserMenu] = useState(false)
   const [showUserSwitcher, setShowUserSwitcher] = useState(false)
 
@@ -28,15 +39,18 @@ export default function Layout({ children, activeView, setActiveView, invoices =
   const myCount = invoices.filter(i =>
     i.assigned_to === user?.id || i.uploaded_by === user?.id
   ).length
+  const modifiedCount = invoices.filter(i => Array.isArray(i.edit_log) && i.edit_log.length > 0).length
 
   const vendorCount = invoices.filter(i => i.source === 'external_submission').length
 
   const navItems = [
+    { id: 'dashboard',  label: 'Dashboard',     icon: LayoutDashboard, badge: 0 },
     { id: 'invoices',   label: 'All Invoices', icon: FileText,    badge: 0 },
     { id: 'my-queue',   label: 'My Queue',     icon: Inbox,       badge: myCount },
     { id: 'review',     label: 'In Review',      icon: ListChecks,  badge: reviewCount },
     { id: 'accounting', label: 'Approved',      icon: DollarSign,  badge: accountingCount },
     { id: 'paid',       label: 'Paid',          icon: CheckCircle2, badge: paidCount },
+    { id: 'modified',   label: '✎ Modified',    icon: Edit2,       badge: modifiedCount },
   ]
 
   const handleSignOut = async () => {
@@ -48,13 +62,16 @@ export default function Layout({ children, activeView, setActiveView, invoices =
 
   // Color by role
   const roleColors = {
-    uploader: { bg: '#1D4ED8', gradient: 'linear-gradient(135deg, #3B82F6, #2563EB)' },
-    reviewer: { bg: '#059669', gradient: 'linear-gradient(135deg, #10B981, #059669)' },
+    ops: { bg: '#1D4ED8', gradient: 'linear-gradient(135deg, #3B82F6, #2563EB)' },
+    approver: { bg: '#059669', gradient: 'linear-gradient(135deg, #10B981, #059669)' },
     accounting: { bg: '#7C3AED', gradient: 'linear-gradient(135deg, #8B5CF6, #7C3AED)' },
     admin: { bg: '#DC2626', gradient: 'linear-gradient(135deg, #EF4444, #DC2626)' },
     vendor: { bg: '#D97706', gradient: 'linear-gradient(135deg, #F59E0B, #D97706)' },
+    // Legacy
+    uploader: { bg: '#1D4ED8', gradient: 'linear-gradient(135deg, #3B82F6, #2563EB)' },
+    reviewer: { bg: '#059669', gradient: 'linear-gradient(135deg, #10B981, #059669)' },
   }
-  const rc = roleColors[role] || roleColors.uploader
+  const rc = roleColors[role] || roleColors.ops
 
   return (
     <div
@@ -97,7 +114,7 @@ export default function Layout({ children, activeView, setActiveView, invoices =
         {/* Upload CTA — internal roles only */}
         {!isVendor && permissions.canUpload && (
           <div className="px-3 pt-3 pb-1">
-            <button onClick={() => setShowUpload(true)}
+            <button onClick={onOpenUpload}
               className="w-full flex items-center gap-2 px-3 py-2 rounded-md text-xs font-semibold transition-all"
               style={{
                 backgroundColor: isDark ? 'rgba(37,99,235,0.2)' : 'rgba(37,99,235,0.1)',
@@ -216,7 +233,7 @@ export default function Layout({ children, activeView, setActiveView, invoices =
                 style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}>
                 {demoUsers.map(u => {
                   const isActive = user?.id === u.id
-                  const urc = roleColors[u.role] || roleColors.uploader
+                  const urc = roleColors[u.role] || roleColors.ops
                   return (
                     <button
                       key={u.id}
@@ -297,6 +314,8 @@ export default function Layout({ children, activeView, setActiveView, invoices =
             <Search size={13} style={{ color: 'var(--text-6)' }} />
             <input className="bg-transparent text-sm outline-none flex-1"
               placeholder={isVendor ? "Search your invoices…" : "Search invoices, vendors, properties…"}
+              value={globalSearch}
+              onChange={e => onGlobalSearchChange?.(e.target.value)}
               style={{ color: 'var(--text-4)', fontSize: '13px' }} />
           </div>
 
@@ -309,7 +328,7 @@ export default function Layout({ children, activeView, setActiveView, invoices =
             </div>
 
             {!isVendor && permissions.canUpload && (
-              <button onClick={() => setShowUpload(true)}
+              <button onClick={onOpenUpload}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition-all"
                 style={{ backgroundColor: '#1D4ED8', color: 'white' }}>
                 <Upload size={13} /> Upload
@@ -341,7 +360,7 @@ export default function Layout({ children, activeView, setActiveView, invoices =
           </div>
         </header>
 
-        <ActionRequiredBanner invoices={invoices} user={user} role={role} setActiveView={setActiveView} />
+        <ActionRequiredBanner invoices={invoices} user={user} role={role} setActiveView={setActiveView} onAction={onAction} />
 
         <main className="flex-1 overflow-auto themed" style={{ backgroundColor: 'var(--bg)' }}
           onClick={() => { showUserMenu && setShowUserMenu(false) }}>
@@ -351,8 +370,8 @@ export default function Layout({ children, activeView, setActiveView, invoices =
 
       {showUpload && (
         <UploadInvoice
-          onClose={() => setShowUpload(false)}
-          onUploaded={(invoice) => { setShowUpload(false); onUploadComplete?.(invoice) }}
+          onClose={onCloseUpload}
+          onUploaded={(invoice) => { onCloseUpload?.(); onUploadComplete?.(invoice) }}
         />
       )}
     </div>
