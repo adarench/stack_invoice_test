@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { supabase, skipAuth, hasSupabaseCredentials, missingSupabaseConfigMessage } from '../lib/supabaseClient'
 import { DEMO_USERS, ROLE_PERMISSIONS, normalizeRole } from '../data/demoUsers'
+import { buildFallbackUser, ensureProfileForAuthUser } from '../api/profileApi'
 
 const AuthContext = createContext(null)
 
@@ -26,30 +27,27 @@ export function AuthProvider({ children }) {
       }
 
       const authUser = nextSession.user
-      const fallbackUser = {
-        id: authUser.id,
-        email: authUser.email,
-        full_name: authUser.user_metadata?.full_name || authUser.email?.split('@')[0] || 'User',
-        role: 'ops',
-        user_metadata: authUser.user_metadata || {},
-      }
+      const fallbackUser = buildFallbackUser(authUser)
 
-      const { data: profile, error } = await supabase
-        .from('profiles')
-        .select('id, email, full_name, role')
-        .eq('id', authUser.id)
-        .maybeSingle()
+      try {
+        const profile = await ensureProfileForAuthUser(authUser)
 
-      if (error) {
+        if (!profile) {
+          setUser(fallbackUser)
+        } else {
+          setUser({
+            ...authUser,
+            ...fallbackUser,
+            ...profile,
+            id: profile.id,
+            profile_id: profile.id,
+            auth_id: authUser.id,
+            user_metadata: authUser.user_metadata || {},
+          })
+        }
+      } catch (error) {
         console.warn('[AuthContext] Failed to load profile:', error.message)
         setUser(fallbackUser)
-      } else {
-        setUser({
-          ...authUser,
-          ...fallbackUser,
-          ...profile,
-          user_metadata: authUser.user_metadata || {},
-        })
       }
 
       setLoading(false)

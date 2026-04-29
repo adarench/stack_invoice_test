@@ -1,0 +1,7541 @@
+[
+  {
+    "gl_code": "1011-00",
+    "gl_description": "Cash - Operating",
+    "category": "Cash - Operating",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1012-00",
+    "gl_description": "Cash - Operating II",
+    "category": "Cash - Operating II",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1013-00",
+    "gl_description": "Cash - Operating III",
+    "category": "Cash - Operating III",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1014-00",
+    "gl_description": "Cash - Operating IV",
+    "category": "Cash - Operating IV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1021-00",
+    "gl_description": "Cash - Money Market",
+    "category": "Cash - Money Market",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1022-00",
+    "gl_description": "Cash - Money Market II",
+    "category": "Cash - Money Market II",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1023-00",
+    "gl_description": "Cash - Money Market III",
+    "category": "Cash - Money Market III",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1024-00",
+    "gl_description": "Cash - Money Market IV",
+    "category": "Cash - Money Market IV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1031-00",
+    "gl_description": "Cash - Security Deposits",
+    "category": "Cash - Security Deposits",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1032-00",
+    "gl_description": "Cash - Security Deposits USB",
+    "category": "Cash - Security Deposits USB",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1033-00",
+    "gl_description": "Cash - Security Deposits III",
+    "category": "Cash - Security Deposits III",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1034-00",
+    "gl_description": "Cash - Security Deposits IV",
+    "category": "Cash - Security Deposits IV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1041-00",
+    "gl_description": "Cash - Restricted",
+    "category": "Cash - Restricted",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1042-00",
+    "gl_description": "Cash - Restricted II",
+    "category": "Cash - Restricted II",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1043-00",
+    "gl_description": "Cash - Restricted III",
+    "category": "Cash - Restricted III",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1044-00",
+    "gl_description": "Cash - Restricted IV",
+    "category": "Cash - Restricted IV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1051-00",
+    "gl_description": "Cash - Bond",
+    "category": "Cash - Bond",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1052-00",
+    "gl_description": "Cash - Bond II",
+    "category": "Cash - Bond II",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1053-00",
+    "gl_description": "Cash - Bond III",
+    "category": "Cash - Bond III",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1054-00",
+    "gl_description": "Cash - Bond IV",
+    "category": "Cash - Bond IV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1110-00",
+    "gl_description": "Escrow - Capital Improvement",
+    "category": "Escrow - Capital Improvement",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1120-00",
+    "gl_description": "Escrow - Insurance",
+    "category": "Escrow - Insurance",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1130-00",
+    "gl_description": "Escrow - Real Estate Tax",
+    "category": "Escrow - Real Estate Tax",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1140-00",
+    "gl_description": "Escrow - Rent Reserve",
+    "category": "Escrow - Rent Reserve",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1150-00",
+    "gl_description": "Escrow - Replacement Reserve",
+    "category": "Escrow - Replacement Reserve",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1160-00",
+    "gl_description": "Escrow - TI/LC",
+    "category": "Escrow - TI/LC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1180-00",
+    "gl_description": "Escrow - Lease Up",
+    "category": "Escrow - Lease Up",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1190-00",
+    "gl_description": "Escrow - Other",
+    "category": "Escrow - Other",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1210-00",
+    "gl_description": "Accounts Receivable",
+    "category": "Accounts Receivable",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1220-00",
+    "gl_description": "A/R - Billbacks",
+    "category": "A/R - Billbacks",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-01",
+    "gl_description": "A/R - TI Direct Bill",
+    "category": "A/R - TI Direct Bill",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-02",
+    "gl_description": "A/R - TI Direct Bill II",
+    "category": "A/R - TI Direct Bill II",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-03",
+    "gl_description": "A/R - TI Direct Bill III",
+    "category": "A/R - TI Direct Bill III",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-04",
+    "gl_description": "A/R - TI Direct Bill IV",
+    "category": "A/R - TI Direct Bill IV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-05",
+    "gl_description": "A/R - TI Direct Bill V",
+    "category": "A/R - TI Direct Bill V",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-06",
+    "gl_description": "A/R - TI Direct Bill VI",
+    "category": "A/R - TI Direct Bill VI",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-07",
+    "gl_description": "A/R - TI Direct Bill VII",
+    "category": "A/R - TI Direct Bill VII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-08",
+    "gl_description": "A/R - TI Direct Bill VIII",
+    "category": "A/R - TI Direct Bill VIII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-09",
+    "gl_description": "A/R - TI Direct Bill IX",
+    "category": "A/R - TI Direct Bill IX",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-10",
+    "gl_description": "A/R - TI Direct Bill X",
+    "category": "A/R - TI Direct Bill X",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-11",
+    "gl_description": "A/R - TI Direct Bill XI",
+    "category": "A/R - TI Direct Bill XI",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-12",
+    "gl_description": "A/R - TI Direct Bill XII",
+    "category": "A/R - TI Direct Bill XII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-13",
+    "gl_description": "A/R - TI Direct Bill XIII",
+    "category": "A/R - TI Direct Bill XIII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-14",
+    "gl_description": "A/R - TI Direct Bill XIV",
+    "category": "A/R - TI Direct Bill XIV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-15",
+    "gl_description": "A/R - TI Direct Bill XV",
+    "category": "A/R - TI Direct Bill XV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-16",
+    "gl_description": "A/R - TI Direct Bill XVI",
+    "category": "A/R - TI Direct Bill XVI",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-17",
+    "gl_description": "A/R - TI Direct Bill XVII",
+    "category": "A/R - TI Direct Bill XVII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-18",
+    "gl_description": "A/R - TI Direct Bill XVIII",
+    "category": "A/R - TI Direct Bill XVIII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-19",
+    "gl_description": "A/R - TI Direct Bill IXX",
+    "category": "A/R - TI Direct Bill IXX",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1221-20",
+    "gl_description": "A/R - TI Direct Bill XX",
+    "category": "A/R - TI Direct Bill XX",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1222-00",
+    "gl_description": "A/R - Work Orders",
+    "category": "A/R - Work Orders",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1225-00",
+    "gl_description": "A/R - Other Receivables",
+    "category": "A/R - Other Receivables",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1226-00",
+    "gl_description": "A/R - Accrued Interest",
+    "category": "A/R - Accrued Interest",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1227-00",
+    "gl_description": "A/R:  COVID-19 Rent Receivable (Deferred)",
+    "category": "A/R",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1229-00",
+    "gl_description": "Allowance for Doubtful Accounts",
+    "category": "Allowance for Doubtful Accounts",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1230-00",
+    "gl_description": "Due from Cadence",
+    "category": "Due from Cadence",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1231-00",
+    "gl_description": "Due from Related Party",
+    "category": "Due from Related Party",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1232-00",
+    "gl_description": "Due from Related Party II",
+    "category": "Due from Related Party II",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1232-09",
+    "gl_description": "Due from Related Party-STACK Allentown",
+    "category": "Due from Related Party-STACK Allentown",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1232-11",
+    "gl_description": "Due from Related Party-STACK Pottstown",
+    "category": "Due from Related Party-STACK Pottstown",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1232-12",
+    "gl_description": "Due from Related Party-STACK Plant City",
+    "category": "Due from Related Party-STACK Plant City",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1232-13",
+    "gl_description": "Due from Related Party STACK Springhill",
+    "category": "Due from Related Party STACK Springhill",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1232-14",
+    "gl_description": "Due from Related Party STACK Laveen",
+    "category": "Due from Related Party STACK Laveen",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1233-00",
+    "gl_description": "Due from Related Party III",
+    "category": "Due from Related Party III",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1234-00",
+    "gl_description": "Due from Related Party IV",
+    "category": "Due from Related Party IV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1235-00",
+    "gl_description": "Due from Related Party V",
+    "category": "Due from Related Party V",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1236-00",
+    "gl_description": "Due from Related Party VI",
+    "category": "Due from Related Party VI",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1237-00",
+    "gl_description": "Due from Related Party VII",
+    "category": "Due from Related Party VII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1238-00",
+    "gl_description": "Due from Related Party VIII",
+    "category": "Due from Related Party VIII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1238-01",
+    "gl_description": "Due From ONCURRENT",
+    "category": "Due From ONCURRENT",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1238-02",
+    "gl_description": "Due From Bow tie",
+    "category": "Due From Bow tie",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1239-00",
+    "gl_description": "Due from Intercompany",
+    "category": "Due from Intercompany",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1239-01",
+    "gl_description": "Due From Interco-Suspense",
+    "category": "Due From Interco-Suspense",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1240-00",
+    "gl_description": "Loan",
+    "category": "Loan",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1241-00",
+    "gl_description": "Loan II",
+    "category": "Loan II",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1255-00",
+    "gl_description": "Prepaid Elevator",
+    "category": "Prepaid Elevator",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1260-00",
+    "gl_description": "Prepaid HVAC",
+    "category": "Prepaid HVAC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1265-00",
+    "gl_description": "Prepaid Insurance (Health)",
+    "category": "Prepaid Insurance (Health)",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1270-00",
+    "gl_description": "Prepaid Insurance (Property)",
+    "category": "Prepaid Insurance (Property)",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1275-00",
+    "gl_description": "Prepaid Property Taxes",
+    "category": "Prepaid Property Taxes",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1280-00",
+    "gl_description": "Prepaid Expenses",
+    "category": "Prepaid Expenses",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1285-00",
+    "gl_description": "Refundable Deposits",
+    "category": "Refundable Deposits",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1290-00",
+    "gl_description": "Utility Deposits",
+    "category": "Utility Deposits",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1295-00",
+    "gl_description": "Other Deposits",
+    "category": "Other Deposits",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1310-00",
+    "gl_description": "Notes Receivable",
+    "category": "Notes Receivable",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1315-00",
+    "gl_description": "N/R - Owner",
+    "category": "N/R - Owner",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1320-00",
+    "gl_description": "N/R - Other",
+    "category": "N/R - Other",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1391-00",
+    "gl_description": "Advance",
+    "category": "Advance",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1392-00",
+    "gl_description": "Allowance for Doubtful Advance",
+    "category": "Allowance for Doubtful Advance",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1398-00",
+    "gl_description": "Unallocated Funds",
+    "category": "Unallocated Funds",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1411-00",
+    "gl_description": "Investment - Ridge 5, LLC",
+    "category": "Investment - Ridge 5, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1412-00",
+    "gl_description": "Investment - Hunting Office, LLC",
+    "category": "Investment - Hunting Office, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1412-01",
+    "gl_description": "Investment - STACK East Slope, LLC",
+    "category": "Investment - STACK East Slope, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1412-02",
+    "gl_description": "Investment - East Slope, LLC",
+    "category": "Investment - East Slope, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1412-03",
+    "gl_description": "Investment - Shiny Shell",
+    "category": "Investment - Shiny Shell",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1412-04",
+    "gl_description": "Investment - Ricks Holding",
+    "category": "Investment - Ricks Holding",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1412-05",
+    "gl_description": "Investment - RH Equity",
+    "category": "Investment - RH Equity",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1413-00",
+    "gl_description": "Investments - Rose Garden, LLC",
+    "category": "Investments - Rose Garden, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1413-01",
+    "gl_description": "Investment - Edged Salt Lake City LLC",
+    "category": "Investment - Edged Salt Lake City LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1413-02",
+    "gl_description": "Investment - EDC SLC Land Co, LLC",
+    "category": "Investment - EDC SLC Land Co, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-00",
+    "gl_description": "Investment - High Marker, Inc.",
+    "category": "Investment - High Marker, Inc.",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-01",
+    "gl_description": "Investment - DOJO Construction",
+    "category": "Investment - DOJO Construction",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-50",
+    "gl_description": "Investments - Pixie Software",
+    "category": "Investments - Pixie Software",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-51",
+    "gl_description": "Investments - DNO",
+    "category": "Investments - DNO",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-52",
+    "gl_description": "Investments - Affordable Care Fund VII",
+    "category": "Investments - Affordable Care Fund VII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-53",
+    "gl_description": "Investments - Thanksgiving Station, LLC",
+    "category": "Investments - Thanksgiving Station, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-54",
+    "gl_description": "Investments - Thanksgiving Holding LLC",
+    "category": "Investments - Thanksgiving Holding LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-55",
+    "gl_description": "Investments - Sojo Station South",
+    "category": "Investments - Sojo Station South",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-56",
+    "gl_description": "Investments - SOJO Station North",
+    "category": "Investments - SOJO Station North",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-57",
+    "gl_description": "Investments - Radd Ventures",
+    "category": "Investments - Radd Ventures",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-58",
+    "gl_description": "Investments - MHC Investment llc",
+    "category": "Investments - MHC Investment llc",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-59",
+    "gl_description": "Investments - Gunsight Pass",
+    "category": "Investments - Gunsight Pass",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-60",
+    "gl_description": "Investments - Cowen Management LLC",
+    "category": "Investments - Cowen Management LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-61",
+    "gl_description": "Investments - Cowen Land and Livestock, LLC",
+    "category": "Investments - Cowen Land and Livestock, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-62",
+    "gl_description": "Investments - Cowen Development LLC",
+    "category": "Investments - Cowen Development LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-63",
+    "gl_description": "Investments - Affordable Comm Fund VI",
+    "category": "Investments - Affordable Comm Fund VI",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-64",
+    "gl_description": "Investments - Affordable Comm Fund V",
+    "category": "Investments - Affordable Comm Fund V",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-65",
+    "gl_description": "Investments - Affordable Comm IV",
+    "category": "Investments - Affordable Comm IV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-66",
+    "gl_description": "Investments - Affordable Comm Fund III",
+    "category": "Investments - Affordable Comm Fund III",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-67",
+    "gl_description": "Investments - Affordable Comm Fund II",
+    "category": "Investments - Affordable Comm Fund II",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-68",
+    "gl_description": "Investments - Affordable Comm Fund I",
+    "category": "Investments - Affordable Comm Fund I",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-69",
+    "gl_description": "Investments - S20 Capital Fund LP",
+    "category": "Investments - S20 Capital Fund LP",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-70",
+    "gl_description": "Investments - Stack Storage LLC",
+    "category": "Investments - Stack Storage LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-71",
+    "gl_description": "Investments - Stack Car Wash LLC",
+    "category": "Investments - Stack Car Wash LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-72",
+    "gl_description": "Investments - Stack LLC",
+    "category": "Investments - Stack LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-73",
+    "gl_description": "Investments - ACF VII",
+    "category": "Investments - ACF VII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-74",
+    "gl_description": "Investments - Stack ACF Holdings",
+    "category": "Investments - Stack ACF Holdings",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-75",
+    "gl_description": "Investments - Stack Clean Cars 2",
+    "category": "Investments - Stack Clean Cars 2",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-76",
+    "gl_description": "Investments - STACK Storage Development fund 2",
+    "category": "Investments - STACK Storage Development fund 2",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-77",
+    "gl_description": "Investments - SOFI",
+    "category": "Investments - SOFI",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-78",
+    "gl_description": "Investments - BitCoin",
+    "category": "Investments - BitCoin",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-79",
+    "gl_description": "Investment - STACK 2.0",
+    "category": "Investment - STACK 2.0",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-80",
+    "gl_description": "Investment - Ledges Property, LLC",
+    "category": "Investment - Ledges Property, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-81",
+    "gl_description": "Investment - 11355 Cottonwood Lane, LLC",
+    "category": "Investment - 11355 Cottonwood Lane, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-82",
+    "gl_description": "Investment - ZapMoto",
+    "category": "Investment - ZapMoto",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-83",
+    "gl_description": "Investment - OBRA",
+    "category": "Investment - OBRA",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-84",
+    "gl_description": "Investment - Charles Schwab",
+    "category": "Investment - Charles Schwab",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-85",
+    "gl_description": "Investment - Reach the Meadow",
+    "category": "Investment - Reach the Meadow",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1414-86",
+    "gl_description": "Investments - Affordable Comm Fund iV",
+    "category": "Investments - Affordable Comm Fund iV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1415-00",
+    "gl_description": "Investment - Thanksgiving Park Operations",
+    "category": "Investment - Thanksgiving Park Operations",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1415-01",
+    "gl_description": "Investment - Thanksgiving Park One",
+    "category": "Investment - Thanksgiving Park One",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1415-02",
+    "gl_description": "Investment - Thanksgiving Park Two",
+    "category": "Investment - Thanksgiving Park Two",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1415-03",
+    "gl_description": "Investment - Thanksgiving Park Three",
+    "category": "Investment - Thanksgiving Park Three",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1415-04",
+    "gl_description": "Investment - Thanksgiving Park Four",
+    "category": "Investment - Thanksgiving Park Four",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1415-05",
+    "gl_description": "Investment - Thanksgiving Park Five",
+    "category": "Investment - Thanksgiving Park Five",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1415-06",
+    "gl_description": "Investment - Thanksgiving Park Six",
+    "category": "Investment - Thanksgiving Park Six",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1416-01",
+    "gl_description": "Investment - TPark Retail One",
+    "category": "Investment - TPark Retail One",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1416-02",
+    "gl_description": "Investment - Ashton Retail",
+    "category": "Investment - Ashton Retail",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1416-03",
+    "gl_description": "Investment - TPark Retail Three",
+    "category": "Investment - TPark Retail Three",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1416-04",
+    "gl_description": "Investment - TPark TOD One (Gym)",
+    "category": "Investment - TPark TOD One (Gym)",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1416-05",
+    "gl_description": "Investment - Anvil Apartments",
+    "category": "Investment - Anvil Apartments",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1416-06",
+    "gl_description": "Investment - Lehi TOD Apartments",
+    "category": "Investment - Lehi TOD Apartments",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1416-07",
+    "gl_description": "Investment - Slopes Residential",
+    "category": "Investment - Slopes Residential",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1417-00",
+    "gl_description": "Investment - Ridge Rising, LLC",
+    "category": "Investment - Ridge Rising, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1417-01",
+    "gl_description": "Investment - RH Block Exchange, LLC",
+    "category": "Investment - RH Block Exchange, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1420-00",
+    "gl_description": "Investment - ST Investments",
+    "category": "Investment - ST Investments",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1420-01",
+    "gl_description": "Investment - T-Stat One",
+    "category": "Investment - T-Stat One",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1420-02",
+    "gl_description": "Investment - T-Stat Two",
+    "category": "Investment - T-Stat Two",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1420-03",
+    "gl_description": "Investment - T-Stat Three",
+    "category": "Investment - T-Stat Three",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1420-04",
+    "gl_description": "Investment - T-Stat Four",
+    "category": "Investment - T-Stat Four",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1420-05",
+    "gl_description": "Investment - T-Stat Five",
+    "category": "Investment - T-Stat Five",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1420-06",
+    "gl_description": "Investment - T-Stat Six",
+    "category": "Investment - T-Stat Six",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1420-07",
+    "gl_description": "Investment - T-Stat Seven",
+    "category": "Investment - T-Stat Seven",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1420-08",
+    "gl_description": "Investment - T-Stat Eight",
+    "category": "Investment - T-Stat Eight",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1420-09",
+    "gl_description": "Investment - T-Stat Nine",
+    "category": "Investment - T-Stat Nine",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1420-11",
+    "gl_description": "Investment - VS Studio (Tru Hotel)",
+    "category": "Investment - VS Studio (Tru Hotel)",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1421-00",
+    "gl_description": "Investment - 32 Ashton, LLC",
+    "category": "Investment - 32 Ashton, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1422-00",
+    "gl_description": "Investment - Millrock Partners",
+    "category": "Investment - Millrock Partners",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1423-00",
+    "gl_description": "Investment - Affordable Communities Fnd Ptrns",
+    "category": "Investment - Affordable Communities Fnd Ptrns",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1423-01",
+    "gl_description": "Investment - Affordable Communities Fnd Ptrns II",
+    "category": "Investment - Affordable Communities Fnd Ptrns II",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1424-00",
+    "gl_description": "Investment - GRC Holdings",
+    "category": "Investment - GRC Holdings",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1425-01",
+    "gl_description": "Investments - SoJo Station North",
+    "category": "Investments - SoJo Station North",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1425-02",
+    "gl_description": "Investment - SoJo Station South",
+    "category": "Investment - SoJo Station South",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1425-03",
+    "gl_description": "Investment - SoJo Station Parking, Inc.",
+    "category": "Investment - SoJo Station Parking, Inc.",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1425-04",
+    "gl_description": "Investment - SoJo Station",
+    "category": "Investment - SoJo Station",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1425-05",
+    "gl_description": "Investment - Stack Draper Hotel",
+    "category": "Investment - Stack Draper Hotel",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-00",
+    "gl_description": "Investment - Stack Storage",
+    "category": "Investment - Stack Storage",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-01",
+    "gl_description": "Investment - STACK Marlboro & Vanderburg",
+    "category": "Investment - STACK Marlboro & Vanderburg",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-02",
+    "gl_description": "Investment - STACK Buckeye & Miller",
+    "category": "Investment - STACK Buckeye & Miller",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-03",
+    "gl_description": "Investment - STACK Marana & Silverbell",
+    "category": "Investment - STACK Marana & Silverbell",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-04",
+    "gl_description": "Investment - Stack 19th & Phoenix",
+    "category": "Investment - Stack 19th & Phoenix",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-05",
+    "gl_description": "Investment - Stack Queen Creek & Ellsworth",
+    "category": "Investment - Stack Queen Creek & Ellsworth",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-06",
+    "gl_description": "Investment - STACK Randolph & Rt 10, LLC",
+    "category": "Investment - STACK Randolph & Rt 10, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-07",
+    "gl_description": "Investment - STACK - Macungie & Main, LLC",
+    "category": "Investment - STACK - Macungie & Main, LLC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-08",
+    "gl_description": "Investment - STACK - Centervalley",
+    "category": "Investment - STACK - Centervalley",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-09",
+    "gl_description": "Investment - STACK - Allentown",
+    "category": "Investment - STACK - Allentown",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-11",
+    "gl_description": "Investment - STACK Pottstown",
+    "category": "Investment - STACK Pottstown",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-12",
+    "gl_description": "Investment - STACK Plant City",
+    "category": "Investment - STACK Plant City",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-13",
+    "gl_description": "Investment - STACK Spring Hill",
+    "category": "Investment - STACK Spring Hill",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-14",
+    "gl_description": "Investment - STACK Laveen",
+    "category": "Investment - STACK Laveen",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-15",
+    "gl_description": "Investment - STACK 8 Mile",
+    "category": "Investment - STACK 8 Mile",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1426-16",
+    "gl_description": "Investment - Holyoke",
+    "category": "Investment - Holyoke",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1427-00",
+    "gl_description": "Investments - GARN STACK Tahoe",
+    "category": "Investments - GARN STACK Tahoe",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1428-00",
+    "gl_description": "Investment - Pioneer Crossing Car Wash",
+    "category": "Investment - Pioneer Crossing Car Wash",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1429-00",
+    "gl_description": "Investment - Smart Farmington",
+    "category": "Investment - Smart Farmington",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1430-00",
+    "gl_description": "Investment - Stack ACF Holdings",
+    "category": "Investment - Stack ACF Holdings",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1431-00",
+    "gl_description": "Investment - Clearfield Station",
+    "category": "Investment - Clearfield Station",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1432-00",
+    "gl_description": "Investment - Stack Farmington",
+    "category": "Investment - Stack Farmington",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1433-00",
+    "gl_description": "Investment - Smart Lehi",
+    "category": "Investment - Smart Lehi",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1440-00",
+    "gl_description": "Investment - Cold Water Capital",
+    "category": "Investment - Cold Water Capital",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1505-00",
+    "gl_description": "LAND",
+    "category": "LAND",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1506-00",
+    "gl_description": "LAND II",
+    "category": "LAND II",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1507-00",
+    "gl_description": "LAND - 754 Wheatleys",
+    "category": "LAND - 754 Wheatleys",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1515-00",
+    "gl_description": "Land - Acquisition",
+    "category": "Land - Acquisition",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1520-00",
+    "gl_description": "Building",
+    "category": "Building",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1521-00",
+    "gl_description": "704(b) Adjustments",
+    "category": "704(b) Adjustments",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1530-00",
+    "gl_description": "Building - Acquisition Costs",
+    "category": "Building - Acquisition Costs",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1540-00",
+    "gl_description": "A/D - Building",
+    "category": "A/D - Building",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1541-00",
+    "gl_description": "A/D - 704(b) Adjustments",
+    "category": "A/D - 704(b) Adjustments",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1555-00",
+    "gl_description": "Land Improvements",
+    "category": "Land Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1556-00",
+    "gl_description": "Land Improvements II",
+    "category": "Land Improvements II",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1560-00",
+    "gl_description": "Building Improvements",
+    "category": "Building Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1560-01",
+    "gl_description": "Building Improvements-Exterior",
+    "category": "Building Improvements-Exterior",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1560-02",
+    "gl_description": "Building Improvements-Interior",
+    "category": "Building Improvements-Interior",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1565-00",
+    "gl_description": "Garage/Parking Lot",
+    "category": "Garage/Parking Lot",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1566-00",
+    "gl_description": "Garage/Parking Lot Improvements",
+    "category": "Garage/Parking Lot Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1570-00",
+    "gl_description": "Major Improvements - Roof",
+    "category": "Major Improvements - Roof",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1571-00",
+    "gl_description": "Major Improvements - HVAC",
+    "category": "Major Improvements - HVAC",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1572-00",
+    "gl_description": "Major Improvements - Equipment",
+    "category": "Major Improvements - Equipment",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1573-00",
+    "gl_description": "Major Improvements - Other",
+    "category": "Major Improvements - Other",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-01",
+    "gl_description": "Tenant Improvements",
+    "category": "Tenant Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-02",
+    "gl_description": "Tenant Improvements II",
+    "category": "Tenant Improvements II",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-03",
+    "gl_description": "Tenant Improvements III",
+    "category": "Tenant Improvements III",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-04",
+    "gl_description": "Tenant Improvements IV",
+    "category": "Tenant Improvements IV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-05",
+    "gl_description": "Tenant Improvements V",
+    "category": "Tenant Improvements V",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-06",
+    "gl_description": "Tenant Improvements VI",
+    "category": "Tenant Improvements VI",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-07",
+    "gl_description": "Tenant Improvements VII",
+    "category": "Tenant Improvements VII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-08",
+    "gl_description": "Tenant Improvements VIII",
+    "category": "Tenant Improvements VIII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-09",
+    "gl_description": "Tenant Improvements IX",
+    "category": "Tenant Improvements IX",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-10",
+    "gl_description": "Tenant Improvements X",
+    "category": "Tenant Improvements X",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-11",
+    "gl_description": "Tenant Improvements XI",
+    "category": "Tenant Improvements XI",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-12",
+    "gl_description": "Tenant Improvements XII",
+    "category": "Tenant Improvements XII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-13",
+    "gl_description": "Tenant Improvements XIII",
+    "category": "Tenant Improvements XIII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-14",
+    "gl_description": "Tenant Improvements XIV",
+    "category": "Tenant Improvements XIV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-15",
+    "gl_description": "Tenant Improvements XV",
+    "category": "Tenant Improvements XV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-16",
+    "gl_description": "Tenant Improvements XVI",
+    "category": "Tenant Improvements XVI",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-17",
+    "gl_description": "Tenant Improvements XVII",
+    "category": "Tenant Improvements XVII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-18",
+    "gl_description": "Tenant Improvements XVIII",
+    "category": "Tenant Improvements XVIII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-19",
+    "gl_description": "Tenant Improvements XIX",
+    "category": "Tenant Improvements XIX",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-20",
+    "gl_description": "Tenant Improvements XX",
+    "category": "Tenant Improvements XX",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-21",
+    "gl_description": "Tenant Improvements XXI",
+    "category": "Tenant Improvements XXI",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-22",
+    "gl_description": "Tenant Improvements XXII",
+    "category": "Tenant Improvements XXII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-23",
+    "gl_description": "Tenant Improvements XXIII",
+    "category": "Tenant Improvements XXIII",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-24",
+    "gl_description": "Tenant Improvements XXIV",
+    "category": "Tenant Improvements XXIV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-25",
+    "gl_description": "Tenant Improvements XXV",
+    "category": "Tenant Improvements XXV",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-26",
+    "gl_description": "Tenant Improvement 26",
+    "category": "Tenant Improvement 26",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-27",
+    "gl_description": "Tenant Improvements 27",
+    "category": "Tenant Improvements 27",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-28",
+    "gl_description": "Tenant Improvements 28",
+    "category": "Tenant Improvements 28",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-29",
+    "gl_description": "Tenant Improvements 29",
+    "category": "Tenant Improvements 29",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-30",
+    "gl_description": "Tenant Improvements 30",
+    "category": "Tenant Improvements 30",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-31",
+    "gl_description": "Tenant Improvements 31",
+    "category": "Tenant Improvements 31",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-32",
+    "gl_description": "Tenant Improvements 32",
+    "category": "Tenant Improvements 32",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-33",
+    "gl_description": "Tenant Improvements 33",
+    "category": "Tenant Improvements 33",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-34",
+    "gl_description": "Tenant Improvements 34",
+    "category": "Tenant Improvements 34",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-35",
+    "gl_description": "Tenant Improvements 35",
+    "category": "Tenant Improvements 35",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-36",
+    "gl_description": "Tenant Improvements 36",
+    "category": "Tenant Improvements 36",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-37",
+    "gl_description": "Tenant Improvements 37",
+    "category": "Tenant Improvements 37",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-38",
+    "gl_description": "Tenant Improvements 38",
+    "category": "Tenant Improvements 38",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-39",
+    "gl_description": "Tenant Improvements 39",
+    "category": "Tenant Improvements 39",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-40",
+    "gl_description": "Tenant Improvements 40",
+    "category": "Tenant Improvements 40",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1575-90",
+    "gl_description": "Tenant Improvements - Other",
+    "category": "Tenant Improvements - Other",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1580-00",
+    "gl_description": "A/D - Improvements",
+    "category": "A/D - Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1589-00",
+    "gl_description": "Construction - Work-in-Process",
+    "category": "Construction - Work-in-Process",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1605-00",
+    "gl_description": "Appliances",
+    "category": "Appliances",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1610-00",
+    "gl_description": "Computers & Office",
+    "category": "Computers & Office",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1615-00",
+    "gl_description": "Equipment",
+    "category": "Equipment",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1620-00",
+    "gl_description": "Furniture & Fixtures",
+    "category": "Furniture & Fixtures",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1625-00",
+    "gl_description": "Machinery",
+    "category": "Machinery",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1630-00",
+    "gl_description": "Software",
+    "category": "Software",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1635-00",
+    "gl_description": "Vehicles",
+    "category": "Vehicles",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1635-01",
+    "gl_description": "Snowmobile",
+    "category": "Snowmobile",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1635-02",
+    "gl_description": "Trailer",
+    "category": "Trailer",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1645-00",
+    "gl_description": "Other",
+    "category": "Other",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1649-00",
+    "gl_description": "A/D - FFM&E",
+    "category": "A/D - FFM&E",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1700-00",
+    "gl_description": "Building and Improvements:Leasing Commissions",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1701-00",
+    "gl_description": "Utilities",
+    "category": "Utilities",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1703-00",
+    "gl_description": "Building",
+    "category": "Building",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1704-00",
+    "gl_description": "Fixed Assets: 754 Fixed Assets",
+    "category": "Fixed Assets",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1705-00",
+    "gl_description": "Leasing Expenses",
+    "category": "Leasing Expenses",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1706-00",
+    "gl_description": "Interest on Construction",
+    "category": "Interest on Construction",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1707-00",
+    "gl_description": "Interest on Construction- Loan Fees Accumulated Amort",
+    "category": "Interest on Construction- Loan Fees Accumulated Amort",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1708-00",
+    "gl_description": "Property & Equipment",
+    "category": "Property & Equipment",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1709-00",
+    "gl_description": "Site Improvement",
+    "category": "Site Improvement",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1710-00",
+    "gl_description": "Intercompany Receivable",
+    "category": "Intercompany Receivable",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1711-00",
+    "gl_description": "Building and Improvements:Improve. Depreciation",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1712-00",
+    "gl_description": "Building and Improvements:General",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1713-00",
+    "gl_description": "Building and Improvements:Core and Shell- Electrical",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1714-00",
+    "gl_description": "Building and Improvements:Core and Shell- Mechanical",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1715-00",
+    "gl_description": "Building and Improvements:Core and Shell- Fire System",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1716-00",
+    "gl_description": "Building and Improvements:Core and Shell- Blinds",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1717-00",
+    "gl_description": "Building and Improvements:Core and Shell- Sewer Connect",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1718-00",
+    "gl_description": "Building and Improvements:Landscaping- Water Fall",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1719-00",
+    "gl_description": "Building and Improvements:Landscaping- Planting & Irrigation",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1720-00",
+    "gl_description": "Building and Improvements:Landscaping- Fencing",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1721-00",
+    "gl_description": "Building and Improvements:Landscaping- Retaining Walls",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1722-00",
+    "gl_description": "Building and Improvements:Landscaping - Export Material",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1723-00",
+    "gl_description": "Building and Improvements:Construction Prof Fees & Svc",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1724-00",
+    "gl_description": "Building and Improvements: Soil Testing",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1725-00",
+    "gl_description": "Building and Improvements: Engineering",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1726-00",
+    "gl_description": "Building and Improvements: Developer Fees",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1727-00",
+    "gl_description": "Building and Improvements: Closing Fees",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1728-00",
+    "gl_description": "Building and Improvements: Plan Check",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1729-00",
+    "gl_description": "Building and Improvements: Project Mgt",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1730-00",
+    "gl_description": "Building and Improvements: Architectural Fees",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1731-00",
+    "gl_description": "Building and Improvements: Appraisal Fees",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1732-00",
+    "gl_description": "Building and Improvements: Title Insurance",
+    "category": "Building and Improvements",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1734-00",
+    "gl_description": "Interest on Construction- Loan Fees",
+    "category": "Interest on Construction- Loan Fees",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1735-00",
+    "gl_description": "Accumulated Amortization",
+    "category": "Accumulated Amortization",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1736-00",
+    "gl_description": "Cap Fees",
+    "category": "Cap Fees",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1737-00",
+    "gl_description": "Insurance",
+    "category": "Insurance",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1738-00",
+    "gl_description": "Real Estate Taxes",
+    "category": "Real Estate Taxes",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1770-00",
+    "gl_description": "EMPTY",
+    "category": "EMPTY",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1771-00",
+    "gl_description": "EMPTY",
+    "category": "EMPTY",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1772-00",
+    "gl_description": "EMPTY",
+    "category": "EMPTY",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1945-00",
+    "gl_description": "Interest Rate Swap",
+    "category": "Interest Rate Swap",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1946-00",
+    "gl_description": "Market Value Interest Swap",
+    "category": "Market Value Interest Swap",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1951-00",
+    "gl_description": "Financing Costs",
+    "category": "Financing Costs",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1954-00",
+    "gl_description": "Accumulated Amortization - Financing Costs",
+    "category": "Accumulated Amortization - Financing Costs",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1960-00",
+    "gl_description": "Organization Costs",
+    "category": "Organization Costs",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1964-00",
+    "gl_description": "Accumulated Amortization - Organization Costs",
+    "category": "Accumulated Amortization - Organization Costs",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1965-00",
+    "gl_description": "Leasing Commissions",
+    "category": "Leasing Commissions",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1969-00",
+    "gl_description": "Accumulated Amortization - Leasing Commissions",
+    "category": "Accumulated Amortization - Leasing Commissions",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1970-00",
+    "gl_description": "Legal Costs",
+    "category": "Legal Costs",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1975-00",
+    "gl_description": "Accumulated Amortization - Legal Costs",
+    "category": "Accumulated Amortization - Legal Costs",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1980-00",
+    "gl_description": "Prepaid Bonuses/Recruiting",
+    "category": "Prepaid Bonuses/Recruiting",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1983-00",
+    "gl_description": "Adjusted Basis 704(b)",
+    "category": "Adjusted Basis 704(b)",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1984-00",
+    "gl_description": "Adjusted Basis 704(b)",
+    "category": "Adjusted Basis 704(b)",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1985-00",
+    "gl_description": "Goodwill",
+    "category": "Goodwill",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1990-00",
+    "gl_description": "Inventory",
+    "category": "Inventory",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "1995-00",
+    "gl_description": "Other Assets",
+    "category": "Other Assets",
+    "type": "Asset",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2010-00",
+    "gl_description": "Accounts Payable",
+    "category": "Accounts Payable",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2011-00",
+    "gl_description": "A/P Clearing",
+    "category": "A/P Clearing",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2015-00",
+    "gl_description": "A/P - Retention",
+    "category": "A/P - Retention",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2016-00",
+    "gl_description": "A/P - Credit Card",
+    "category": "A/P - Credit Card",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2017-00",
+    "gl_description": "Credit Card Suspense",
+    "category": "Credit Card Suspense",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2020-00",
+    "gl_description": "Accrued Elevator",
+    "category": "Accrued Elevator",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2021-00",
+    "gl_description": "Accrued HVAC",
+    "category": "Accrued HVAC",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2022-00",
+    "gl_description": "Accrued Insurance (Health)",
+    "category": "Accrued Insurance (Health)",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2023-00",
+    "gl_description": "Accrued Insurance (Property)",
+    "category": "Accrued Insurance (Property)",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2024-00",
+    "gl_description": "Accrued Property Taxes",
+    "category": "Accrued Property Taxes",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2025-00",
+    "gl_description": "Accrued Expense",
+    "category": "Accrued Expense",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2026-00",
+    "gl_description": "Accrued Interest",
+    "category": "Accrued Interest",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2027-00",
+    "gl_description": "Capital Lease Obligations",
+    "category": "Capital Lease Obligations",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2031-00",
+    "gl_description": "Due to Related Party",
+    "category": "Due to Related Party",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2032-00",
+    "gl_description": "Due to Related Party II",
+    "category": "Due to Related Party II",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2033-00",
+    "gl_description": "Due to Related Party III",
+    "category": "Due to Related Party III",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2039-00",
+    "gl_description": "Due To Intercompany",
+    "category": "Due To Intercompany",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2039-01",
+    "gl_description": "Due To Interco-Suspense",
+    "category": "Due To Interco-Suspense",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2040-00",
+    "gl_description": "Repair Reimbursement",
+    "category": "Repair Reimbursement",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2095-00",
+    "gl_description": "Other Liability",
+    "category": "Other Liability",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2110-00",
+    "gl_description": "Prepaid Rent",
+    "category": "Prepaid Rent",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2115-00",
+    "gl_description": "Construction Deposit",
+    "category": "Construction Deposit",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2116-00",
+    "gl_description": "Construction Deposit- Clearing",
+    "category": "Construction Deposit- Clearing",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2120-00",
+    "gl_description": "Tenant Security Deposits",
+    "category": "Tenant Security Deposits",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2121-00",
+    "gl_description": "Tenant Security Deposit Clearing Account",
+    "category": "Tenant Security Deposit Clearing Account",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2191-00",
+    "gl_description": "Maintenance Reserve",
+    "category": "Maintenance Reserve",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2192-00",
+    "gl_description": "Non Recurring Reserve",
+    "category": "Non Recurring Reserve",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2193-00",
+    "gl_description": "Other Liabilities",
+    "category": "Other Liabilities",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2194-00",
+    "gl_description": "Tenant Improvements",
+    "category": "Tenant Improvements",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2198-00",
+    "gl_description": "Unearned Revenue",
+    "category": "Unearned Revenue",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2305-00",
+    "gl_description": "Mezzanine Debt",
+    "category": "Mezzanine Debt",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2310-00",
+    "gl_description": "Mortgage Payable",
+    "category": "Mortgage Payable",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2320-00",
+    "gl_description": "Loan",
+    "category": "Loan",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2320-01",
+    "gl_description": "Loan - SOJO Station Parking",
+    "category": "Loan - SOJO Station Parking",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2331-00",
+    "gl_description": "Loan from Shareholder",
+    "category": "Loan from Shareholder",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2332-00",
+    "gl_description": "Loan from Shareholder II",
+    "category": "Loan from Shareholder II",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2340-00",
+    "gl_description": "Deferred Income - Hedge",
+    "category": "Deferred Income - Hedge",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2700-00",
+    "gl_description": "Other Liability",
+    "category": "Other Liability",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2701-00",
+    "gl_description": "Intercompany Payable",
+    "category": "Intercompany Payable",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2702-00",
+    "gl_description": "Prepaid Elevator",
+    "category": "Prepaid Elevator",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2703-00",
+    "gl_description": "Prepaid HVAC",
+    "category": "Prepaid HVAC",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2704-00",
+    "gl_description": "Prepaid Insurance",
+    "category": "Prepaid Insurance",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2705-00",
+    "gl_description": "Lease Commissions",
+    "category": "Lease Commissions",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "2706-00",
+    "gl_description": "Mortgage Interest",
+    "category": "Mortgage Interest",
+    "type": "Liability",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-01",
+    "gl_description": "Owner Capital",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-02",
+    "gl_description": "Owner Capital: Nathan Ricks",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-03",
+    "gl_description": "Owner Capital: Lindorf Family 101 Trust",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-04",
+    "gl_description": "Owner Capital: JT Petersen One",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-05",
+    "gl_description": "Owner Capital: JSP II",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-06",
+    "gl_description": "Owner Capital: Fugal Thanksgiving Dev",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-07",
+    "gl_description": "Owner Capital: Jaro Holdings",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-08",
+    "gl_description": "Owner Capital: RH Makeup HQ",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-09",
+    "gl_description": "Owner Capital: R&T Investments",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-10",
+    "gl_description": "Owner Capital: Gunsight Pass",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-11",
+    "gl_description": "Owner Capital: Greerco",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-12",
+    "gl_description": "Owner Capital: Cazador Dos",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-13",
+    "gl_description": "Owner Capital: BGS Traverse",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-14",
+    "gl_description": "Owner Capital: Joyce Ricks Family Trust",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-15",
+    "gl_description": "Owner Capital: Nathan W. Ricks",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-16",
+    "gl_description": "Owner Capital: Steve Petersen",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-17",
+    "gl_description": "Owner Capital: Andrew Bybee",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-18",
+    "gl_description": "Owner Capital: Utah Transit Authority",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-19",
+    "gl_description": "Owner Capital: SoJo Station, LLC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-20",
+    "gl_description": "Owner Capital: SoJo Station Parking, Inc.",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-21",
+    "gl_description": "Owner Capital: RH Stack, LLC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-22",
+    "gl_description": "Owner Capital: SoJo Holdings, LLC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-23",
+    "gl_description": "Owner Capital: RH Millrock II",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-24",
+    "gl_description": "Owner Capital: Millrock Capital",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-25",
+    "gl_description": "Owner Capital: Ryan Bybee",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-26",
+    "gl_description": "Owner Capital: Devin Bybee",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-27",
+    "gl_description": "Owner Capital: Charley Patterson",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-28",
+    "gl_description": "Owner Capital: Rich Larson",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-29",
+    "gl_description": "Owner Capital: Matthew Tillotson",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-30",
+    "gl_description": "Owner Capital: Blake Tillotson",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-31",
+    "gl_description": "Owner Capital: Black Sheep Equity",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-32",
+    "gl_description": "Owner Capital: TPark TOD One, LLC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-33",
+    "gl_description": "Owner Capital: Smart Farmington, LLC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-34",
+    "gl_description": "Owner Capital: RH Farmington, LLC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-35",
+    "gl_description": "Owner Capital: LAC, LC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-36",
+    "gl_description": "Owner Capital: JSL Medical Trust",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-37",
+    "gl_description": "Owner Capital: Lindsey Farmington, LLC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-38",
+    "gl_description": "Owner Capital: Aries Stack Investment, LLC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-39",
+    "gl_description": "Owner Capital: Dayton West",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-40",
+    "gl_description": "Owner Capital: 5 Chumps, LLC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-41",
+    "gl_description": "Owner Capital: TP Landing Holdings",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-42",
+    "gl_description": "Owner Capital: RH Storage, LLC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-43",
+    "gl_description": "Owner Capital: TREO Investments, LLC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-44",
+    "gl_description": "Owner Capital: Privy Storage, LLC",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-45",
+    "gl_description": "Owner Capital: Lehi TOD",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-46",
+    "gl_description": "Owner Capital: Anvil Apartments",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-47",
+    "gl_description": "Owner Capital: Brad Rencher",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-48",
+    "gl_description": "Owner Capital: Jeff Hendrickson",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-49",
+    "gl_description": "Owner Capital: Bill Toth",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-50",
+    "gl_description": "Owner Capital: Mike McEwan",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-51",
+    "gl_description": "Owner Capital: Evenland Farms",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-52",
+    "gl_description": "Owner Capital: RH Equity",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-53",
+    "gl_description": "Owner Capital: Steve Bennett",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-54",
+    "gl_description": "Owner Capital: Trevor Evans (Mufaro, LLC)",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-55",
+    "gl_description": "Owner Capital: EMC Squared",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3010-56",
+    "gl_description": "Owner Capital: Devonia (Brian Selander)",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3015-00",
+    "gl_description": "Owner Capital: Thanksgiving Holdings",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3016-00",
+    "gl_description": "Owner Capital: SoJo Station Parking",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3017-00",
+    "gl_description": "Owner Capital: Thanksgiving Station",
+    "category": "Owner Capital",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-01",
+    "gl_description": "Owner Contributions",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-02",
+    "gl_description": "Owner Contributions: Nathan Ricks",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-03",
+    "gl_description": "Owner Contributions: Lindorf Family 101 Trust",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-04",
+    "gl_description": "Owner Contributions: JT Petersen One",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-05",
+    "gl_description": "Owner Contributions: JSP II",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-06",
+    "gl_description": "Owner Contributions: Fugal Thanksgiving Dev",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-07",
+    "gl_description": "Owner Contributions: Jaro Holdings",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-08",
+    "gl_description": "Owner Contributions: RH Makeup HQ",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-09",
+    "gl_description": "Owner Contributions: R&T Investments",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-10",
+    "gl_description": "Owner Contributions: Gunsight Pass",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-11",
+    "gl_description": "Owner Contributions: Greerco",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-12",
+    "gl_description": "Owner Contributions: Cazador Dos",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-13",
+    "gl_description": "Owner Contributions: BGS Traverse",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-14",
+    "gl_description": "Owner Contributions: Joyce Ricks Family Trust",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-15",
+    "gl_description": "Owner Contributions: Nathan W. Ricks",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-16",
+    "gl_description": "Owner Contributions: Steve Petersen",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-17",
+    "gl_description": "Owner Contributions: Andrew Bybee",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-18",
+    "gl_description": "Owner Contributions: Utah Transit Authority",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-19",
+    "gl_description": "Owner Contributions: SoJo Station, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-20",
+    "gl_description": "Owner Contributions: SoJo Station Parking, Inc.",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-21",
+    "gl_description": "Owner Contributions: RH Stack, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-22",
+    "gl_description": "Owner Contributions: SoJo Holdings, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-23",
+    "gl_description": "Owner Contributions: RH Millrock II",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-24",
+    "gl_description": "Owner Contributions: Millrock Capital",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-25",
+    "gl_description": "Owner Contributions: Ryan Bybee",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-26",
+    "gl_description": "Owner Contributions: Devin Bybee",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-27",
+    "gl_description": "Owner Contributions: Charley Patterson",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-28",
+    "gl_description": "Owner Contributions: Rich Larson",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-29",
+    "gl_description": "Owner Contributions: Matthew Tillotson",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-30",
+    "gl_description": "Owner Contributions: Blake Tillotson",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-31",
+    "gl_description": "Owner Contributions: Black Sheet Equity",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-32",
+    "gl_description": "Owner Contributions: TPark TOD One, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-33",
+    "gl_description": "Owner Contributions: Smart Farmington, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-34",
+    "gl_description": "Owner Contributions: RH Farmington, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-35",
+    "gl_description": "Owner Contributions: LAC, LC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-36",
+    "gl_description": "Owner Contributions: JSL Medical Trust",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-37",
+    "gl_description": "Owner Contributions: Lindsey Farmington, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-38",
+    "gl_description": "Owner Contributions: Aries Stack Investment, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-39",
+    "gl_description": "Owner Contributions: Dayton West, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-40",
+    "gl_description": "Owner Contributions: 5 Chumps, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-41",
+    "gl_description": "Owner Contributions: TP Landing Holdings",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-42",
+    "gl_description": "Owner Contributions: RH Storage, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-43",
+    "gl_description": "Owner Contributions: TREO Investments, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3020-44",
+    "gl_description": "Owner Contributions: Privy Storage, LLC",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3025-00",
+    "gl_description": "Owner Contributions: Thanksgiving Holdings",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3026-00",
+    "gl_description": "Owner Contributions: Intercompany",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3027-00",
+    "gl_description": "Owner Contributions: Thanksgiving Station",
+    "category": "Owner Contributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-01",
+    "gl_description": "Owner Distributions",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-02",
+    "gl_description": "Owner Distributions: Nathan Ricks",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-03",
+    "gl_description": "Owner Distributions: Lindorf Family 101 Trust",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-04",
+    "gl_description": "Owner Distributions: JT Petersen One",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-05",
+    "gl_description": "Owner Distributions: JSP II",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-06",
+    "gl_description": "Owner Distributions: Fugal Thanksgiving Dev",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-07",
+    "gl_description": "Owner Distributions: Jaro Holdings",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-08",
+    "gl_description": "Owner Distributions: RH Makeup HQ",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-09",
+    "gl_description": "Owner Distributions: R&T Investments",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-10",
+    "gl_description": "Owner Distributions: Gunsight Pass",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-11",
+    "gl_description": "Owner Distributions: Greerco",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-12",
+    "gl_description": "Owner Distributions: Cazador Dos",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-13",
+    "gl_description": "Owner Distributions: BGS Traverse",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-14",
+    "gl_description": "Owner Distributions: Joyce Ricks Family Trust",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-15",
+    "gl_description": "Owner Distributions: Nathan W. Ricks",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-16",
+    "gl_description": "Owner Distributions: Steve Petersen",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-17",
+    "gl_description": "Owner Distributions: Andrew Bybee",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-18",
+    "gl_description": "Owner Distributions: Utah Transit Authority",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-19",
+    "gl_description": "Owner Distributions: SoJo Station, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-20",
+    "gl_description": "Owner Distributions: SoJo Station Parking, Inc.",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-21",
+    "gl_description": "Owner Distributions: RH Stack, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-22",
+    "gl_description": "Owner Distributions: SoJo Holdings, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-23",
+    "gl_description": "Owner Distributions: RH Millrock II",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-24",
+    "gl_description": "Owner Distributions: Millrock Capital",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-25",
+    "gl_description": "Owner Distributions: Ryan Bybee",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-26",
+    "gl_description": "Owner Distributions: Devin Bybee",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-27",
+    "gl_description": "Owner Distributions: Charley Patterson",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-28",
+    "gl_description": "Owner Distributions: Rich Larson",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-29",
+    "gl_description": "Owner Distributions: Matthew Tillotson",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-30",
+    "gl_description": "Owner Distributions: Blake Tillotson",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-31",
+    "gl_description": "Owner Distributions: Black Sheep Equity",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-32",
+    "gl_description": "Owner Distributions: TPark TOD One, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-33",
+    "gl_description": "Owner Distributions: Smart Farmington, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-34",
+    "gl_description": "Owner Distributions: RH Farmington, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-35",
+    "gl_description": "Owner Distributions: LAC, LC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-36",
+    "gl_description": "Owner Distributions: JSL Medical Trust",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-37",
+    "gl_description": "Owner Distributions: Lindsey Farmington, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-38",
+    "gl_description": "Owner Distributions: Aries Stack Investment, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-39",
+    "gl_description": "Owner Distributions: Dayton West, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-40",
+    "gl_description": "Owner Distributions: 5 Chumps, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-41",
+    "gl_description": "Owner Distributions: TP Landing Holdings",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-42",
+    "gl_description": "Owner Distributions: RH Storage, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-43",
+    "gl_description": "Owner Distributions: TREO Investments, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3030-44",
+    "gl_description": "Owner Distributions: Privy Storage, LLC",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3035-00",
+    "gl_description": "Owner Distributions: Thanksgiving Holdings",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3037-00",
+    "gl_description": "Owner Distributions: Thanksgiving Station",
+    "category": "Owner Distributions",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3091-00",
+    "gl_description": "Prior Year Retained Earnings",
+    "category": "Prior Year Retained Earnings",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "3095-00",
+    "gl_description": "Retained Earnings - Current",
+    "category": "Retained Earnings - Current",
+    "type": "Equity",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4110-00",
+    "gl_description": "Base Rent",
+    "category": "Base Rent",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4120-00",
+    "gl_description": "Free Rent",
+    "category": "Free Rent",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4130-00",
+    "gl_description": "Holdover Rent",
+    "category": "Holdover Rent",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4140-00",
+    "gl_description": "Rent: COVID-19 Rent Abatement",
+    "category": "Rent",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4210-00",
+    "gl_description": "Recoveries - CAM",
+    "category": "Recoveries - CAM",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4220-00",
+    "gl_description": "Recoveries - After Hours Usage",
+    "category": "Recoveries - After Hours Usage",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4225-00",
+    "gl_description": "Recoveries - Scheduled After Hours Usage",
+    "category": "Recoveries - Scheduled After Hours Usage",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4226-00",
+    "gl_description": "Recoveries - Temporary After Hours Usage",
+    "category": "Recoveries - Temporary After Hours Usage",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4230-00",
+    "gl_description": "Recoveries - Meter Usage",
+    "category": "Recoveries - Meter Usage",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4235-00",
+    "gl_description": "Recoveries - Car Charger Meter",
+    "category": "Recoveries - Car Charger Meter",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4240-00",
+    "gl_description": "Recoveries - Prior Year CAM",
+    "category": "Recoveries - Prior Year CAM",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4250-00",
+    "gl_description": "Recoveries - Prior Year After Hours Usage",
+    "category": "Recoveries - Prior Year After Hours Usage",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4255-00",
+    "gl_description": "Recoveries - Prior Year Scheduled After Hours Usage",
+    "category": "Recoveries - Prior Year Scheduled After Hours Usage",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4260-00",
+    "gl_description": "Recoveries - Prior Year Meter Usage",
+    "category": "Recoveries - Prior Year Meter Usage",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4305-00",
+    "gl_description": "Prepaid Rents",
+    "category": "Prepaid Rents",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4310-00",
+    "gl_description": "Interest Income",
+    "category": "Interest Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4312-00",
+    "gl_description": "Internet Access",
+    "category": "Internet Access",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4315-00",
+    "gl_description": "Late Fee Income",
+    "category": "Late Fee Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4318-00",
+    "gl_description": "Mailbox Rental",
+    "category": "Mailbox Rental",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4320-00",
+    "gl_description": "Miscellaneous Income",
+    "category": "Miscellaneous Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4325-00",
+    "gl_description": "Signage Income",
+    "category": "Signage Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4330-00",
+    "gl_description": "Storage Income",
+    "category": "Storage Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4333-00",
+    "gl_description": "Furniture & Appliance Rental",
+    "category": "Furniture & Appliance Rental",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4335-00",
+    "gl_description": "Telephone Service Revenue",
+    "category": "Telephone Service Revenue",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4340-00",
+    "gl_description": "Bank Fee",
+    "category": "Bank Fee",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4345-00",
+    "gl_description": "Bank Interest Income",
+    "category": "Bank Interest Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4347-00",
+    "gl_description": "Conduit Fee",
+    "category": "Conduit Fee",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4350-00",
+    "gl_description": "Cable",
+    "category": "Cable",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4355-00",
+    "gl_description": "Key & Badge Income",
+    "category": "Key & Badge Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4360-00",
+    "gl_description": "Lease Commission Income",
+    "category": "Lease Commission Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4364-00",
+    "gl_description": "Construction Management Fees",
+    "category": "Construction Management Fees",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4365-00",
+    "gl_description": "Management Fees",
+    "category": "Management Fees",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4367-00",
+    "gl_description": "Parking Rent",
+    "category": "Parking Rent",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4368-00",
+    "gl_description": "Backup Generator",
+    "category": "Backup Generator",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4370-00",
+    "gl_description": "Returned Check Fee (NSF)",
+    "category": "Returned Check Fee (NSF)",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4375-00",
+    "gl_description": "Interest Rate Cap Proceeds",
+    "category": "Interest Rate Cap Proceeds",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4380-00",
+    "gl_description": "Janitorial Service Reimbursement",
+    "category": "Janitorial Service Reimbursement",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4383-00",
+    "gl_description": "Janitorial Supply Reimbursement",
+    "category": "Janitorial Supply Reimbursement",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4385-00",
+    "gl_description": "Labor Admin",
+    "category": "Labor Admin",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4388-00",
+    "gl_description": "Tenant Improvement Reimbursement",
+    "category": "Tenant Improvement Reimbursement",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4390-00",
+    "gl_description": "Utility Reimbursement",
+    "category": "Utility Reimbursement",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4393-00",
+    "gl_description": "Water/Sewer Reimbursement",
+    "category": "Water/Sewer Reimbursement",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4395-00",
+    "gl_description": "Security Deposit Forfeit",
+    "category": "Security Deposit Forfeit",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4398-00",
+    "gl_description": "Termination Fee",
+    "category": "Termination Fee",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4415-00",
+    "gl_description": "Income/Loss - Ridge 5",
+    "category": "Income/Loss - Ridge 5",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4416-00",
+    "gl_description": "Income/Loss - Hunting Office",
+    "category": "Income/Loss - Hunting Office",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4417-00",
+    "gl_description": "Income/Loss - Rose Garden",
+    "category": "Income/Loss - Rose Garden",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4420-00",
+    "gl_description": "Income/Loss - Thanksgiving Park Operations",
+    "category": "Income/Loss - Thanksgiving Park Operations",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4420-01",
+    "gl_description": "Income/Loss - Thanksgiving Park One",
+    "category": "Income/Loss - Thanksgiving Park One",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4420-02",
+    "gl_description": "Income/Loss - Thanksgiving Park Two",
+    "category": "Income/Loss - Thanksgiving Park Two",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4420-03",
+    "gl_description": "Income/Loss - Thanksgiving Park Three",
+    "category": "Income/Loss - Thanksgiving Park Three",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4420-04",
+    "gl_description": "Income/Loss - Thanksgiving Park Four",
+    "category": "Income/Loss - Thanksgiving Park Four",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4420-05",
+    "gl_description": "Income/Loss - Thanksgiving Park Five",
+    "category": "Income/Loss - Thanksgiving Park Five",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4420-06",
+    "gl_description": "Income/Loss - Thanksgiving Park Six",
+    "category": "Income/Loss - Thanksgiving Park Six",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4425-01",
+    "gl_description": "Income/Loss - TPark Retail One",
+    "category": "Income/Loss - TPark Retail One",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4425-02",
+    "gl_description": "Income/Loss - Ashton Retail",
+    "category": "Income/Loss - Ashton Retail",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4425-03",
+    "gl_description": "Income/Loss - TPark Retail Three",
+    "category": "Income/Loss - TPark Retail Three",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4425-04",
+    "gl_description": "Income/Loss - TPark Retail Four",
+    "category": "Income/Loss - TPark Retail Four",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4430-01",
+    "gl_description": "Income/Loss - T-Stat One",
+    "category": "Income/Loss - T-Stat One",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4430-02",
+    "gl_description": "Income/Loss - T-Stat Two",
+    "category": "Income/Loss - T-Stat Two",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4430-03",
+    "gl_description": "Income/Loss - T-Stat Three",
+    "category": "Income/Loss - T-Stat Three",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4430-04",
+    "gl_description": "Income/Loss - T-Stat Four",
+    "category": "Income/Loss - T-Stat Four",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4430-05",
+    "gl_description": "Income/Loss - T-Stat Five",
+    "category": "Income/Loss - T-Stat Five",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4430-11",
+    "gl_description": "Income/Loss - VS Studio (Tru Hotel)",
+    "category": "Income/Loss - VS Studio (Tru Hotel)",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4431-00",
+    "gl_description": "Income/Loss - 32 Ashton",
+    "category": "Income/Loss - 32 Ashton",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4435-01",
+    "gl_description": "Income/Loss - Sojo Station North",
+    "category": "Income/Loss - Sojo Station North",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4515-00",
+    "gl_description": "Gain/Loss on Sale of Assets",
+    "category": "Gain/Loss on Sale of Assets",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4520-00",
+    "gl_description": "Unrealized Gain (Loss) on Derivative Financial Instr.",
+    "category": "Unrealized Gain (Loss) on Derivative Financial Instr.",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-00",
+    "gl_description": "K-1 Ordinary Income",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-52",
+    "gl_description": "K-1 Ordinary Income:K-1 ACF VII",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-53",
+    "gl_description": "K-1 Ordinary Income:K-1 Thanksgiving Station LLC",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-54",
+    "gl_description": "K-1 Ordinary Income:K-1 Thanksgiving Holdings",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-55",
+    "gl_description": "K-1 Ordinary Income:K-1 Sojo Station South",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-57",
+    "gl_description": "K-1 Ordinary Income - Radd Ventures",
+    "category": "K-1 Ordinary Income - Radd Ventures",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-58",
+    "gl_description": "K-1 Ordinary Income:K-1 MHC Inv. LLC",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-59",
+    "gl_description": "K-1 Ordinary Income:K-1 Gunsight Pass LLC",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-60",
+    "gl_description": "K-1 Ordinary Income:K-1 Cowen Management",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-61",
+    "gl_description": "K-1 Ordinary Income:K-1 Cowen Land and Livestock",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-62",
+    "gl_description": "K-1 Ordinary Income: Cowen Development",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-63",
+    "gl_description": "K-1 Ordinary Income:K-1 ACF VI",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-64",
+    "gl_description": "K-1 Ordinary Income:K-1 Affordable Comm Fund V",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-65",
+    "gl_description": "K-1 Ordinary Income:K-1 Affordable Fund Comm IV",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-66",
+    "gl_description": "K-1 Ordinary Income:K-1 AFC Fund III- Ordinary",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-68",
+    "gl_description": "K-1 Ordinary Income:K-1 Affordable Comm Fund I Ord",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-69",
+    "gl_description": "K-1 Ordinary Income - S20 Capital Fund",
+    "category": "K-1 Ordinary Income - S20 Capital Fund",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-70",
+    "gl_description": "K-1 Ordinary Income:K-1 Stack Storage",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-71",
+    "gl_description": "K-1 Ordinary Income:K-1 Stack Car Wash",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-72",
+    "gl_description": "K-1 Ordinary Income:K-1 Stack LLC",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-73",
+    "gl_description": "K-1 Ordinary Income: ACF VII",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-74",
+    "gl_description": "K-1 Ordinary Income: STACK ACF Holdings",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4615-86",
+    "gl_description": "K-1 Ordinary Income:K-1 ACF iv",
+    "category": "K-1 Ordinary Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4616-00",
+    "gl_description": "K-1 NonTaxable Income",
+    "category": "K-1 NonTaxable Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4616-90",
+    "gl_description": "K-1 Dividends",
+    "category": "K-1 Dividends",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-00",
+    "gl_description": "K-1 Rental Income",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-52",
+    "gl_description": "K-1 Rental Income:K-1 ACF VII",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-53",
+    "gl_description": "K-1 Rental Income:K-1 Thanksgiving Station LLC",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-54",
+    "gl_description": "K-1 Rental Income:K-1 Thanksgiving Holdings",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-55",
+    "gl_description": "K-1 Rental Income:K-1 Sojo Station South",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-56",
+    "gl_description": "K-1 Rental Income:K-1 Sojo Station North Rental",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-58",
+    "gl_description": "K-1 Rental Income:K-1 MHC Inv. LLC",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-59",
+    "gl_description": "K-1 Rental Income:K-1 Gunsight Pass LLC",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-63",
+    "gl_description": "K-1 Rental Income:K-1 ACF VI Rental",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-64",
+    "gl_description": "K-1 Rental Income:K-1 Affordable Comm Fund V",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-65",
+    "gl_description": "K-1 Rental Income:K-1 Rental ACF IV",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-66",
+    "gl_description": "K-1 Rental Income:K-1 AFC Fund III Rental",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-67",
+    "gl_description": "K-1 Rental Income:K-1 Affordable Comm Fund V",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-68",
+    "gl_description": "K-1 Rental Income:K-1 Affordable Comm Fund I Rent",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-70",
+    "gl_description": "K-1 Rental Income: STACK Storage",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-71",
+    "gl_description": "K-1 Rental Income:K-1 Stack Car Wash LLC",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-72",
+    "gl_description": "K-1 Rental Income:K-1 Stack LLC",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-73",
+    "gl_description": "K-1 Rental Income: ACF VII",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-74",
+    "gl_description": "K-1 Rental Income: STACK ACF Holdings",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4617-86",
+    "gl_description": "K-1 Rental Income: ACF IV",
+    "category": "K-1 Rental Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-00",
+    "gl_description": "K-1 Interest Income",
+    "category": "K-1 Interest Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-53",
+    "gl_description": "K-1 Interest Income - Thanksgiving Station",
+    "category": "K-1 Interest Income - Thanksgiving Station",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-54",
+    "gl_description": "K-1 Interest Income - Thanksgiving Holdings",
+    "category": "K-1 Interest Income - Thanksgiving Holdings",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-55",
+    "gl_description": "K-1 Interest Income - SOJO Station South",
+    "category": "K-1 Interest Income - SOJO Station South",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-56",
+    "gl_description": "K-1 Interest Income - SOJO Station North",
+    "category": "K-1 Interest Income - SOJO Station North",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-58",
+    "gl_description": "K-1 Interest Income - MHC Investment",
+    "category": "K-1 Interest Income - MHC Investment",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-59",
+    "gl_description": "K-1 Interest Income - Ginsight Pass",
+    "category": "K-1 Interest Income - Ginsight Pass",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-63",
+    "gl_description": "K-1 Interest Income - ACF VI",
+    "category": "K-1 Interest Income - ACF VI",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-64",
+    "gl_description": "K-1 Interest Income - ACF V",
+    "category": "K-1 Interest Income - ACF V",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-65",
+    "gl_description": "K-1 Interest Income - ACF V",
+    "category": "K-1 Interest Income - ACF V",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-68",
+    "gl_description": "K-1 Interest Income - ACF I",
+    "category": "K-1 Interest Income - ACF I",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-70",
+    "gl_description": "K-1 Interest Income - STACK Storage, LLC",
+    "category": "K-1 Interest Income - STACK Storage, LLC",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-72",
+    "gl_description": "K-1 Interest Income - STACK LLC",
+    "category": "K-1 Interest Income - STACK LLC",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-73",
+    "gl_description": "K-1 Interest Income - ACF VII",
+    "category": "K-1 Interest Income - ACF VII",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-74",
+    "gl_description": "K-1 Interest Income - STACK ACF Holdings",
+    "category": "K-1 Interest Income - STACK ACF Holdings",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4618-86",
+    "gl_description": "K-1 Interest Income - ACF IV",
+    "category": "K-1 Interest Income - ACF IV",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4619-00",
+    "gl_description": "K-1 Gain/Loss on Sale",
+    "category": "K-1 Gain/Loss on Sale",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4619-90",
+    "gl_description": "K1-Dividends",
+    "category": "K1-Dividends",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4619-91",
+    "gl_description": "K-1 Other Income",
+    "category": "K-1 Other Income",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4620-00",
+    "gl_description": "K-1 NonDeductible Expense",
+    "category": "K-1 NonDeductible Expense",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4621-00",
+    "gl_description": "K-1 Charitable Contributions",
+    "category": "K-1 Charitable Contributions",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4621-66",
+    "gl_description": "K-1 Charitable Contributions - ACF III",
+    "category": "K-1 Charitable Contributions - ACF III",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4621-72",
+    "gl_description": "K-1 Charitable Contributions - STACK LLC",
+    "category": "K-1 Charitable Contributions - STACK LLC",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-00",
+    "gl_description": "K-1 Excess Business Interest Expense",
+    "category": "K-1 Excess Business Interest Expense",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-52",
+    "gl_description": "Excess Business Interest:K-1 ACF VII",
+    "category": "Excess Business Interest",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-54",
+    "gl_description": "Excess Business Interest:K-1 Thanksgiving Holdings",
+    "category": "Excess Business Interest",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-58",
+    "gl_description": "Excess Business Interest:K-1 MHC Interest Exp",
+    "category": "Excess Business Interest",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-63",
+    "gl_description": "Excess Business Interest:K-1 ACF VI Excess Int",
+    "category": "Excess Business Interest",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-64",
+    "gl_description": "Excess Business Interest:K-1 AFC V",
+    "category": "Excess Business Interest",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-65",
+    "gl_description": "Excess Business Interest:K-1 MHC IV Interest Exp",
+    "category": "Excess Business Interest",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-66",
+    "gl_description": "Excess Business Interest:K-1 ACF Fund  III Interest",
+    "category": "Excess Business Interest",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-68",
+    "gl_description": "Excess Business Interest:K-1 AFC Fund I Interest",
+    "category": "Excess Business Interest",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-69",
+    "gl_description": "Excess Business Interest:K-1 S20 Capital Fund",
+    "category": "Excess Business Interest",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-72",
+    "gl_description": "Excess Business Interest - Stack",
+    "category": "Excess Business Interest - Stack",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-73",
+    "gl_description": "Excess Business Interest:Excess Bus Interest - ACF VII",
+    "category": "Excess Business Interest",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-74",
+    "gl_description": "Excess Business Interest - STACK ACF Holdings",
+    "category": "Excess Business Interest - STACK ACF Holdings",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4622-86",
+    "gl_description": "Excess Business Interest:K-1 AFC Fund IV Interest",
+    "category": "Excess Business Interest",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4623-00",
+    "gl_description": "K-1 Book-Tax Adjustments",
+    "category": "K-1 Book-Tax Adjustments",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4624-00",
+    "gl_description": "K-1 Guaranteed Payments",
+    "category": "K-1 Guaranteed Payments",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4624-50",
+    "gl_description": "K-1 Net ST Capital Gains",
+    "category": "K-1 Net ST Capital Gains",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4625-00",
+    "gl_description": "K-1 Long Term Capital Gain",
+    "category": "K-1 Long Term Capital Gain",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4625-54",
+    "gl_description": "K-1 Long Term Capital Gains - Thanksgiving Holdings",
+    "category": "K-1 Long Term Capital Gains - Thanksgiving Holdings",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4625-69",
+    "gl_description": "K-1 Long Term Capital Gains - S20 Capital Fund",
+    "category": "K-1 Long Term Capital Gains - S20 Capital Fund",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4625-72",
+    "gl_description": "K-1 Long Term Capital Gains - STACK",
+    "category": "K-1 Long Term Capital Gains - STACK",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-00",
+    "gl_description": "K-1 Net Section 1231",
+    "category": "K-1 Net Section 1231",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-53",
+    "gl_description": "Sec. 1231 Gain/Loss: Thanksgiving Station, LLC",
+    "category": "Sec. 1231 Gain/Loss",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-54",
+    "gl_description": "Sec. 1231 Gain/Loss:Thanksgiving Holdings, LLC",
+    "category": "Sec. 1231 Gain/Loss",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-55",
+    "gl_description": "Sec. 1231 Gain/Loss - SOJO Station South",
+    "category": "Sec. 1231 Gain/Loss - SOJO Station South",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-56",
+    "gl_description": "Sec. 1231 Gain/Loss - SOJO Station North",
+    "category": "Sec. 1231 Gain/Loss - SOJO Station North",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-58",
+    "gl_description": "Sec. 1231 Gain/Loss:MHC Investment",
+    "category": "Sec. 1231 Gain/Loss",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-63",
+    "gl_description": "Sec. 1231 Gain/Loss:ACF VI",
+    "category": "Sec. 1231 Gain/Loss",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-64",
+    "gl_description": "Sec. 1231 Gain/Loss:ACF V",
+    "category": "Sec. 1231 Gain/Loss",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-65",
+    "gl_description": "Sec. 1231 Gain/Loss:AFC IV",
+    "category": "Sec. 1231 Gain/Loss",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-66",
+    "gl_description": "Sec. 1231 Gain/Loss:ACF III",
+    "category": "Sec. 1231 Gain/Loss",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-68",
+    "gl_description": "Sec. 1231 Gain/Loss:ACF I",
+    "category": "Sec. 1231 Gain/Loss",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-72",
+    "gl_description": "Sec. 1231 Gain/Loss:Stack LLC",
+    "category": "Sec. 1231 Gain/Loss",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-73",
+    "gl_description": "Sec. 1231 Gain/Loss: ACF VII",
+    "category": "Sec. 1231 Gain/Loss",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-74",
+    "gl_description": "Sec. 1231 Gain/Loss: STACK ACF Holdings",
+    "category": "Sec. 1231 Gain/Loss",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4626-86",
+    "gl_description": "Sec. 1231 Gain/Loss: ACF IV",
+    "category": "Sec. 1231 Gain/Loss",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4627-00",
+    "gl_description": "K-1 GAAP Adjustments",
+    "category": "K-1 GAAP Adjustments",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "4628-00",
+    "gl_description": "K-1 Other Deductions",
+    "category": "K-1 Other Deductions",
+    "type": "Revenue",
+    "recoverable": false
+  },
+  {
+    "gl_code": "5010-00",
+    "gl_description": "Advertising",
+    "category": "Advertising",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5020-00",
+    "gl_description": "Alarm Monitoring",
+    "category": "Alarm Monitoring",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5030-00",
+    "gl_description": "Amortization Expense: Financing Costs",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5031-00",
+    "gl_description": "Amortization Expense: Organization Costs",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5032-00",
+    "gl_description": "Amortization Expense: Leasing Commissions",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5033-00",
+    "gl_description": "Amortization Expense: Legal Costs",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5040-00",
+    "gl_description": "Automobile Expense",
+    "category": "Automobile Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5050-00",
+    "gl_description": "Bad Debt Expense",
+    "category": "Bad Debt Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5055-00",
+    "gl_description": "Bank Service Charges",
+    "category": "Bank Service Charges",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5060-00",
+    "gl_description": "Boiler: Inspection",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5061-00",
+    "gl_description": "Boiler: Other",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5062-00",
+    "gl_description": "Boiler: Repairs",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5063-00",
+    "gl_description": "Boiler: Supplies/Materials",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5065-00",
+    "gl_description": "Building Improvements",
+    "category": "Building Improvements",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5070-00",
+    "gl_description": "Construction Defects",
+    "category": "Construction Defects",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5071-00",
+    "gl_description": "Contributions",
+    "category": "Contributions",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5075-00",
+    "gl_description": "Decorations: Exterior & Interior",
+    "category": "Decorations",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5076-00",
+    "gl_description": "Decorations: Interior",
+    "category": "Decorations",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5080-00",
+    "gl_description": "Depreciation Expense: 754 Wheatleys",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5081-00",
+    "gl_description": "Depreciation Expense: Building",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5082-00",
+    "gl_description": "Depreciation Expense: Improvements",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5083-00",
+    "gl_description": "Depreciation Expense: FFM&E",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5085-00",
+    "gl_description": "Dues & Subscriptions",
+    "category": "Dues & Subscriptions",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5089-00",
+    "gl_description": "Education",
+    "category": "Education",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5090-00",
+    "gl_description": "Electrical: Contracts",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5091-00",
+    "gl_description": "Electrical: Other",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5092-00",
+    "gl_description": "Electrical",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5093-00",
+    "gl_description": "Electrical: Supplies/Materials",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5110-00",
+    "gl_description": "Elevator: Communications",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5111-00",
+    "gl_description": "Elevator: Contract",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5112-00",
+    "gl_description": "Elevator: Other",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5113-00",
+    "gl_description": "Elevator: Repairs",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5114-00",
+    "gl_description": "Elevator: Supplies/Materials",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5116-00",
+    "gl_description": "Employee Expenses: Health Insurance",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5117-00",
+    "gl_description": "Employee Expenses: Other",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5118-00",
+    "gl_description": "Employee Expenses: Payroll Taxes",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5119-00",
+    "gl_description": "Employee Expenses: Reimbursements",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5120-00",
+    "gl_description": "Employee Expenses: Maintenance Uniforms",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5121-00",
+    "gl_description": "Employee Expenses: Wages",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5126-00",
+    "gl_description": "Equipment",
+    "category": "Equipment",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5127-00",
+    "gl_description": "Equipment - Rental",
+    "category": "Equipment - Rental",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5129-00",
+    "gl_description": "Financing Costs",
+    "category": "Financing Costs",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5130-00",
+    "gl_description": "Fire & Life Safety: Communications",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5131-00",
+    "gl_description": "Fire & Life Safety: Contract",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5132-00",
+    "gl_description": "Fire & Life Safety: Emergency Training & Supplies",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5133-00",
+    "gl_description": "Fire & Life Safety: Other",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5134-00",
+    "gl_description": "Fire & Life Safety: Repairs",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5135-00",
+    "gl_description": "Flooring",
+    "category": "Flooring",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5139-00",
+    "gl_description": "Gain (Loss) on Disposal",
+    "category": "Gain (Loss) on Disposal",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5140-00",
+    "gl_description": "Generator: Contract",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5141-00",
+    "gl_description": "Generator: Other",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5142-00",
+    "gl_description": "Generator: Repairs",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5143-00",
+    "gl_description": "Generator: Supplies/Materials",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5150-00",
+    "gl_description": "HVAC: Contract",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5151-00",
+    "gl_description": "HVAC: Other",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5152-00",
+    "gl_description": "HVAC: Repairs",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5153-00",
+    "gl_description": "HVAC: Supplies/Materials",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5156-00",
+    "gl_description": "HOA Fees",
+    "category": "HOA Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5157-00",
+    "gl_description": "Income Taxes",
+    "category": "Income Taxes",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5160-00",
+    "gl_description": "Insurance: Auto",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5161-00",
+    "gl_description": "Insurance: Liability",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5162-00",
+    "gl_description": "Insurance: Property",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5163-00",
+    "gl_description": "Insurance: Other",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5171-00",
+    "gl_description": "Interest Expense",
+    "category": "Interest Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5172-00",
+    "gl_description": "Interest: Loan",
+    "category": "Interest",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5173-00",
+    "gl_description": "Interest: Mortgage",
+    "category": "Interest",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5180-00",
+    "gl_description": "Janitorial: Carpet & Tile Cleaning",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5181-00",
+    "gl_description": "Janitorial: Contract",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5182-00",
+    "gl_description": "Janitorial: Day Porter",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5183-00",
+    "gl_description": "Janitorial: Other",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5184-00",
+    "gl_description": "Janitorial: Supplies/Materials",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5185-00",
+    "gl_description": "Janitorial: Supplies/Materials Reimb. Contra Acct.",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5186-00",
+    "gl_description": "Janitorial: Window Cleaning Exterior",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5187-00",
+    "gl_description": "Janitorial: Window Cleaning Interior",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5190-00",
+    "gl_description": "Land Lease",
+    "category": "Land Lease",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5199-00",
+    "gl_description": "COVID-19 Associated Cost",
+    "category": "COVID-19 Associated Cost",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5210-00",
+    "gl_description": "Landscape Maintenance: Contract",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5211-00",
+    "gl_description": "Landscape Maintenance: Fountains & Ponds",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5212-00",
+    "gl_description": "Landscape Maintenance: Other",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5213-00",
+    "gl_description": "Landscape Maintenance: Sprinkler Repairs",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5214-00",
+    "gl_description": "Landscape Maintenance: Supplies/Materials",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5215-00",
+    "gl_description": "Landscape Maintenance: General",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5220-00",
+    "gl_description": "Leasing Commissions",
+    "category": "Leasing Commissions",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5230-00",
+    "gl_description": "Legal/Professional Fees",
+    "category": "Legal/Professional Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5240-00",
+    "gl_description": "Licenses and Permits",
+    "category": "Licenses and Permits",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5250-00",
+    "gl_description": "Lighting: Exterior",
+    "category": "Lighting",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5251-00",
+    "gl_description": "Lighting: Interior",
+    "category": "Lighting",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5255-00",
+    "gl_description": "Maintenance Reserve",
+    "category": "Maintenance Reserve",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5260-00",
+    "gl_description": "Management Education",
+    "category": "Management Education",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5261-00",
+    "gl_description": "Management Fee",
+    "category": "Management Fee",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5262-00",
+    "gl_description": "Management Fee: Asset Management",
+    "category": "Management Fee",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5263-00",
+    "gl_description": "Management Fee: Construction Management",
+    "category": "Management Fee",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5264-00",
+    "gl_description": "Management: Other",
+    "category": "Management",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5265-00",
+    "gl_description": "Manager's Compensation",
+    "category": "Manager's Compensation",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5275-00",
+    "gl_description": "Materials Handling",
+    "category": "Materials Handling",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5280-00",
+    "gl_description": "Meals and Entertainment",
+    "category": "Meals and Entertainment",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5310-00",
+    "gl_description": "Moving Expenses: Move In",
+    "category": "Moving Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5311-00",
+    "gl_description": "Moving Expenses: Move Out",
+    "category": "Moving Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5320-00",
+    "gl_description": "Office: Database/Software/Hardware",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5321-00",
+    "gl_description": "Office: Postage & Overnights",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5322-00",
+    "gl_description": "Office: Rental",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5323-00",
+    "gl_description": "Office: Supplies/Materials",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5324-00",
+    "gl_description": "Other Administrative Expenses",
+    "category": "Other Administrative Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5330-00",
+    "gl_description": "Other Miscellaneous Expense",
+    "category": "Other Miscellaneous Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5340-00",
+    "gl_description": "Painting: Exterior",
+    "category": "Painting",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5341-00",
+    "gl_description": "Painting: Interior & Exterior",
+    "category": "Painting",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5350-00",
+    "gl_description": "Parking Lot: Pressure Wash",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5351-00",
+    "gl_description": "Parking Lot: Repairs",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5352-00",
+    "gl_description": "Parking Lot: Sweeping",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5353-00",
+    "gl_description": "Parking Lot: Lot Fees",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5355-00",
+    "gl_description": "Pavilion",
+    "category": "Pavilion",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5360-00",
+    "gl_description": "Pest Control",
+    "category": "Pest Control",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5370-00",
+    "gl_description": "Plumbing",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5371-00",
+    "gl_description": "Plumbing: Other",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5372-00",
+    "gl_description": "Plumbing: Repairs",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5373-00",
+    "gl_description": "Plumbing: Supplies/Materials",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5380-00",
+    "gl_description": "Prior Year Corrections/Adjustments",
+    "category": "Prior Year Corrections/Adjustments",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5390-00",
+    "gl_description": "Professional Fees: Acctg",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5391-00",
+    "gl_description": "Professional Fees: Appraisal",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5392-00",
+    "gl_description": "Professional Fees: Tax",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5393-00",
+    "gl_description": "Professional Fees: Filing Fees",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5394-00",
+    "gl_description": "Professional Fees",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5397-00",
+    "gl_description": "Property Taxes: Personal",
+    "category": "Property Taxes",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5398-00",
+    "gl_description": "Property Taxes: Real Estate",
+    "category": "Property Taxes",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5405-00",
+    "gl_description": "Rent Expense",
+    "category": "Rent Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5410-00",
+    "gl_description": "Repairs & Maintenance: Exterior - General",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5411-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Equipment",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5412-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Non-recurring",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5413-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Other",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5414-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Supplies/Materials",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5416-00",
+    "gl_description": "Repairs & Maintenance: Interior - General",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5417-00",
+    "gl_description": "Repairs & Maintenance: Interior - Other",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5418-00",
+    "gl_description": "Repairs & Maintenance: Interior - Non-recurring",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5419-00",
+    "gl_description": "Repairs & Maintenance: Interior - Other",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5420-00",
+    "gl_description": "Repairs & Maintenance: Interior - Supplies/Materials",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5421-00",
+    "gl_description": "Roads: Repairs & Maintenance",
+    "category": "Roads",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5428-00",
+    "gl_description": "Roof Repairs",
+    "category": "Roof Repairs",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5430-00",
+    "gl_description": "Sales & Marketing",
+    "category": "Sales & Marketing",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5435-00",
+    "gl_description": "Security: Communications",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5436-00",
+    "gl_description": "Security: Contract",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5437-00",
+    "gl_description": "Security: Locks & Keys",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5438-00",
+    "gl_description": "Security: Other",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5440-00",
+    "gl_description": "Signage & Directories",
+    "category": "Signage & Directories",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5450-00",
+    "gl_description": "Snow Removal: Contract",
+    "category": "Snow Removal",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5451-00",
+    "gl_description": "Snow Removal: Ice Melt & Salt",
+    "category": "Snow Removal",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5459-00",
+    "gl_description": "Tenant Direct Pay",
+    "category": "Tenant Direct Pay",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5460-00",
+    "gl_description": "Tenant Improvements",
+    "category": "Tenant Improvements",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5465-00",
+    "gl_description": "Tenant Relations: Cell Phones",
+    "category": "Tenant Relations",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5466-00",
+    "gl_description": "Tenant Relations: Other",
+    "category": "Tenant Relations",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5467-00",
+    "gl_description": "Tenant Relations: Travel",
+    "category": "Tenant Relations",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5500-00",
+    "gl_description": "Utilities: Electricity",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5501-00",
+    "gl_description": "Utilities: Electricity - Meter Reimb. Contra Acct.",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5502-00",
+    "gl_description": "Utilities: Electricity - Utilities Reimb. Contra Acct.",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5503-00",
+    "gl_description": "Utilities: Internet",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5504-00",
+    "gl_description": "Utilities: Natural Gas",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5505-00",
+    "gl_description": "Utilities: Sewer",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5506-00",
+    "gl_description": "Utilities: Storm Drain",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5507-00",
+    "gl_description": "Utilities: Telephone",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5508-00",
+    "gl_description": "Utilities: Trash Removal",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5509-00",
+    "gl_description": "Utilities: Trash Removal Recycling",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5510-00",
+    "gl_description": "Utilities: Trash Removal Recycling Contra Acct.",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5511-00",
+    "gl_description": "Utilities: Water",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5512-00",
+    "gl_description": "Utilities: Water Landscape",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5520-00",
+    "gl_description": "Vehicle: Fuel",
+    "category": "Vehicle",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5521-00",
+    "gl_description": "Vehicle: Maintenance",
+    "category": "Vehicle",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5703-00",
+    "gl_description": "Maint. Eng. Auto Expense Mileage",
+    "category": "Maint. Eng. Auto Expense Mileage",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5704-00",
+    "gl_description": "Maint. Flags",
+    "category": "Maint. Flags",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5705-00",
+    "gl_description": "Maint. Glass",
+    "category": "Maint. Glass",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5706-00",
+    "gl_description": "Maint. Exterior Walkways/Curbs",
+    "category": "Maint. Exterior Walkways/Curbs",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5707-00",
+    "gl_description": "Air Handlers-Belts",
+    "category": "Air Handlers-Belts",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5708-00",
+    "gl_description": "EMS/Automatic Controls",
+    "category": "EMS/Automatic Controls",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5710-00",
+    "gl_description": "HVAC Non-Recurring",
+    "category": "HVAC Non-Recurring",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5711-00",
+    "gl_description": "Permits",
+    "category": "Permits",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5712-00",
+    "gl_description": "Security Equipment Maintenance",
+    "category": "Security Equipment Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5713-00",
+    "gl_description": "Fire Sprinkler Testing/Service",
+    "category": "Fire Sprinkler Testing/Service",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5714-00",
+    "gl_description": "Telephone Reimbursement - Contra Account",
+    "category": "Telephone Reimbursement - Contra Account",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5715-00",
+    "gl_description": "Lamps",
+    "category": "Lamps",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5716-00",
+    "gl_description": "Repairs and Maintenance",
+    "category": "Repairs and Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5771-00",
+    "gl_description": "empty",
+    "category": "empty",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5772-00",
+    "gl_description": "empty",
+    "category": "empty",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "6010-00",
+    "gl_description": "Advertising",
+    "category": "Advertising",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6020-00",
+    "gl_description": "Alarm Monitoring",
+    "category": "Alarm Monitoring",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6030-00",
+    "gl_description": "Amortization Expense: Financing Costs",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6031-00",
+    "gl_description": "Amortization Expense: Organization Costs",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6032-00",
+    "gl_description": "Amortization Expense: Leasing Commissions",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6033-00",
+    "gl_description": "Amortization Expense: Legal Costs",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6040-00",
+    "gl_description": "Automobile Expense",
+    "category": "Automobile Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6050-00",
+    "gl_description": "Bad Debt Expense",
+    "category": "Bad Debt Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6055-00",
+    "gl_description": "Bank Service Charges",
+    "category": "Bank Service Charges",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6056-00",
+    "gl_description": "Lender Service Fee",
+    "category": "Lender Service Fee",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6060-00",
+    "gl_description": "Boiler: Inspection",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6061-00",
+    "gl_description": "Boiler: Other",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6062-00",
+    "gl_description": "Boiler: Repairs",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6063-00",
+    "gl_description": "Boiler: Supplies/Materials",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6065-00",
+    "gl_description": "Building Improvements",
+    "category": "Building Improvements",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6070-00",
+    "gl_description": "Construction Defects",
+    "category": "Construction Defects",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6071-00",
+    "gl_description": "Contributions-Charitable",
+    "category": "Contributions-Charitable",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6072-00",
+    "gl_description": "Contributions-Political",
+    "category": "Contributions-Political",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6075-00",
+    "gl_description": "Decorations: Exterior",
+    "category": "Decorations",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6076-00",
+    "gl_description": "Decorations: Interior",
+    "category": "Decorations",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6080-00",
+    "gl_description": "Depreciation Expense: 704(b) Adjustment",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6081-00",
+    "gl_description": "Depreciation Expense: Building",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6082-00",
+    "gl_description": "Depreciation Expense: Improvements",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6083-00",
+    "gl_description": "Depreciation Expense: FF&E",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6085-00",
+    "gl_description": "Dues & Subscriptions",
+    "category": "Dues & Subscriptions",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6089-00",
+    "gl_description": "Education",
+    "category": "Education",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6090-00",
+    "gl_description": "Electrical: Contracts",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6091-00",
+    "gl_description": "Electrical: Other",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6092-00",
+    "gl_description": "Electrical: Repairs",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6093-00",
+    "gl_description": "Electrical: Supplies/Materials",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6110-00",
+    "gl_description": "Elevator: Communications",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6111-00",
+    "gl_description": "Elevator: Contract",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6112-00",
+    "gl_description": "Elevator: Other",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6113-00",
+    "gl_description": "Elevator: Repairs",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6114-00",
+    "gl_description": "Elevator: Supplies/Materials",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6116-00",
+    "gl_description": "Employee Expenses: Health Insurance",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6117-00",
+    "gl_description": "Employee Expenses: Other",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6118-00",
+    "gl_description": "Employee Expenses: Payroll Taxes",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6119-00",
+    "gl_description": "Employee Expenses: Reimbursements",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6120-00",
+    "gl_description": "Employee Expenses: Maintenance Uniforms",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6121-00",
+    "gl_description": "Employee Expenses: Wages",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6126-00",
+    "gl_description": "Equipment",
+    "category": "Equipment",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6127-00",
+    "gl_description": "Equipment - Rental",
+    "category": "Equipment - Rental",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6129-00",
+    "gl_description": "Financing Costs",
+    "category": "Financing Costs",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6130-00",
+    "gl_description": "Fire & Life Safety: Communications",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6131-00",
+    "gl_description": "Fire & Life Safety: Contract",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6132-00",
+    "gl_description": "Fire & Life Safety: Emergency Training & Supplies",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6133-00",
+    "gl_description": "Fire & Life Safety: Other",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6134-00",
+    "gl_description": "Fire & Life Safety: Repairs",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6135-00",
+    "gl_description": "Flooring",
+    "category": "Flooring",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6139-00",
+    "gl_description": "Gain (Loss) on Disposal",
+    "category": "Gain (Loss) on Disposal",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6140-00",
+    "gl_description": "Generator: Contract",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6141-00",
+    "gl_description": "Generator: Other",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6142-00",
+    "gl_description": "Generator: Repairs",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6143-00",
+    "gl_description": "Generator: Supplies/Materials",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6150-00",
+    "gl_description": "HVAC: Contract",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6151-00",
+    "gl_description": "HVAC: Other",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6152-00",
+    "gl_description": "HVAC: Repairs",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6153-00",
+    "gl_description": "HVAC: Supplies/Materials",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6156-00",
+    "gl_description": "HOA Expenses",
+    "category": "HOA Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6157-00",
+    "gl_description": "Income Taxes",
+    "category": "Income Taxes",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6160-00",
+    "gl_description": "Insurance: Auto",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6161-00",
+    "gl_description": "Insurance: Liability",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6162-00",
+    "gl_description": "Insurance: Property",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6163-00",
+    "gl_description": "Insurance: Other",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6171-00",
+    "gl_description": "Interest Expense",
+    "category": "Interest Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6172-00",
+    "gl_description": "Interest: Loan",
+    "category": "Interest",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6172-69",
+    "gl_description": "Interest: Loan - S20",
+    "category": "Interest",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6173-00",
+    "gl_description": "Interest: Mortgage",
+    "category": "Interest",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6180-00",
+    "gl_description": "Janitorial: Carpet & Tile Cleaning",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6181-00",
+    "gl_description": "Janitorial: Contract",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6182-00",
+    "gl_description": "Janitorial: Day Porter",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6183-00",
+    "gl_description": "Janitorial: Other",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6184-00",
+    "gl_description": "Janitorial: Supplies/Materials",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6185-00",
+    "gl_description": "Janitorial: Supplies/Materials Reimb. Contra Acct.",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6186-00",
+    "gl_description": "Janitorial: Window Cleaning",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6187-00",
+    "gl_description": "Janitorial: Window Cleaning Interior",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6190-00",
+    "gl_description": "Land Lease",
+    "category": "Land Lease",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6210-00",
+    "gl_description": "Landscape Maintenance: Contract",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6211-00",
+    "gl_description": "Landscape Maintenance: Fountains & Ponds",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6212-00",
+    "gl_description": "Landscape Maintenance: Other",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6213-00",
+    "gl_description": "Landscape Maintenance: Sprinkler Repairs",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6214-00",
+    "gl_description": "Landscape Maintenance: Supplies/Materials",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6215-00",
+    "gl_description": "Landscape Maintenance: General",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6220-00",
+    "gl_description": "Leasing Commissions",
+    "category": "Leasing Commissions",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6230-00",
+    "gl_description": "Legal/Professional Fees",
+    "category": "Legal/Professional Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6240-00",
+    "gl_description": "Licenses and Permits",
+    "category": "Licenses and Permits",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6250-00",
+    "gl_description": "Lighting: Exterior",
+    "category": "Lighting",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6251-00",
+    "gl_description": "Lighting: Interior",
+    "category": "Lighting",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6255-00",
+    "gl_description": "Maintenance Reserve",
+    "category": "Maintenance Reserve",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6260-00",
+    "gl_description": "Asset Management Fee",
+    "category": "Asset Management Fee",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6261-00",
+    "gl_description": "Management Fee",
+    "category": "Management Fee",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6261-01",
+    "gl_description": "Asset Management Fee",
+    "category": "Asset Management Fee",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6262-00",
+    "gl_description": "Asset Mgmt Fee (Arden)",
+    "category": "Asset Mgmt Fee (Arden)",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6263-00",
+    "gl_description": "Asset Mgmt Fee (Vesta)",
+    "category": "Asset Mgmt Fee (Vesta)",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6264-00",
+    "gl_description": "Management: Other",
+    "category": "Management",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6265-00",
+    "gl_description": "Manager's Compensation",
+    "category": "Manager's Compensation",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6275-00",
+    "gl_description": "Materials Handling",
+    "category": "Materials Handling",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6280-00",
+    "gl_description": "Meals and Entertainment",
+    "category": "Meals and Entertainment",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6280-01",
+    "gl_description": "Entertainment",
+    "category": "Entertainment",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6281-00",
+    "gl_description": "Mileage Expenses",
+    "category": "Mileage Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6310-00",
+    "gl_description": "Moving Expenses: Move In",
+    "category": "Moving Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6311-00",
+    "gl_description": "Moving Expenses: Move Out",
+    "category": "Moving Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6320-00",
+    "gl_description": "Office: Database/Software/Hardware",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6321-00",
+    "gl_description": "Office: Postage & Overnights",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6322-00",
+    "gl_description": "Office: Rental",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6323-00",
+    "gl_description": "Office: Supplies/Materials",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6324-00",
+    "gl_description": "Other Administrative Expenses",
+    "category": "Other Administrative Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6330-00",
+    "gl_description": "Other Miscellaneous Expense",
+    "category": "Other Miscellaneous Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6340-00",
+    "gl_description": "Painting: Exterior",
+    "category": "Painting",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6341-00",
+    "gl_description": "Painting: Interior",
+    "category": "Painting",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6350-00",
+    "gl_description": "Parking Lot: Pressure Wash",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6351-00",
+    "gl_description": "Parking Lot: Repairs",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6352-00",
+    "gl_description": "Parking Lot: Sweeping",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6353-00",
+    "gl_description": "Parking Lot: Lot Fees",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6355-00",
+    "gl_description": "Pavilion",
+    "category": "Pavilion",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6360-00",
+    "gl_description": "Pest Control",
+    "category": "Pest Control",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6370-00",
+    "gl_description": "Plumbing: Contracts",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6371-00",
+    "gl_description": "Plumbing: Other",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6372-00",
+    "gl_description": "Plumbing: Repairs",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6373-00",
+    "gl_description": "Plumbing: Supplies/Materials",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6380-00",
+    "gl_description": "Prior Year Corrections/Adjustments",
+    "category": "Prior Year Corrections/Adjustments",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6390-00",
+    "gl_description": "Professional Fees: Acctg",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6391-00",
+    "gl_description": "Professional Fees: Appraisal",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6392-00",
+    "gl_description": "Professional Fees: Tax",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6393-00",
+    "gl_description": "Professional Fees: Filing Fees",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6394-00",
+    "gl_description": "Professional Fees: Other",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6394-01",
+    "gl_description": "Other Deductions",
+    "category": "Other Deductions",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6397-00",
+    "gl_description": "Property Taxes: Personal",
+    "category": "Property Taxes",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6398-00",
+    "gl_description": "Property Taxes: Real Estate",
+    "category": "Property Taxes",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6405-00",
+    "gl_description": "Rent Expense",
+    "category": "Rent Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6410-00",
+    "gl_description": "Repairs & Maintenance: Exterior - General",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6411-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Equipment",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6412-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Non-recurring",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6413-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Other",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6414-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Supplies/Materials",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6416-00",
+    "gl_description": "Repairs & Maintenance: Interior - General",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6417-00",
+    "gl_description": "Repairs & Maintenance: Interior - Equipment",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6418-00",
+    "gl_description": "Repairs & Maintenance: Interior - Non-recurring",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6419-00",
+    "gl_description": "Repairs & Maintenance: Interior - Other",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6420-00",
+    "gl_description": "Repairs & Maintenance: Interior - Supplies/Materials",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6421-00",
+    "gl_description": "Roads: Repairs & Maintenance",
+    "category": "Roads",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6422-00",
+    "gl_description": "Automobile Expense",
+    "category": "Automobile Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6428-00",
+    "gl_description": "Roof Repairs",
+    "category": "Roof Repairs",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6430-00",
+    "gl_description": "Sales & Marketing",
+    "category": "Sales & Marketing",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6435-00",
+    "gl_description": "Security: Communications",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6436-00",
+    "gl_description": "Security: Contract",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6437-00",
+    "gl_description": "Security: Locks & Keys",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6438-00",
+    "gl_description": "Security: Other",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6440-00",
+    "gl_description": "Signage & Directories",
+    "category": "Signage & Directories",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6450-00",
+    "gl_description": "Snow Removal: Contract",
+    "category": "Snow Removal",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6451-00",
+    "gl_description": "Snow Removal: Ice Melt & Salt",
+    "category": "Snow Removal",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6459-00",
+    "gl_description": "Tenant Direct Pay",
+    "category": "Tenant Direct Pay",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6460-00",
+    "gl_description": "Tenant Improvements",
+    "category": "Tenant Improvements",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6460-01",
+    "gl_description": "Ledges - St George",
+    "category": "Ledges - St George",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6460-02",
+    "gl_description": "Timber Lakes",
+    "category": "Timber Lakes",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6465-00",
+    "gl_description": "Tenant Relations: Cell Phones",
+    "category": "Tenant Relations",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6466-00",
+    "gl_description": "Tenant Relations: Other",
+    "category": "Tenant Relations",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6467-00",
+    "gl_description": "Tenant Relations: Travel",
+    "category": "Tenant Relations",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6467-01",
+    "gl_description": "Travel",
+    "category": "Travel",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6500-00",
+    "gl_description": "Utilities: Electricity",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6501-00",
+    "gl_description": "Utilities: Electricity - Meter Reimb. Contra Acct.",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6502-00",
+    "gl_description": "Utilities: Electricity - Reimb. Contra Acct.",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6503-00",
+    "gl_description": "Utilities: Internet",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6504-00",
+    "gl_description": "Utilities: Natural Gas",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6505-00",
+    "gl_description": "Utilities: Sewer",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6506-00",
+    "gl_description": "Utilities: Storm Drain",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6507-00",
+    "gl_description": "Utilities: Telephone",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6508-00",
+    "gl_description": "Utilities: Trash Removal",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6509-00",
+    "gl_description": "Utilities: Trash Removal Recycling",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6510-00",
+    "gl_description": "Utilities: Trash Removal Recycling Contra Acct.",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6511-00",
+    "gl_description": "Utilities: Water",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6512-00",
+    "gl_description": "Utilities: Water Landscape",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6520-00",
+    "gl_description": "Vehicle: Fuel",
+    "category": "Vehicle",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6521-00",
+    "gl_description": "Vehicle: Maintenance",
+    "category": "Vehicle",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6701-00",
+    "gl_description": "Owner Expenses",
+    "category": "Owner Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6702-00",
+    "gl_description": "Taxes/Licenses/Fees",
+    "category": "Taxes/Licenses/Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6705-00",
+    "gl_description": "Interest Income",
+    "category": "Interest Income",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6706-00",
+    "gl_description": "Business License & Fees",
+    "category": "Business License & Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6708-00",
+    "gl_description": "Labor Admin.",
+    "category": "Labor Admin.",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6709-00",
+    "gl_description": "Amortization",
+    "category": "Amortization",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6710-00",
+    "gl_description": "Hedge Income",
+    "category": "Hedge Income",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6711-00",
+    "gl_description": "Owner Expenses:Advertising",
+    "category": "Owner Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6712-00",
+    "gl_description": "Owner Expenses:Incidentals",
+    "category": "Owner Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6768-70",
+    "gl_description": "K1 743 (B) Adjustments",
+    "category": "K1 743 (B) Adjustments",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6769-59",
+    "gl_description": "K1-Portfolio Deductions - Gunsight Pass",
+    "category": "K1-Portfolio Deductions - Gunsight Pass",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6769-69",
+    "gl_description": "K1-Portfolio Deductions - S20",
+    "category": "K1-Portfolio Deductions - S20",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6769-85",
+    "gl_description": "K1-Portfolio Deductions - Reach the Meadow",
+    "category": "K1-Portfolio Deductions - Reach the Meadow",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6770-00",
+    "gl_description": "M-1 Adjustments",
+    "category": "M-1 Adjustments",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6771-00",
+    "gl_description": "Nondeductible Expense",
+    "category": "Nondeductible Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6772-00",
+    "gl_description": "empty",
+    "category": "empty",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6772-58",
+    "gl_description": "K1 Debt Financed Distributions - MHC Investments",
+    "category": "K1 Debt Financed Distributions - MHC Investments",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6772-66",
+    "gl_description": "K1 Debt Financed Distributions - ACF III",
+    "category": "K1 Debt Financed Distributions - ACF III",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6772-68",
+    "gl_description": "K1 Debt Financed Distributions - ACF I",
+    "category": "K1 Debt Financed Distributions - ACF I",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6772-85",
+    "gl_description": "K1 Debt Financed Distributions - Reach the Meadow",
+    "category": "K1 Debt Financed Distributions - Reach the Meadow",
+    "type": "Expense",
+    "recoverable": false
+  }
+]

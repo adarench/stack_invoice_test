@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { searchGlAccounts, findGlAccount, validateGlCode } from '../data/chartOfAccounts'
+import { searchGlAccounts, findGlAccount, formatGlAccountLabel, validateGlCode } from '../data/chartOfAccounts'
 import { CheckCircle, AlertTriangle, Info } from 'lucide-react'
 
 export default function GlCodePicker({ value, onChange, placeholder, style, disabled }) {
@@ -9,7 +9,7 @@ export default function GlCodePicker({ value, onChange, placeholder, style, disa
   const inputRef = useRef(null)
   const dropdownRef = useRef(null)
 
-  const results = searchGlAccounts(query || '', { limit: 30 })
+  const results = searchGlAccounts(query || '')
   const validation = validateGlCode(value)
   const currentAccount = findGlAccount(value)
 
@@ -55,7 +55,7 @@ export default function GlCodePicker({ value, onChange, placeholder, style, disa
   const displayValue = open
     ? query
     : currentAccount
-      ? `${currentAccount.code} ${currentAccount.name}`
+      ? formatGlAccountLabel(currentAccount)
       : (value || '')
 
   return (
@@ -65,7 +65,7 @@ export default function GlCodePicker({ value, onChange, placeholder, style, disa
           ref={inputRef}
           type="text"
           disabled={disabled}
-          placeholder={placeholder || 'Search GL accounts...'}
+          placeholder={placeholder || `Search ${results.length} G/L accounts...`}
           style={{ ...style, flex: 1 }}
           value={displayValue}
           onFocus={() => { setQuery(''); setOpen(true) }}
@@ -122,7 +122,7 @@ export default function GlCodePicker({ value, onChange, placeholder, style, disa
         </div>
       )}
 
-      {open && results.length > 0 && (
+      {open && (
         <div
           ref={dropdownRef}
           style={{
@@ -136,11 +136,26 @@ export default function GlCodePicker({ value, onChange, placeholder, style, disa
             backgroundColor: 'var(--surface)',
             border: '1px solid var(--border-strong)',
             borderRadius: 6,
-            boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
+            boxShadow: '0 8px 24px rgba(15,23,42,0.18)',
             marginTop: 2,
           }}
         >
-          {results.map((account, i) => (
+          <div
+            style={{
+              padding: '6px 8px',
+              borderBottom: '1px solid var(--border-subtle)',
+              fontSize: 10,
+              color: 'var(--text-6)',
+              backgroundColor: 'var(--surface-alt)',
+            }}
+          >
+            {results.length} matching G/L code{results.length === 1 ? '' : 's'}
+          </div>
+          {results.length === 0 ? (
+            <div style={{ padding: '10px 8px', fontSize: 11, color: 'var(--text-5)' }}>
+              No G/L codes matched. Try code, label, or category.
+            </div>
+          ) : results.map((account, i) => (
             <div
               key={account.code}
               onMouseDown={(e) => { e.preventDefault(); handleSelect(account) }}

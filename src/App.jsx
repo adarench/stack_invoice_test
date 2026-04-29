@@ -418,9 +418,10 @@ function AppShell() {
   }, [isVendor])
 
   const handleUploaded = useCallback((newInvoice) => {
-    setInvoices(prev => [newInvoice, ...prev])
-    handleSelectInvoice(newInvoice)
-  }, [handleSelectInvoice])
+    const normalizedInvoice = normalizeInvoice(newInvoice)
+    setInvoices(prev => [normalizedInvoice, ...prev])
+    handleSelectInvoice(normalizedInvoice)
+  }, [handleSelectInvoice, normalizeInvoice])
 
   const selectedInvoice = invoices.find(i => i.id === selectedInvoiceId)
   const portfolioTabs = portfolioTabsForInvoices(invoices)
@@ -595,7 +596,7 @@ function AppShell() {
       {activeView === 'vendor-submit' && (
         <VendorSubmit
           onSubmitted={(invoice) => {
-            if (invoice) setInvoices(prev => [invoice, ...prev])
+            if (invoice) setInvoices(prev => [normalizeInvoice(invoice), ...prev])
             setActiveView('invoices')
           }}
         />
@@ -604,7 +605,7 @@ function AppShell() {
         <VendorDashboard
           invoices={invoices}
           onSubmitted={(invoice) => {
-            if (invoice) setInvoices(prev => [invoice, ...prev])
+            if (invoice) setInvoices(prev => [normalizeInvoice(invoice), ...prev])
           }}
         />
       )}

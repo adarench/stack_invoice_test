@@ -3,3 +3,8 @@ dist
 .DS_Store
 .env.local
 .env*.local
+.firebase/
+.claude/worktrees/
+supabase/.temp/
+tmp_*.pdf
+*.xlsx

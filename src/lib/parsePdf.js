@@ -21,6 +21,51 @@ async function getPdfjsLib() {
   return pdfjsLibPromise
 }
 
+function clampConfidence(value) {
+  if (!Number.isFinite(value)) return 0
+  if (value < 0) return 0
+  if (value > 1) return 1
+  return Number(value.toFixed(3))
+}
+
+function buildExtractionMetadata(rawText, lines, pageCount) {
+  const safeRawText = typeof rawText === 'string' ? rawText : ''
+  const safeLines = Array.isArray(lines) ? lines : []
+  const rawTextLength = safeRawText.trim().length
+  const lineCount = safeLines.length
+  const visibleCharCount = safeRawText.replace(/\s+/g, '').length
+  const hasUsableText = rawTextLength >= 80 && lineCount >= 3
+
+  return {
+    pageCount,
+    lineCount,
+    rawTextLength,
+    rawTextPreview: safeRawText.slice(0, 2000),
+    visibleCharCount,
+    hasUsableText,
+    textLikelyMissing: !hasUsableText,
+  }
+}
+
+function calculateParseConfidence(fields, extraction) {
+  let score = 0
+
+  if (fields.vendorName) score += 0.22
+  if (fields.amount != null) score += 0.24
+  if (fields.invoiceNumber) score += 0.16
+  if (fields.invoiceDate) score += 0.1
+  if (fields.dueDate) score += 0.06
+  if (fields.propertyName) score += 0.1
+  if (fields.billTo) score += 0.05
+  if (Array.isArray(fields.lineItems) && fields.lineItems.length > 0) score += 0.07
+
+  if (extraction?.hasUsableText) score += 0.05
+  if ((extraction?.rawTextLength || 0) < 40) score -= 0.2
+  if ((extraction?.lineCount || 0) < 2) score -= 0.1
+
+  return clampConfidence(score)
+}
+
 // ─── Text extraction ──────────────────────────────────────────────────────────
 
 export async function extractPdfText(file) {
@@ -56,12 +101,12 @@ export async function extractPdfText(file) {
     .filter(Boolean)
 
   const rawText = lines.join('\n')
-  return { rawText, lines }
+  return { rawText, lines, pageCount: pdf.numPages }
 }
 
 // ─── Field parsing ────────────────────────────────────────────────────────────
 
-export function parseInvoiceFields(rawText, lines) {
+export function parseInvoiceFields(rawText, lines, extraction = null) {
   console.debug('[parsePdf] raw text:\n', rawText)
   console.debug('[parsePdf] lines (' + lines.length + '):', lines)
 
@@ -70,21 +115,36 @@ export function parseInvoiceFields(rawText, lines) {
   const amount = parseAmount(rawText)
   const vendorName = parseVendorName(rawText, lines)
   const billTo = parseBillTo(lines)
-  const propertyName = parsePropertyName(rawText)
+  const { propertyName, serviceLocation } = parseLocationFields(rawText, lines)
   const lineItems = parseLineItems(lines)
   const description = lineItems.length > 0 ? lineItems[0].description : null
+  const extractionMetadata = extraction || buildExtractionMetadata(rawText, lines, 0)
 
   const parsed = {
     invoiceNumber,
     vendorName,
     billTo,
     propertyName,
+    serviceLocation,
     amount,
     invoiceDate,
     dueDate,
     lineItems,
     description,
     parseStatus: 'parsed',
+    parseMethod: 'text',
+    parseConfidence: calculateParseConfidence({
+      vendorName,
+      invoiceNumber,
+      billTo,
+      propertyName,
+      serviceLocation,
+      amount,
+      invoiceDate,
+      dueDate,
+      lineItems,
+    }, extractionMetadata),
+    extraction: extractionMetadata,
   }
 
   console.debug('[parsePdf] parsed fields:', parsed)
@@ -253,34 +313,100 @@ function parseBillTo(lines) {
   return null
 }
 
-// ─── Property name ───────────────────────────────────────────────────────────
+function normalizeLocationValue(value) {
+  if (!value || typeof value !== 'string') return null
+  const normalized = value
+    .replace(/\s+/g, ' ')
+    .replace(/\s*,\s*/g, ', ')
+    .replace(/\s*-\s*$/, '')
+    .trim()
 
-function parsePropertyName(rawText) {
+  return normalized.length > 2 ? normalized : null
+}
+
+function parseServiceLocation(lines) {
+  const labelPattern = /(?:SERVICE|JOB)\s*(?:LOCATION|ADDRESS|SITE)|(?:LOCATION|SITE)|ADDRESS/i
+  const stopPattern = /^(?:SCOPE|TERMS|DATE|INVOICE|BILL|TAX|FOR|ACTIVITY|AMOUNT|SUBTOTAL|TOTAL|BALANCE|THANK|MAKE\s+ALL|PAYMENT)/i
+
+  for (let index = 0; index < lines.length; index++) {
+    const line = lines[index]
+    if (!labelPattern.test(line)) continue
+
+    const segments = []
+    const inlineValue = line.split(/:\s*/).slice(1).join(': ').trim()
+    if (inlineValue) segments.push(inlineValue)
+
+    for (let next = index + 1; next < Math.min(index + 5, lines.length); next++) {
+      const candidate = lines[next].trim()
+      if (!candidate) continue
+      if (stopPattern.test(candidate)) break
+      if (/^(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\s+\d{4}$/i.test(candidate)) break
+      segments.push(candidate)
+    }
+
+    const normalized = normalizeLocationValue(segments.join(' '))
+    if (normalized) return normalized
+  }
+
+  return null
+}
+
+// ─── Property name / service location ───────────────────────────────────────
+
+function parseLocationFields(rawText, lines) {
   // Labeled patterns first
   const labeled = [
     /(?:SERVICE|JOB)\s*(?:LOCATION|ADDRESS|SITE)\s*:?\s*(.+)/im,
     /(?:PROJECT|PROPERTY)\s*(?:NAME|SITE)?\s*:?\s*(.+)/im,
     /(?:LOCATION|SITE)\s*:?\s*(.+)/im,
   ]
+
+  let propertyName = null
   for (const re of labeled) {
     const m = rawText.match(re)
-    if (m?.[1]?.trim().length > 2) {
-      return m[1].trim().replace(/\s+/g, ' ')
+    const normalized = normalizeLocationValue(m?.[1])
+    if (normalized) {
+      propertyName = normalized
+      break
     }
   }
 
-  // Heuristic: "at <Property>", "for <Property>", etc.
-  const heuristics = [
-    /\bat\s+([A-Z][A-Za-z0-9][A-Za-z0-9\s\-&']+?)(?:\s{2,}|\n|$)/,
-    /\bof\s+the\s+([A-Z][A-Za-z0-9][A-Za-z0-9\s\-&']+?)(?:\s{2,}|\n|$)/,
-    /\bfor\s+([A-Z][A-Za-z0-9][A-Za-z0-9\s\-&']+?)(?:\s{2,}|\n|$)/,
-  ]
-  for (const re of heuristics) {
-    const m = rawText.match(re)
-    if (m?.[1]) return m[1].trim().replace(/\s+/g, ' ')
+  const serviceLocation = parseServiceLocation(lines)
+
+  if (!propertyName) {
+    const addressIndex = lines.findIndex(line => /ADDRESS\s*:/i.test(line))
+    if (addressIndex > 0) {
+      const candidates = []
+      for (let index = addressIndex - 1; index >= 0 && candidates.length < 2; index--) {
+        const candidate = lines[index].trim()
+        if (!candidate) continue
+        if (/^(?:DATE|ACTIVITY|AMOUNT|SERVICES?|SCOPE|TERMS|INVOICE|BILL\s*TO|TAX\s*ID|FOR:?)\b/i.test(candidate)) continue
+        if (/^(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\s+\d{4}$/i.test(candidate)) continue
+        if (/^\$?[\d,]+(?:\.\d{2})?$/.test(candidate)) continue
+        candidates.unshift(candidate)
+      }
+
+      propertyName = normalizeLocationValue(candidates.join(' '))
+    }
   }
 
-  return null
+  if (!propertyName) {
+    // Heuristic: "at <Property>", "for <Property>", etc.
+    const heuristics = [
+      /\bat\s+([A-Z][A-Za-z0-9][A-Za-z0-9\s\-&']+?)(?:\s{2,}|\n|$)/,
+      /\bof\s+the\s+([A-Z][A-Za-z0-9][A-Za-z0-9\s\-&']+?)(?:\s{2,}|\n|$)/,
+      /\bfor\s+([A-Z][A-Za-z0-9][A-Za-z0-9\s\-&']+?)(?:\s{2,}|\n|$)/,
+    ]
+    for (const re of heuristics) {
+      const normalized = normalizeLocationValue(rawText.match(re)?.[1])
+      if (normalized) {
+        propertyName = normalized
+        break
+      }
+    }
+  }
+
+  return { propertyName, serviceLocation }
 }
 
 // ─── Line items ──────────────────────────────────────────────────────────────
@@ -365,7 +491,8 @@ function normalizeDate(str) {
 // ─── Convenience: extract + parse in one call ────────────────────────────────
 
 export async function parsePdfInvoice(file) {
-  const { rawText, lines } = await extractPdfText(file)
-  const fields = parseInvoiceFields(rawText, lines)
+  const { rawText, lines, pageCount } = await extractPdfText(file)
+  const extraction = buildExtractionMetadata(rawText, lines, pageCount)
+  const fields = parseInvoiceFields(rawText, lines, extraction)
   return { rawText, ...fields }
 }

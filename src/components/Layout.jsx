@@ -327,6 +327,19 @@ export default function Layout({
               </span>
             </div>
 
+            <button
+              onClick={toggle}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors"
+              style={{
+                backgroundColor: 'var(--surface-alt)',
+                border: '1px solid var(--border)',
+                color: 'var(--text-4)',
+              }}
+            >
+              {isDark ? <Sun size={12} style={{ color: '#FCD34D' }} /> : <Moon size={12} style={{ color: '#6366F1' }} />}
+              {isDark ? 'Light mode' : 'Dark mode'}
+            </button>
+
             {!isVendor && permissions.canUpload && (
               <button onClick={onOpenUpload}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition-all"

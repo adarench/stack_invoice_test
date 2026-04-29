@@ -2,6 +2,7 @@ import { ArrowLeft, ExternalLink, FileText } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
 import FakePDF from './FakePDF'
 import ParsedInvoiceView from './ParsedInvoiceView'
+import ParseStatusBanner from './ParseStatusBanner'
 import { VENDOR_STATUS, STATUS_HELP } from './VendorDashboard'
 
 function vendorStatus(dbStatus) {
@@ -102,6 +103,7 @@ export default function VendorInvoiceDetail({ invoice, onBack }) {
       <div className="grid grid-cols-5 gap-4">
         {/* Left: metadata */}
         <div className="col-span-2 space-y-4">
+          <ParseStatusBanner invoice={invoice} />
           <div className="rounded-lg overflow-hidden"
             style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-card)' }}>
             <div className="px-4 py-2.5" style={{ borderBottom: '1px solid var(--border)', backgroundColor: 'var(--surface-alt)' }}>

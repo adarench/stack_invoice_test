@@ -6,9 +6,11 @@ import {
 import StatusBadge from './StatusBadge'
 import FakePDF from './FakePDF'
 import ParsedInvoiceView from './ParsedInvoiceView'
+import ParseStatusBanner from './ParseStatusBanner'
 import FmtAmtInput from './FmtAmtInput'
 import GlCodePicker from './GlCodePicker'
-import { findGlAccount, validateGlCode, suggestGlFromText } from '../data/chartOfAccounts'
+import PropertySelect from './PropertySelect'
+import { findGlAccount, validateGlCode, suggestGlFromText, normalizeGlCode } from '../data/chartOfAccounts'
 import { useTheme } from '../context/ThemeContext'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabaseClient'
@@ -16,8 +18,8 @@ import { fetchComments, addComment } from '../api/commentApi'
 import { fetchAuditLogs } from '../api/auditApi'
 import { fetchUsers } from '../api/userApi'
 import { WORKFLOW_STATUSES, ROLE_LABELS, normalizeRole, normalizeWorkflowStatus } from '../data/demoUsers'
-import { allocationBlockReason, calculateSplitTotal, createEmptyGlSplit, hasSplitMismatch, normalizeGlSplits, portfolioState } from '../lib/invoiceAccounting'
-import { PROPERTY_CATALOG } from '../data/propertyCatalog'
+import { allocationBlockReason, calculateSplitTotal, createEmptyGlSplit, hasSplitMismatch, normalizeGlSplits, portfolioState, syncGlSplitsWithProperty } from '../lib/invoiceAccounting'
+import { findPropertyCatalogEntry, PORTFOLIO_OPTIONS } from '../data/propertyCatalog'
 
 function displayStatus(status) {
   return WORKFLOW_STATUSES[normalizeWorkflowStatus(status)] || status
@@ -74,6 +76,8 @@ export default function InvoiceDetail({ invoice, onAction, onBack }) {
   })
   const [glSplits, setGlSplits] = useState(normalizeGlSplits(invoice.gl_splits, invoice))
   const [saving, setSaving] = useState(false)
+  const [mappingProperty, setMappingProperty] = useState(invoice.property_name || '')
+  const [mappingSaving, setMappingSaving] = useState(false)
 
   // ── Assignment ─────────────────────────────────────────────────────────────
   const [users, setUsers] = useState([])
@@ -114,6 +118,7 @@ export default function InvoiceDetail({ invoice, onAction, onBack }) {
       portfolio_override: invoice.portfolio_override || '',
     })
     setGlSplits(normalizeGlSplits(invoice.gl_splits, invoice))
+    setMappingProperty(invoice.property_name || '')
   }, [invoice.vendor_name, invoice.property_name, invoice.amount, invoice.gl_splits, invoice.portfolio_override])
 
   // 2A — Auto-fill first split row when invoice has an amount but no row has one
@@ -164,16 +169,48 @@ export default function InvoiceDetail({ invoice, onAction, onBack }) {
 
   const handleSaveEdits = async () => {
     setSaving(true)
-    const fields = {
-      vendor_name: editFields.vendor_name,
-      property_name: editFields.property_name,
-      amount: editFields.amount ? parseFloat(editFields.amount) : null,
-      gl_splits: glSplits,
-      portfolio_override: editFields.portfolio_override || null,
+    try {
+      const amount = editFields.amount ? parseFloat(editFields.amount) : null
+      const fields = {
+        vendor_name: editFields.vendor_name,
+        property_name: editFields.property_name,
+        amount,
+        gl_splits: syncGlSplitsWithProperty(glSplits, {
+          ...invoice,
+          property_name: editFields.property_name,
+          portfolio_override: editFields.portfolio_override || null,
+          amount,
+        }),
+        portfolio_override: editFields.portfolio_override || null,
+      }
+      await onAction(invoice.id, 'edit', { fields })
+      setMappingProperty(editFields.property_name)
+      setEditing(false)
+    } finally {
+      setSaving(false)
     }
-    await onAction(invoice.id, 'edit', { fields })
-    setSaving(false)
-    setEditing(false)
+  }
+
+  const handleResolveMapping = async () => {
+    const selectedProperty = findPropertyCatalogEntry(mappingProperty)
+    if (!selectedProperty) return
+
+    setMappingSaving(true)
+    try {
+      const nextFields = {
+        property_name: selectedProperty.property_name,
+        portfolio_override: null,
+        gl_splits: syncGlSplitsWithProperty(invoice.gl_splits, {
+          ...invoice,
+          property_name: selectedProperty.property_name,
+          portfolio_override: null,
+        }),
+      }
+      await onAction(invoice.id, 'edit', { fields: nextFields })
+      setMappingProperty(selectedProperty.property_name)
+    } finally {
+      setMappingSaving(false)
+    }
   }
 
   const handleAssign = async (userId) => {
@@ -229,6 +266,12 @@ export default function InvoiceDetail({ invoice, onAction, onBack }) {
   const activePortfolio = portfolioState({
     property_name: editing ? editFields.property_name : invoice.property_name,
     portfolio_override: editing ? editFields.portfolio_override : invoice.portfolio_override,
+  })
+  const selectedMappingEntry = findPropertyCatalogEntry(mappingProperty)
+  const mappingPreview = portfolioState({
+    ...invoice,
+    property_name: selectedMappingEntry?.property_name || mappingProperty,
+    portfolio_override: null,
   })
   const allocationBlock = allocationBlockReason(
     editFields.amount ? parseFloat(editFields.amount) : invoice.amount,
@@ -386,6 +429,8 @@ export default function InvoiceDetail({ invoice, onAction, onBack }) {
               )
             })()}
 
+            <ParseStatusBanner invoice={invoice} />
+
             {/* ── Extracted / Editable Data ─────────────────────────────── */}
             <div className="rounded-lg overflow-hidden themed"
               style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-card)' }}>
@@ -423,8 +468,14 @@ export default function InvoiceDetail({ invoice, onAction, onBack }) {
                     </div>
                     <div>
                       <label className="text-xs block mb-1" style={{ color: 'var(--text-5)' }}>Property</label>
-                      <input style={inputStyle} value={editFields.property_name}
-                        onChange={e => setEditFields(f => ({ ...f, property_name: e.target.value }))} />
+                      <PropertySelect
+                        value={editFields.property_name}
+                        parsedValue={invoice.property_name || ''}
+                        onChange={(property_name) => setEditFields(f => ({ ...f, property_name }))}
+                        selectStyle={inputStyle}
+                        inputStyle={inputStyle}
+                        emptyLabel="Select property"
+                      />
                     </div>
                     <div>
                       <label className="text-xs block mb-1" style={{ color: 'var(--text-5)' }}>Amount</label>
@@ -447,13 +498,11 @@ export default function InvoiceDetail({ invoice, onAction, onBack }) {
                         style={inputStyle}
                       >
                         <option value="">Auto-map from property name</option>
-                        {PROPERTY_CATALOG
-                          .filter((entry, index, rows) => rows.findIndex(row => row.portfolio_key === entry.portfolio_key) === index)
-                          .map(entry => (
-                            <option key={entry.portfolio_key} value={entry.portfolio_key}>
-                              {entry.portfolio_label}
-                            </option>
-                          ))}
+                        {PORTFOLIO_OPTIONS.map(entry => (
+                          <option key={entry.value} value={entry.value}>
+                            {entry.label}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -472,7 +521,7 @@ export default function InvoiceDetail({ invoice, onAction, onBack }) {
                       ...(invoice.invoice_date ? [{ label: 'Date', value: invoice.invoice_date }] : []),
                       ...(invoice.due_date ? [{ label: 'Due', value: invoice.due_date }] : []),
                       ...(invoice.linked_work_order ? [{ label: 'Work Order', value: invoice.linked_work_order, accent: true }] : []),
-                      { label: 'Portfolio', value: activePortfolio.isMapped ? `${activePortfolio.portfolio_label}${activePortfolio.isManual ? ' (manual)' : ''}` : 'Needs Mapping', accent: !activePortfolio.isMapped },
+                      { label: 'Portfolio', value: activePortfolio.isMapped ? `${activePortfolio.portfolio_label}${activePortfolio.isManual ? ' (manual)' : ''}` : 'Choose property to finish routing', accent: !activePortfolio.isMapped },
                       ...(invoice.source ? [{ label: 'Source', value: (invoice.source === 'external_submission' || invoice.source === 'vendor') ? 'Vendor Submission' : invoice.source === 'upload' ? 'Internal Upload' : invoice.source }] : []),
                       ...(invoice.notes ? [{ label: 'Notes', value: invoice.notes }] : []),
                     ].map((row, i) => (
@@ -553,7 +602,51 @@ export default function InvoiceDetail({ invoice, onAction, onBack }) {
                 {!activePortfolio.isMapped && (
                   <div className="rounded-md px-3 py-2 text-xs"
                     style={{ backgroundColor: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.25)', color: '#92400E' }}>
-                    This invoice could not be confidently mapped from its property value. Review and set a portfolio override if needed.
+                    Choose a property to finish routing this invoice.
+                  </div>
+                )}
+                {!activePortfolio.isMapped && !editing && (
+                  <div
+                    className="rounded-lg p-3 space-y-3"
+                    style={{ backgroundColor: 'var(--surface-alt)', border: '1px solid var(--border)' }}
+                  >
+                    <div>
+                      <div className="text-xs font-semibold" style={{ color: 'var(--text-3)' }}>
+                        Routing Required
+                      </div>
+                      <div className="text-xs mt-1" style={{ color: 'var(--text-5)' }}>
+                        Choose a catalog property to remove the mapping hold and route this invoice to the correct portfolio.
+                      </div>
+                    </div>
+                    <PropertySelect
+                      value={mappingProperty}
+                      parsedValue={invoice.property_name || ''}
+                      onChange={setMappingProperty}
+                      selectStyle={inputStyle}
+                      inputStyle={inputStyle}
+                      emptyLabel="Choose property to finish routing"
+                    />
+                    {selectedMappingEntry && mappingPreview.isMapped && (
+                      <div className="text-xs" style={{ color: 'var(--text-4)' }}>
+                        This routes to <strong>{mappingPreview.portfolio_label}</strong>
+                        {mappingPreview.entity_code ? ` and seeds entity ${mappingPreview.entity_code}${mappingPreview.entity_name ? ` - ${mappingPreview.entity_name}` : ''}` : ''}.
+                      </div>
+                    )}
+                    <div className="flex justify-end">
+                      <button
+                        type="button"
+                        onClick={handleResolveMapping}
+                        disabled={!selectedMappingEntry || mappingSaving}
+                        className="text-xs font-semibold px-3 py-1.5 rounded"
+                        style={{
+                          backgroundColor: selectedMappingEntry ? '#1D4ED8' : 'rgba(29,78,216,0.35)',
+                          color: 'white',
+                          cursor: !selectedMappingEntry || mappingSaving ? 'not-allowed' : 'pointer',
+                        }}
+                      >
+                        {mappingSaving ? 'Saving…' : 'Save Mapping'}
+                      </button>
+                    </div>
                   </div>
                 )}
                 {editing ? (
@@ -564,9 +657,79 @@ export default function InvoiceDetail({ invoice, onAction, onBack }) {
                       </p>
                     )}
                     {(() => {
+                      const extraction = invoice.parse_metadata?.gl_extraction
+                      if (!extraction) return null
+                      const isResolved = extraction.resolved
+                      const tone = isResolved
+                        ? { bg: 'rgba(16,185,129,0.08)', border: 'rgba(16,185,129,0.25)', accent: '#059669' }
+                        : { bg: 'rgba(245,158,11,0.08)', border: 'rgba(245,158,11,0.30)', accent: '#B45309' }
+                      const confidencePct = Math.round(((extraction.confidence ?? 0) * 100))
+                      const sourceLabel = extraction.source
+                        ? extraction.source.replace(/_/g, ' ')
+                        : 'invoice'
+                      return (
+                        <div className="rounded-md px-3 py-2 text-xs flex items-center gap-2"
+                          style={{ backgroundColor: tone.bg, border: `1px solid ${tone.border}`, color: 'var(--text-4)' }}>
+                          <Zap size={10} style={{ color: tone.accent, flexShrink: 0 }} />
+                          <span style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+                            <span style={{ fontSize: 9, fontWeight: 700, padding: '1px 4px', borderRadius: 3, backgroundColor: 'rgba(0,0,0,0.06)', color: tone.accent, letterSpacing: 0.5 }}>
+                              {isResolved ? 'PARSED' : 'NEEDS MATCH'}
+                            </span>
+                            {isResolved ? (
+                              <span>
+                                G/L code <strong>{extraction.normalized}</strong>
+                                {extraction.description ? ` — ${extraction.description}` : ''} read from {sourceLabel}.
+                              </span>
+                            ) : (
+                              <span>
+                                Parser saw <strong>{extraction.raw}</strong> on the {sourceLabel} but it's not in the chart of accounts. Pick the closest match below.
+                              </span>
+                            )}
+                            {confidencePct > 0 && (
+                              <span style={{ fontSize: 10, fontWeight: 600, color: tone.accent }}>
+                                {confidencePct}% confidence
+                              </span>
+                            )}
+                          </span>
+                        </div>
+                      )
+                    })()}
+                    {(() => {
+                      if (glSplits.some(r => r.gl_code)) return null
+
+                      const aiSuggestion = invoice.parse_metadata?.gl_suggestion
+                      const aiAccount = aiSuggestion?.code
+                        ? findGlAccount(normalizeGlCode(aiSuggestion.code))
+                        : null
+
+                      if (aiAccount) {
+                        const confidencePct = Math.round(((aiSuggestion.confidence ?? 0) * 100))
+                        const confidenceColor = confidencePct >= 80 ? '#059669' : confidencePct >= 60 ? '#D97706' : '#6B7280'
+                        return (
+                          <div className="rounded-md px-3 py-2 text-xs flex items-center gap-2"
+                            style={{ backgroundColor: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.18)', color: 'var(--text-4)' }}>
+                            <Zap size={10} style={{ color: '#6366F1', flexShrink: 0 }} />
+                            <span style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+                              <span style={{ fontSize: 9, fontWeight: 700, padding: '1px 4px', borderRadius: 3, backgroundColor: 'rgba(99,102,241,0.15)', color: '#4F46E5', letterSpacing: 0.5 }}>AI</span>
+                              <span>Suggested: <strong>{aiAccount.code}</strong> {aiAccount.name}</span>
+                              <span style={{ fontSize: 10, fontWeight: 600, color: confidenceColor }}>
+                                {confidencePct}% confidence
+                              </span>
+                            </span>
+                            <button type="button"
+                              title={aiSuggestion.reasoning || ''}
+                              onClick={() => setGlSplits(rows => rows.map((r, i) => i === 0 && !r.gl_code ? { ...r, gl_code: aiAccount.code } : r))}
+                              className="ml-auto text-xs font-semibold px-2 py-0.5 rounded"
+                              style={{ backgroundColor: 'rgba(99,102,241,0.12)', color: '#4F46E5' }}>
+                              Apply
+                            </button>
+                          </div>
+                        )
+                      }
+
                       const text = [invoice.vendor_name, invoice.description, invoice.raw_text?.slice(0, 500)].filter(Boolean).join(' ')
                       const suggestions = suggestGlFromText(text)
-                      if (suggestions.length === 0 || glSplits.some(r => r.gl_code)) return null
+                      if (suggestions.length === 0) return null
                       return (
                         <div className="rounded-md px-3 py-2 text-xs flex items-center gap-2"
                           style={{ backgroundColor: 'rgba(59,130,246,0.06)', border: '1px solid rgba(59,130,246,0.15)', color: 'var(--text-4)' }}>
@@ -1240,7 +1403,7 @@ export default function InvoiceDetail({ invoice, onAction, onBack }) {
             <div className="p-5 space-y-4">
               <p className="text-sm" style={{ color: 'var(--text-4)' }}>
                 This will permanently delete invoice <strong>{invoice.invoice_number || (typeof invoice.id === 'string' ? invoice.id.slice(0, 8) : invoice.id)}</strong>
-                {invoice.vendor_name && invoice.vendor_name !== 'Unknown Vendor' ? ` from ${invoice.vendor_name}` : ''}.
+                {invoice.vendor_name ? ` from ${invoice.vendor_name}` : ''}.
                 {invoice.file_url ? ' The attached PDF will also be removed from storage.' : ''}
               </p>
               <p className="text-xs" style={{ color: 'var(--text-6)' }}>

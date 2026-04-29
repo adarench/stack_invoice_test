@@ -7,10 +7,12 @@ import { useTheme } from '../context/ThemeContext'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabaseClient'
 import { uploadInvoiceFile, createInvoice, checkDuplicateInvoice } from '../api/invoiceApi'
-import { parseAndNormalizeInvoice, buildInvoiceDraft } from '../lib/invoiceIngestion'
+import { parseAndNormalizeInvoice, buildInvoiceDraft, finalizeInvoiceDraftAfterUpload } from '../lib/invoiceIngestion'
+import { canonicalizePropertyName } from '../data/propertyCatalog'
 import StatusBadge from './StatusBadge'
 import { sendNotification, resolveRecipients } from '../api/notificationApi'
 import VendorInvoiceDetail from './VendorInvoiceDetail'
+import PropertySelect from './PropertySelect'
 
 /** Map internal statuses to simplified vendor-facing labels */
 export const VENDOR_STATUS = {
@@ -299,7 +301,7 @@ function VendorSubmitForm({ user, onSubmitted }) {
     setFields(current => ({
       ...current,
       vendorName: current.vendorName || parsedInvoice?.vendorName || '',
-      propertyName: current.propertyName || parsedInvoice?.propertyName || '',
+      propertyName: current.propertyName || canonicalizePropertyName(parsedInvoice?.propertyName) || parsedInvoice?.propertyName || '',
       invoiceNumber: current.invoiceNumber || parsedInvoice?.invoiceNumber || '',
       amount: current.amount || (parsedInvoice?.amount != null ? String(parsedInvoice.amount) : ''),
     }))
@@ -322,9 +324,7 @@ function VendorSubmitForm({ user, onSubmitted }) {
       parseError,
     })
 
-    if (!invoiceData.vendor_name) { setErrorMsg('Vendor / company name is required.'); return }
     if (!fields.contactEmail.trim()) { setErrorMsg('Contact email is required.'); return }
-    if (!invoiceData.property_name) { setErrorMsg('Property name is required when it cannot be parsed from the PDF.'); return }
     if (!file) { setErrorMsg('Please attach an invoice PDF.'); return }
 
     // Duplicate check before file upload
@@ -347,9 +347,24 @@ function VendorSubmitForm({ user, onSubmitted }) {
     try {
       if (supabase) {
         const fileUrl = await uploadInvoiceFile(file, user?.id || 'vendor')
+        const { invoiceData: finalizedInvoiceData, createInvoiceInput, parsed: finalizedParsed, parseError: finalizedParseError } = await finalizeInvoiceDraftAfterUpload({
+          channel: 'vendor',
+          source: 'vendor',
+          submittedFields: fields,
+          parsed,
+          parseError,
+          file,
+          fileUrl,
+        })
+
+        setParsed(finalizedParsed)
+        setParseError(finalizedParseError)
+        console.debug('[VendorSubmitForm] finalized invoice data:', finalizedInvoiceData)
         const invoice = await createInvoice({
           fileUrl,
           uploadedBy: user?.id || null,
+          uploadedByEmail: user?.email || null,
+          uploadedByName: user?.full_name || user?.user_metadata?.full_name || null,
           ...createInvoiceInput,
         })
         // Notify ops team of new vendor submission
@@ -461,9 +476,14 @@ function VendorSubmitForm({ user, onSubmitted }) {
             <label className="text-xs font-medium block mb-1.5" style={{ color: 'var(--text-5)' }}>
               Property Name <span style={{ color: '#EF4444' }}>*</span>
             </label>
-            <input style={inputStyle} value={fields.propertyName}
-              onChange={e => setFields(f => ({ ...f, propertyName: e.target.value }))}
-              placeholder="e.g. Oakwood Terrace" />
+            <PropertySelect
+              value={fields.propertyName}
+              parsedValue={parsed?.propertyName || ''}
+              onChange={(propertyName) => setFields(f => ({ ...f, propertyName }))}
+              selectStyle={selectStyle}
+              inputStyle={inputStyle}
+              emptyLabel="Select property"
+            />
           </div>
           <div>
             <label className="text-xs font-medium block mb-1.5" style={{ color: 'var(--text-5)' }}>

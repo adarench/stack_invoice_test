@@ -1,6 +1,7 @@
 import { supabase } from '../lib/supabaseClient'
 import { DEMO_USERS } from '../data/demoUsers'
 import { normalizeGlSplits } from '../lib/invoiceAccounting'
+import { resolveProfileId } from './profileApi'
 
 // Demo user IDs
 const DEMO_USER_IDS = new Set(DEMO_USERS.map(u => u.id))
@@ -138,28 +139,37 @@ export async function fetchInvoice(id) {
  * Validates uploaded_by against the profiles table to avoid FK violations.
  */
 export async function createInvoice({
-  vendorName, propertyName, invoiceNumber, amount, fileUrl, uploadedBy,
+  vendorName, propertyName, invoiceNumber, amount, fileUrl, uploadedBy, uploadedByEmail, uploadedByName,
   invoiceDate, dueDate, billToName, description, lineItems, rawText,
-  parseStatus, parseErrors, source, vendorEmail, documentType, notes, glSplits,
+  parseStatus, parseErrors, parseMethod, parseConfidence, parseMetadata, source, vendorEmail, documentType, notes, glSplits,
 }) {
-  // Determine a safe value for uploaded_by:
-  // - If it's a demo user ID, only use it if demo users are in the DB
-  // - If it's a real UUID (non-demo), use it directly
-  // - Otherwise null
+  // Determine the canonical profiles.id for uploaded_by:
+  // - Demo IDs are kept for local/demo mode after seeding
+  // - Hosted/authenticated users resolve against profiles by id or email
+  // - Brand-new authenticated users can bootstrap a profile row on first write
   let safeUploadedBy = null
   if (uploadedBy && /^[0-9a-f-]{36}$/.test(uploadedBy)) {
     if (DEMO_USER_IDS.has(uploadedBy)) {
       const exists = await ensureDemoUsersExist()
       safeUploadedBy = exists ? uploadedBy : null
     } else {
-      safeUploadedBy = uploadedBy
+      safeUploadedBy = await resolveProfileId({
+        id: uploadedBy,
+        email: uploadedByEmail,
+        fullName: uploadedByName,
+        allowInsert: true,
+      })
+
+      if (!safeUploadedBy) {
+        throw new Error(`Unable to resolve uploader profile for ${uploadedByEmail || uploadedBy}`)
+      }
     }
   }
 
   console.debug('[invoiceApi] uploaded_by resolution:', { raw: uploadedBy, safe: safeUploadedBy })
 
   const row = {
-    vendor_name:    vendorName || 'Unknown Vendor',
+    vendor_name:    vendorName || null,
     property_name:  propertyName || null,
     invoice_number: invoiceNumber || null,
     amount:         amount ?? null,
@@ -174,6 +184,9 @@ export async function createInvoice({
     raw_text:       rawText || null,
     parse_status:   parseStatus || null,
     parse_errors:   parseErrors || null,
+    parse_method:   parseMethod || null,
+    parse_confidence: parseConfidence ?? null,
+    parse_metadata: parseMetadata || {},
     source:         source || null,
     vendor_email:   vendorEmail || null,
     document_type:  documentType || null,
@@ -193,7 +206,17 @@ export async function createInvoice({
 
   if (error) {
     // If the error is about unknown columns (migration 006 not applied), retry without them
-    const optionalCols = ['vendor_email', 'document_type', 'notes', 'gl_splits', 'portfolio_override', 'notifications']
+    const optionalCols = [
+      'vendor_email',
+      'document_type',
+      'notes',
+      'gl_splits',
+      'portfolio_override',
+      'notifications',
+      'parse_method',
+      'parse_confidence',
+      'parse_metadata',
+    ]
     if (error.message && optionalCols.some(c => error.message.includes(c))) {
       console.warn('[invoiceApi] vendor columns not found, retrying without them:', error.message)
       const safeRow = Object.fromEntries(

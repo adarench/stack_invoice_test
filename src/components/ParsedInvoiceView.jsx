@@ -23,6 +23,11 @@ function money(value) {
 export default function ParsedInvoiceView({ invoice }) {
   const lineItems = invoice.line_items || []
   const glSplits = Array.isArray(invoice.gl_splits) ? invoice.gl_splits : []
+  const parseMethodLabel = invoice.parse_method === 'llm_pdf'
+    ? 'Vision fallback'
+    : invoice.parse_method === 'text+llm_pdf'
+      ? 'Text + vision fallback'
+      : 'Parsed from upload'
 
   return (
     <div
@@ -48,7 +53,7 @@ export default function ParsedInvoiceView({ invoice }) {
         </div>
         <span className="text-xs px-2 py-0.5 rounded font-medium"
           style={{ backgroundColor: 'rgba(16,185,129,0.2)', color: '#10B981', border: '1px solid rgba(16,185,129,0.3)' }}>
-          Parsed from upload
+          {parseMethodLabel}
         </span>
       </div>
 

@@ -556,8 +556,14 @@ export default function InvoiceList({
                     )}
                   </td>
                   <td className="px-4 py-3" style={{ width: colWidths.vendor_name, overflow: 'hidden' }} onClick={() => onSelectInvoice(inv)}>
-                    <div className="flex items-center gap-1.5">
-                      <span className="font-medium text-sm" style={{ color: 'var(--text-2)' }}>{inv.vendor_name}</span>
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      {inv.vendor_name ? (
+                        <span className="font-medium text-sm" style={{ color: 'var(--text-2)' }}>{inv.vendor_name}</span>
+                      ) : (
+                        <span className="font-medium text-sm italic" style={{ color: '#B45309' }}>
+                          Vendor unknown — needs review
+                        </span>
+                      )}
                       {isModified && (
                         <span
                           title={`Modified by ${lastEdit.user}`}
@@ -565,6 +571,24 @@ export default function InvoiceList({
                           style={{ backgroundColor: 'rgba(245,158,11,0.14)', color: '#92400E', fontSize: '10px' }}
                         >
                           ✎ {lastEdit.user}
+                        </span>
+                      )}
+                      {inv.parse_status === 'partial' && (
+                        <span
+                          title="Some fields could not be auto-extracted — please review"
+                          className="inline-flex items-center text-xs px-1.5 py-0.5 rounded font-medium"
+                          style={{ backgroundColor: 'rgba(245,158,11,0.14)', color: '#92400E', fontSize: '10px' }}
+                        >
+                          Partial parse
+                        </span>
+                      )}
+                      {inv.parse_metadata?.gl_needs_review && (
+                        <span
+                          title="No G/L code assigned automatically — please pick a code"
+                          className="inline-flex items-center text-xs px-1.5 py-0.5 rounded font-medium"
+                          style={{ backgroundColor: 'rgba(239,68,68,0.12)', color: '#991B1B', fontSize: '10px' }}
+                        >
+                          GL needs review
                         </span>
                       )}
                     </div>
@@ -578,7 +602,7 @@ export default function InvoiceList({
                   <td className="px-4 py-3" style={{ width: colWidths.property_name, overflow: 'hidden' }} onClick={() => onSelectInvoice(inv)}>
                     <div className="text-sm" style={{ color: 'var(--text-4)' }}>{inv.property_name || '—'}</div>
                     <div className="text-xs mt-0.5" style={{ color: inv.portfolio?.isMapped ? 'var(--text-6)' : '#92400E' }}>
-                      {inv.portfolio?.isMapped ? inv.portfolio.portfolio_label : 'Needs Mapping'}
+                      {inv.portfolio?.isMapped ? inv.portfolio.portfolio_label : 'Choose property to finish routing'}
                     </div>
                   </td>
                   <td className="px-4 py-3" style={{ width: colWidths.amount, overflow: 'hidden' }} onClick={() => onSelectInvoice(inv)}>

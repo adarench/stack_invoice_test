@@ -51,6 +51,18 @@ supabase functions deploy send-notification
 supabase secrets set RESEND_API_KEY=<your-resend-api-key>
 ```
 
+For the invoice parsing fallback:
+
+```bash
+supabase secrets set ANTHROPIC_API_KEY=<your-anthropic-api-key> ANTHROPIC_MODEL=claude-sonnet-4-20250514
+```
+
+For local function development, keep the same values in an ignored file:
+
+```bash
+supabase/functions/.env.local
+```
+
 5. Configure Supabase Auth for the hosted domain.
 
 - In Supabase Dashboard -> Authentication -> URL Configuration:

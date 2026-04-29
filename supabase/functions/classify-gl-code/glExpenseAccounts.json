@@ -1,0 +1,2627 @@
+[
+  {
+    "gl_code": "5010-00",
+    "gl_description": "Advertising",
+    "category": "Advertising",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5020-00",
+    "gl_description": "Alarm Monitoring",
+    "category": "Alarm Monitoring",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5030-00",
+    "gl_description": "Amortization Expense: Financing Costs",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5031-00",
+    "gl_description": "Amortization Expense: Organization Costs",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5032-00",
+    "gl_description": "Amortization Expense: Leasing Commissions",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5033-00",
+    "gl_description": "Amortization Expense: Legal Costs",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5040-00",
+    "gl_description": "Automobile Expense",
+    "category": "Automobile Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5050-00",
+    "gl_description": "Bad Debt Expense",
+    "category": "Bad Debt Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5055-00",
+    "gl_description": "Bank Service Charges",
+    "category": "Bank Service Charges",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5060-00",
+    "gl_description": "Boiler: Inspection",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5061-00",
+    "gl_description": "Boiler: Other",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5062-00",
+    "gl_description": "Boiler: Repairs",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5063-00",
+    "gl_description": "Boiler: Supplies/Materials",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5065-00",
+    "gl_description": "Building Improvements",
+    "category": "Building Improvements",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5070-00",
+    "gl_description": "Construction Defects",
+    "category": "Construction Defects",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5071-00",
+    "gl_description": "Contributions",
+    "category": "Contributions",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5075-00",
+    "gl_description": "Decorations: Exterior & Interior",
+    "category": "Decorations",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5076-00",
+    "gl_description": "Decorations: Interior",
+    "category": "Decorations",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5080-00",
+    "gl_description": "Depreciation Expense: 754 Wheatleys",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5081-00",
+    "gl_description": "Depreciation Expense: Building",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5082-00",
+    "gl_description": "Depreciation Expense: Improvements",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5083-00",
+    "gl_description": "Depreciation Expense: FFM&E",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5085-00",
+    "gl_description": "Dues & Subscriptions",
+    "category": "Dues & Subscriptions",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5089-00",
+    "gl_description": "Education",
+    "category": "Education",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5090-00",
+    "gl_description": "Electrical: Contracts",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5091-00",
+    "gl_description": "Electrical: Other",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5092-00",
+    "gl_description": "Electrical",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5093-00",
+    "gl_description": "Electrical: Supplies/Materials",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5110-00",
+    "gl_description": "Elevator: Communications",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5111-00",
+    "gl_description": "Elevator: Contract",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5112-00",
+    "gl_description": "Elevator: Other",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5113-00",
+    "gl_description": "Elevator: Repairs",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5114-00",
+    "gl_description": "Elevator: Supplies/Materials",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5116-00",
+    "gl_description": "Employee Expenses: Health Insurance",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5117-00",
+    "gl_description": "Employee Expenses: Other",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5118-00",
+    "gl_description": "Employee Expenses: Payroll Taxes",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5119-00",
+    "gl_description": "Employee Expenses: Reimbursements",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5120-00",
+    "gl_description": "Employee Expenses: Maintenance Uniforms",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5121-00",
+    "gl_description": "Employee Expenses: Wages",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5126-00",
+    "gl_description": "Equipment",
+    "category": "Equipment",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5127-00",
+    "gl_description": "Equipment - Rental",
+    "category": "Equipment - Rental",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5129-00",
+    "gl_description": "Financing Costs",
+    "category": "Financing Costs",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5130-00",
+    "gl_description": "Fire & Life Safety: Communications",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5131-00",
+    "gl_description": "Fire & Life Safety: Contract",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5132-00",
+    "gl_description": "Fire & Life Safety: Emergency Training & Supplies",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5133-00",
+    "gl_description": "Fire & Life Safety: Other",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5134-00",
+    "gl_description": "Fire & Life Safety: Repairs",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5135-00",
+    "gl_description": "Flooring",
+    "category": "Flooring",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5139-00",
+    "gl_description": "Gain (Loss) on Disposal",
+    "category": "Gain (Loss) on Disposal",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5140-00",
+    "gl_description": "Generator: Contract",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5141-00",
+    "gl_description": "Generator: Other",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5142-00",
+    "gl_description": "Generator: Repairs",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5143-00",
+    "gl_description": "Generator: Supplies/Materials",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5150-00",
+    "gl_description": "HVAC: Contract",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5151-00",
+    "gl_description": "HVAC: Other",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5152-00",
+    "gl_description": "HVAC: Repairs",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5153-00",
+    "gl_description": "HVAC: Supplies/Materials",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5156-00",
+    "gl_description": "HOA Fees",
+    "category": "HOA Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5157-00",
+    "gl_description": "Income Taxes",
+    "category": "Income Taxes",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5160-00",
+    "gl_description": "Insurance: Auto",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5161-00",
+    "gl_description": "Insurance: Liability",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5162-00",
+    "gl_description": "Insurance: Property",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5163-00",
+    "gl_description": "Insurance: Other",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5171-00",
+    "gl_description": "Interest Expense",
+    "category": "Interest Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5172-00",
+    "gl_description": "Interest: Loan",
+    "category": "Interest",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5173-00",
+    "gl_description": "Interest: Mortgage",
+    "category": "Interest",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5180-00",
+    "gl_description": "Janitorial: Carpet & Tile Cleaning",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5181-00",
+    "gl_description": "Janitorial: Contract",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5182-00",
+    "gl_description": "Janitorial: Day Porter",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5183-00",
+    "gl_description": "Janitorial: Other",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5184-00",
+    "gl_description": "Janitorial: Supplies/Materials",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5185-00",
+    "gl_description": "Janitorial: Supplies/Materials Reimb. Contra Acct.",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5186-00",
+    "gl_description": "Janitorial: Window Cleaning Exterior",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5187-00",
+    "gl_description": "Janitorial: Window Cleaning Interior",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5190-00",
+    "gl_description": "Land Lease",
+    "category": "Land Lease",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5199-00",
+    "gl_description": "COVID-19 Associated Cost",
+    "category": "COVID-19 Associated Cost",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5210-00",
+    "gl_description": "Landscape Maintenance: Contract",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5211-00",
+    "gl_description": "Landscape Maintenance: Fountains & Ponds",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5212-00",
+    "gl_description": "Landscape Maintenance: Other",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5213-00",
+    "gl_description": "Landscape Maintenance: Sprinkler Repairs",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5214-00",
+    "gl_description": "Landscape Maintenance: Supplies/Materials",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5215-00",
+    "gl_description": "Landscape Maintenance: General",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5220-00",
+    "gl_description": "Leasing Commissions",
+    "category": "Leasing Commissions",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5230-00",
+    "gl_description": "Legal/Professional Fees",
+    "category": "Legal/Professional Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5240-00",
+    "gl_description": "Licenses and Permits",
+    "category": "Licenses and Permits",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5250-00",
+    "gl_description": "Lighting: Exterior",
+    "category": "Lighting",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5251-00",
+    "gl_description": "Lighting: Interior",
+    "category": "Lighting",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5255-00",
+    "gl_description": "Maintenance Reserve",
+    "category": "Maintenance Reserve",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5260-00",
+    "gl_description": "Management Education",
+    "category": "Management Education",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5261-00",
+    "gl_description": "Management Fee",
+    "category": "Management Fee",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5262-00",
+    "gl_description": "Management Fee: Asset Management",
+    "category": "Management Fee",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5263-00",
+    "gl_description": "Management Fee: Construction Management",
+    "category": "Management Fee",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5264-00",
+    "gl_description": "Management: Other",
+    "category": "Management",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5265-00",
+    "gl_description": "Manager's Compensation",
+    "category": "Manager's Compensation",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5275-00",
+    "gl_description": "Materials Handling",
+    "category": "Materials Handling",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5280-00",
+    "gl_description": "Meals and Entertainment",
+    "category": "Meals and Entertainment",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5310-00",
+    "gl_description": "Moving Expenses: Move In",
+    "category": "Moving Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5311-00",
+    "gl_description": "Moving Expenses: Move Out",
+    "category": "Moving Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5320-00",
+    "gl_description": "Office: Database/Software/Hardware",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5321-00",
+    "gl_description": "Office: Postage & Overnights",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5322-00",
+    "gl_description": "Office: Rental",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5323-00",
+    "gl_description": "Office: Supplies/Materials",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5324-00",
+    "gl_description": "Other Administrative Expenses",
+    "category": "Other Administrative Expenses",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5330-00",
+    "gl_description": "Other Miscellaneous Expense",
+    "category": "Other Miscellaneous Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5340-00",
+    "gl_description": "Painting: Exterior",
+    "category": "Painting",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5341-00",
+    "gl_description": "Painting: Interior & Exterior",
+    "category": "Painting",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5350-00",
+    "gl_description": "Parking Lot: Pressure Wash",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5351-00",
+    "gl_description": "Parking Lot: Repairs",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5352-00",
+    "gl_description": "Parking Lot: Sweeping",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5353-00",
+    "gl_description": "Parking Lot: Lot Fees",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5355-00",
+    "gl_description": "Pavilion",
+    "category": "Pavilion",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5360-00",
+    "gl_description": "Pest Control",
+    "category": "Pest Control",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5370-00",
+    "gl_description": "Plumbing",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5371-00",
+    "gl_description": "Plumbing: Other",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5372-00",
+    "gl_description": "Plumbing: Repairs",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5373-00",
+    "gl_description": "Plumbing: Supplies/Materials",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5380-00",
+    "gl_description": "Prior Year Corrections/Adjustments",
+    "category": "Prior Year Corrections/Adjustments",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5390-00",
+    "gl_description": "Professional Fees: Acctg",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5391-00",
+    "gl_description": "Professional Fees: Appraisal",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5392-00",
+    "gl_description": "Professional Fees: Tax",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5393-00",
+    "gl_description": "Professional Fees: Filing Fees",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5394-00",
+    "gl_description": "Professional Fees",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5397-00",
+    "gl_description": "Property Taxes: Personal",
+    "category": "Property Taxes",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5398-00",
+    "gl_description": "Property Taxes: Real Estate",
+    "category": "Property Taxes",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5405-00",
+    "gl_description": "Rent Expense",
+    "category": "Rent Expense",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5410-00",
+    "gl_description": "Repairs & Maintenance: Exterior - General",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5411-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Equipment",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5412-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Non-recurring",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5413-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Other",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5414-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Supplies/Materials",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5416-00",
+    "gl_description": "Repairs & Maintenance: Interior - General",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5417-00",
+    "gl_description": "Repairs & Maintenance: Interior - Other",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5418-00",
+    "gl_description": "Repairs & Maintenance: Interior - Non-recurring",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5419-00",
+    "gl_description": "Repairs & Maintenance: Interior - Other",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5420-00",
+    "gl_description": "Repairs & Maintenance: Interior - Supplies/Materials",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5421-00",
+    "gl_description": "Roads: Repairs & Maintenance",
+    "category": "Roads",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5428-00",
+    "gl_description": "Roof Repairs",
+    "category": "Roof Repairs",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5430-00",
+    "gl_description": "Sales & Marketing",
+    "category": "Sales & Marketing",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5435-00",
+    "gl_description": "Security: Communications",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5436-00",
+    "gl_description": "Security: Contract",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5437-00",
+    "gl_description": "Security: Locks & Keys",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5438-00",
+    "gl_description": "Security: Other",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5440-00",
+    "gl_description": "Signage & Directories",
+    "category": "Signage & Directories",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5450-00",
+    "gl_description": "Snow Removal: Contract",
+    "category": "Snow Removal",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5451-00",
+    "gl_description": "Snow Removal: Ice Melt & Salt",
+    "category": "Snow Removal",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5459-00",
+    "gl_description": "Tenant Direct Pay",
+    "category": "Tenant Direct Pay",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5460-00",
+    "gl_description": "Tenant Improvements",
+    "category": "Tenant Improvements",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5465-00",
+    "gl_description": "Tenant Relations: Cell Phones",
+    "category": "Tenant Relations",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5466-00",
+    "gl_description": "Tenant Relations: Other",
+    "category": "Tenant Relations",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5467-00",
+    "gl_description": "Tenant Relations: Travel",
+    "category": "Tenant Relations",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5500-00",
+    "gl_description": "Utilities: Electricity",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5501-00",
+    "gl_description": "Utilities: Electricity - Meter Reimb. Contra Acct.",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5502-00",
+    "gl_description": "Utilities: Electricity - Utilities Reimb. Contra Acct.",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5503-00",
+    "gl_description": "Utilities: Internet",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5504-00",
+    "gl_description": "Utilities: Natural Gas",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5505-00",
+    "gl_description": "Utilities: Sewer",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5506-00",
+    "gl_description": "Utilities: Storm Drain",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5507-00",
+    "gl_description": "Utilities: Telephone",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5508-00",
+    "gl_description": "Utilities: Trash Removal",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5509-00",
+    "gl_description": "Utilities: Trash Removal Recycling",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5510-00",
+    "gl_description": "Utilities: Trash Removal Recycling Contra Acct.",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5511-00",
+    "gl_description": "Utilities: Water",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5512-00",
+    "gl_description": "Utilities: Water Landscape",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5520-00",
+    "gl_description": "Vehicle: Fuel",
+    "category": "Vehicle",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5521-00",
+    "gl_description": "Vehicle: Maintenance",
+    "category": "Vehicle",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5703-00",
+    "gl_description": "Maint. Eng. Auto Expense Mileage",
+    "category": "Maint. Eng. Auto Expense Mileage",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5704-00",
+    "gl_description": "Maint. Flags",
+    "category": "Maint. Flags",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5705-00",
+    "gl_description": "Maint. Glass",
+    "category": "Maint. Glass",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5706-00",
+    "gl_description": "Maint. Exterior Walkways/Curbs",
+    "category": "Maint. Exterior Walkways/Curbs",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5707-00",
+    "gl_description": "Air Handlers-Belts",
+    "category": "Air Handlers-Belts",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5708-00",
+    "gl_description": "EMS/Automatic Controls",
+    "category": "EMS/Automatic Controls",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5710-00",
+    "gl_description": "HVAC Non-Recurring",
+    "category": "HVAC Non-Recurring",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5711-00",
+    "gl_description": "Permits",
+    "category": "Permits",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5712-00",
+    "gl_description": "Security Equipment Maintenance",
+    "category": "Security Equipment Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5713-00",
+    "gl_description": "Fire Sprinkler Testing/Service",
+    "category": "Fire Sprinkler Testing/Service",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5714-00",
+    "gl_description": "Telephone Reimbursement - Contra Account",
+    "category": "Telephone Reimbursement - Contra Account",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5715-00",
+    "gl_description": "Lamps",
+    "category": "Lamps",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5716-00",
+    "gl_description": "Repairs and Maintenance",
+    "category": "Repairs and Maintenance",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5771-00",
+    "gl_description": "empty",
+    "category": "empty",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "5772-00",
+    "gl_description": "empty",
+    "category": "empty",
+    "type": "Expense",
+    "recoverable": true
+  },
+  {
+    "gl_code": "6010-00",
+    "gl_description": "Advertising",
+    "category": "Advertising",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6020-00",
+    "gl_description": "Alarm Monitoring",
+    "category": "Alarm Monitoring",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6030-00",
+    "gl_description": "Amortization Expense: Financing Costs",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6031-00",
+    "gl_description": "Amortization Expense: Organization Costs",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6032-00",
+    "gl_description": "Amortization Expense: Leasing Commissions",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6033-00",
+    "gl_description": "Amortization Expense: Legal Costs",
+    "category": "Amortization Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6040-00",
+    "gl_description": "Automobile Expense",
+    "category": "Automobile Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6050-00",
+    "gl_description": "Bad Debt Expense",
+    "category": "Bad Debt Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6055-00",
+    "gl_description": "Bank Service Charges",
+    "category": "Bank Service Charges",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6056-00",
+    "gl_description": "Lender Service Fee",
+    "category": "Lender Service Fee",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6060-00",
+    "gl_description": "Boiler: Inspection",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6061-00",
+    "gl_description": "Boiler: Other",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6062-00",
+    "gl_description": "Boiler: Repairs",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6063-00",
+    "gl_description": "Boiler: Supplies/Materials",
+    "category": "Boiler",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6065-00",
+    "gl_description": "Building Improvements",
+    "category": "Building Improvements",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6070-00",
+    "gl_description": "Construction Defects",
+    "category": "Construction Defects",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6071-00",
+    "gl_description": "Contributions-Charitable",
+    "category": "Contributions-Charitable",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6072-00",
+    "gl_description": "Contributions-Political",
+    "category": "Contributions-Political",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6075-00",
+    "gl_description": "Decorations: Exterior",
+    "category": "Decorations",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6076-00",
+    "gl_description": "Decorations: Interior",
+    "category": "Decorations",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6080-00",
+    "gl_description": "Depreciation Expense: 704(b) Adjustment",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6081-00",
+    "gl_description": "Depreciation Expense: Building",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6082-00",
+    "gl_description": "Depreciation Expense: Improvements",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6083-00",
+    "gl_description": "Depreciation Expense: FF&E",
+    "category": "Depreciation Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6085-00",
+    "gl_description": "Dues & Subscriptions",
+    "category": "Dues & Subscriptions",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6089-00",
+    "gl_description": "Education",
+    "category": "Education",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6090-00",
+    "gl_description": "Electrical: Contracts",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6091-00",
+    "gl_description": "Electrical: Other",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6092-00",
+    "gl_description": "Electrical: Repairs",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6093-00",
+    "gl_description": "Electrical: Supplies/Materials",
+    "category": "Electrical",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6110-00",
+    "gl_description": "Elevator: Communications",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6111-00",
+    "gl_description": "Elevator: Contract",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6112-00",
+    "gl_description": "Elevator: Other",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6113-00",
+    "gl_description": "Elevator: Repairs",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6114-00",
+    "gl_description": "Elevator: Supplies/Materials",
+    "category": "Elevator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6116-00",
+    "gl_description": "Employee Expenses: Health Insurance",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6117-00",
+    "gl_description": "Employee Expenses: Other",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6118-00",
+    "gl_description": "Employee Expenses: Payroll Taxes",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6119-00",
+    "gl_description": "Employee Expenses: Reimbursements",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6120-00",
+    "gl_description": "Employee Expenses: Maintenance Uniforms",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6121-00",
+    "gl_description": "Employee Expenses: Wages",
+    "category": "Employee Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6126-00",
+    "gl_description": "Equipment",
+    "category": "Equipment",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6127-00",
+    "gl_description": "Equipment - Rental",
+    "category": "Equipment - Rental",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6129-00",
+    "gl_description": "Financing Costs",
+    "category": "Financing Costs",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6130-00",
+    "gl_description": "Fire & Life Safety: Communications",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6131-00",
+    "gl_description": "Fire & Life Safety: Contract",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6132-00",
+    "gl_description": "Fire & Life Safety: Emergency Training & Supplies",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6133-00",
+    "gl_description": "Fire & Life Safety: Other",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6134-00",
+    "gl_description": "Fire & Life Safety: Repairs",
+    "category": "Fire & Life Safety",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6135-00",
+    "gl_description": "Flooring",
+    "category": "Flooring",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6139-00",
+    "gl_description": "Gain (Loss) on Disposal",
+    "category": "Gain (Loss) on Disposal",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6140-00",
+    "gl_description": "Generator: Contract",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6141-00",
+    "gl_description": "Generator: Other",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6142-00",
+    "gl_description": "Generator: Repairs",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6143-00",
+    "gl_description": "Generator: Supplies/Materials",
+    "category": "Generator",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6150-00",
+    "gl_description": "HVAC: Contract",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6151-00",
+    "gl_description": "HVAC: Other",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6152-00",
+    "gl_description": "HVAC: Repairs",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6153-00",
+    "gl_description": "HVAC: Supplies/Materials",
+    "category": "HVAC",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6156-00",
+    "gl_description": "HOA Expenses",
+    "category": "HOA Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6157-00",
+    "gl_description": "Income Taxes",
+    "category": "Income Taxes",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6160-00",
+    "gl_description": "Insurance: Auto",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6161-00",
+    "gl_description": "Insurance: Liability",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6162-00",
+    "gl_description": "Insurance: Property",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6163-00",
+    "gl_description": "Insurance: Other",
+    "category": "Insurance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6171-00",
+    "gl_description": "Interest Expense",
+    "category": "Interest Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6172-00",
+    "gl_description": "Interest: Loan",
+    "category": "Interest",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6172-69",
+    "gl_description": "Interest: Loan - S20",
+    "category": "Interest",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6173-00",
+    "gl_description": "Interest: Mortgage",
+    "category": "Interest",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6180-00",
+    "gl_description": "Janitorial: Carpet & Tile Cleaning",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6181-00",
+    "gl_description": "Janitorial: Contract",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6182-00",
+    "gl_description": "Janitorial: Day Porter",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6183-00",
+    "gl_description": "Janitorial: Other",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6184-00",
+    "gl_description": "Janitorial: Supplies/Materials",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6185-00",
+    "gl_description": "Janitorial: Supplies/Materials Reimb. Contra Acct.",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6186-00",
+    "gl_description": "Janitorial: Window Cleaning",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6187-00",
+    "gl_description": "Janitorial: Window Cleaning Interior",
+    "category": "Janitorial",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6190-00",
+    "gl_description": "Land Lease",
+    "category": "Land Lease",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6210-00",
+    "gl_description": "Landscape Maintenance: Contract",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6211-00",
+    "gl_description": "Landscape Maintenance: Fountains & Ponds",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6212-00",
+    "gl_description": "Landscape Maintenance: Other",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6213-00",
+    "gl_description": "Landscape Maintenance: Sprinkler Repairs",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6214-00",
+    "gl_description": "Landscape Maintenance: Supplies/Materials",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6215-00",
+    "gl_description": "Landscape Maintenance: General",
+    "category": "Landscape Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6220-00",
+    "gl_description": "Leasing Commissions",
+    "category": "Leasing Commissions",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6230-00",
+    "gl_description": "Legal/Professional Fees",
+    "category": "Legal/Professional Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6240-00",
+    "gl_description": "Licenses and Permits",
+    "category": "Licenses and Permits",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6250-00",
+    "gl_description": "Lighting: Exterior",
+    "category": "Lighting",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6251-00",
+    "gl_description": "Lighting: Interior",
+    "category": "Lighting",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6255-00",
+    "gl_description": "Maintenance Reserve",
+    "category": "Maintenance Reserve",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6260-00",
+    "gl_description": "Asset Management Fee",
+    "category": "Asset Management Fee",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6261-00",
+    "gl_description": "Management Fee",
+    "category": "Management Fee",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6261-01",
+    "gl_description": "Asset Management Fee",
+    "category": "Asset Management Fee",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6262-00",
+    "gl_description": "Asset Mgmt Fee (Arden)",
+    "category": "Asset Mgmt Fee (Arden)",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6263-00",
+    "gl_description": "Asset Mgmt Fee (Vesta)",
+    "category": "Asset Mgmt Fee (Vesta)",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6264-00",
+    "gl_description": "Management: Other",
+    "category": "Management",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6265-00",
+    "gl_description": "Manager's Compensation",
+    "category": "Manager's Compensation",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6275-00",
+    "gl_description": "Materials Handling",
+    "category": "Materials Handling",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6280-00",
+    "gl_description": "Meals and Entertainment",
+    "category": "Meals and Entertainment",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6280-01",
+    "gl_description": "Entertainment",
+    "category": "Entertainment",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6281-00",
+    "gl_description": "Mileage Expenses",
+    "category": "Mileage Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6310-00",
+    "gl_description": "Moving Expenses: Move In",
+    "category": "Moving Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6311-00",
+    "gl_description": "Moving Expenses: Move Out",
+    "category": "Moving Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6320-00",
+    "gl_description": "Office: Database/Software/Hardware",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6321-00",
+    "gl_description": "Office: Postage & Overnights",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6322-00",
+    "gl_description": "Office: Rental",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6323-00",
+    "gl_description": "Office: Supplies/Materials",
+    "category": "Office",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6324-00",
+    "gl_description": "Other Administrative Expenses",
+    "category": "Other Administrative Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6330-00",
+    "gl_description": "Other Miscellaneous Expense",
+    "category": "Other Miscellaneous Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6340-00",
+    "gl_description": "Painting: Exterior",
+    "category": "Painting",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6341-00",
+    "gl_description": "Painting: Interior",
+    "category": "Painting",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6350-00",
+    "gl_description": "Parking Lot: Pressure Wash",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6351-00",
+    "gl_description": "Parking Lot: Repairs",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6352-00",
+    "gl_description": "Parking Lot: Sweeping",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6353-00",
+    "gl_description": "Parking Lot: Lot Fees",
+    "category": "Parking Lot",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6355-00",
+    "gl_description": "Pavilion",
+    "category": "Pavilion",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6360-00",
+    "gl_description": "Pest Control",
+    "category": "Pest Control",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6370-00",
+    "gl_description": "Plumbing: Contracts",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6371-00",
+    "gl_description": "Plumbing: Other",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6372-00",
+    "gl_description": "Plumbing: Repairs",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6373-00",
+    "gl_description": "Plumbing: Supplies/Materials",
+    "category": "Plumbing",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6380-00",
+    "gl_description": "Prior Year Corrections/Adjustments",
+    "category": "Prior Year Corrections/Adjustments",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6390-00",
+    "gl_description": "Professional Fees: Acctg",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6391-00",
+    "gl_description": "Professional Fees: Appraisal",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6392-00",
+    "gl_description": "Professional Fees: Tax",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6393-00",
+    "gl_description": "Professional Fees: Filing Fees",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6394-00",
+    "gl_description": "Professional Fees: Other",
+    "category": "Professional Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6394-01",
+    "gl_description": "Other Deductions",
+    "category": "Other Deductions",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6397-00",
+    "gl_description": "Property Taxes: Personal",
+    "category": "Property Taxes",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6398-00",
+    "gl_description": "Property Taxes: Real Estate",
+    "category": "Property Taxes",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6405-00",
+    "gl_description": "Rent Expense",
+    "category": "Rent Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6410-00",
+    "gl_description": "Repairs & Maintenance: Exterior - General",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6411-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Equipment",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6412-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Non-recurring",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6413-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Other",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6414-00",
+    "gl_description": "Repairs & Maintenance: Exterior - Supplies/Materials",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6416-00",
+    "gl_description": "Repairs & Maintenance: Interior - General",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6417-00",
+    "gl_description": "Repairs & Maintenance: Interior - Equipment",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6418-00",
+    "gl_description": "Repairs & Maintenance: Interior - Non-recurring",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6419-00",
+    "gl_description": "Repairs & Maintenance: Interior - Other",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6420-00",
+    "gl_description": "Repairs & Maintenance: Interior - Supplies/Materials",
+    "category": "Repairs & Maintenance",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6421-00",
+    "gl_description": "Roads: Repairs & Maintenance",
+    "category": "Roads",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6422-00",
+    "gl_description": "Automobile Expense",
+    "category": "Automobile Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6428-00",
+    "gl_description": "Roof Repairs",
+    "category": "Roof Repairs",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6430-00",
+    "gl_description": "Sales & Marketing",
+    "category": "Sales & Marketing",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6435-00",
+    "gl_description": "Security: Communications",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6436-00",
+    "gl_description": "Security: Contract",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6437-00",
+    "gl_description": "Security: Locks & Keys",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6438-00",
+    "gl_description": "Security: Other",
+    "category": "Security",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6440-00",
+    "gl_description": "Signage & Directories",
+    "category": "Signage & Directories",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6450-00",
+    "gl_description": "Snow Removal: Contract",
+    "category": "Snow Removal",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6451-00",
+    "gl_description": "Snow Removal: Ice Melt & Salt",
+    "category": "Snow Removal",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6459-00",
+    "gl_description": "Tenant Direct Pay",
+    "category": "Tenant Direct Pay",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6460-00",
+    "gl_description": "Tenant Improvements",
+    "category": "Tenant Improvements",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6460-01",
+    "gl_description": "Ledges - St George",
+    "category": "Ledges - St George",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6460-02",
+    "gl_description": "Timber Lakes",
+    "category": "Timber Lakes",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6465-00",
+    "gl_description": "Tenant Relations: Cell Phones",
+    "category": "Tenant Relations",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6466-00",
+    "gl_description": "Tenant Relations: Other",
+    "category": "Tenant Relations",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6467-00",
+    "gl_description": "Tenant Relations: Travel",
+    "category": "Tenant Relations",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6467-01",
+    "gl_description": "Travel",
+    "category": "Travel",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6500-00",
+    "gl_description": "Utilities: Electricity",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6501-00",
+    "gl_description": "Utilities: Electricity - Meter Reimb. Contra Acct.",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6502-00",
+    "gl_description": "Utilities: Electricity - Reimb. Contra Acct.",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6503-00",
+    "gl_description": "Utilities: Internet",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6504-00",
+    "gl_description": "Utilities: Natural Gas",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6505-00",
+    "gl_description": "Utilities: Sewer",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6506-00",
+    "gl_description": "Utilities: Storm Drain",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6507-00",
+    "gl_description": "Utilities: Telephone",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6508-00",
+    "gl_description": "Utilities: Trash Removal",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6509-00",
+    "gl_description": "Utilities: Trash Removal Recycling",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6510-00",
+    "gl_description": "Utilities: Trash Removal Recycling Contra Acct.",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6511-00",
+    "gl_description": "Utilities: Water",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6512-00",
+    "gl_description": "Utilities: Water Landscape",
+    "category": "Utilities",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6520-00",
+    "gl_description": "Vehicle: Fuel",
+    "category": "Vehicle",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6521-00",
+    "gl_description": "Vehicle: Maintenance",
+    "category": "Vehicle",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6701-00",
+    "gl_description": "Owner Expenses",
+    "category": "Owner Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6702-00",
+    "gl_description": "Taxes/Licenses/Fees",
+    "category": "Taxes/Licenses/Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6705-00",
+    "gl_description": "Interest Income",
+    "category": "Interest Income",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6706-00",
+    "gl_description": "Business License & Fees",
+    "category": "Business License & Fees",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6708-00",
+    "gl_description": "Labor Admin.",
+    "category": "Labor Admin.",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6709-00",
+    "gl_description": "Amortization",
+    "category": "Amortization",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6710-00",
+    "gl_description": "Hedge Income",
+    "category": "Hedge Income",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6711-00",
+    "gl_description": "Owner Expenses:Advertising",
+    "category": "Owner Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6712-00",
+    "gl_description": "Owner Expenses:Incidentals",
+    "category": "Owner Expenses",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6768-70",
+    "gl_description": "K1 743 (B) Adjustments",
+    "category": "K1 743 (B) Adjustments",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6769-59",
+    "gl_description": "K1-Portfolio Deductions - Gunsight Pass",
+    "category": "K1-Portfolio Deductions - Gunsight Pass",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6769-69",
+    "gl_description": "K1-Portfolio Deductions - S20",
+    "category": "K1-Portfolio Deductions - S20",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6769-85",
+    "gl_description": "K1-Portfolio Deductions - Reach the Meadow",
+    "category": "K1-Portfolio Deductions - Reach the Meadow",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6770-00",
+    "gl_description": "M-1 Adjustments",
+    "category": "M-1 Adjustments",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6771-00",
+    "gl_description": "Nondeductible Expense",
+    "category": "Nondeductible Expense",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6772-00",
+    "gl_description": "empty",
+    "category": "empty",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6772-58",
+    "gl_description": "K1 Debt Financed Distributions - MHC Investments",
+    "category": "K1 Debt Financed Distributions - MHC Investments",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6772-66",
+    "gl_description": "K1 Debt Financed Distributions - ACF III",
+    "category": "K1 Debt Financed Distributions - ACF III",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6772-68",
+    "gl_description": "K1 Debt Financed Distributions - ACF I",
+    "category": "K1 Debt Financed Distributions - ACF I",
+    "type": "Expense",
+    "recoverable": false
+  },
+  {
+    "gl_code": "6772-85",
+    "gl_description": "K1 Debt Financed Distributions - Reach the Meadow",
+    "category": "K1 Debt Financed Distributions - Reach the Meadow",
+    "type": "Expense",
+    "recoverable": false
+  }
+]

@@ -4,7 +4,9 @@ import { useAuth } from '../context/AuthContext'
 import { useTheme } from '../context/ThemeContext'
 import { supabase } from '../lib/supabaseClient'
 import { uploadInvoiceFile, createInvoice, checkDuplicateInvoice } from '../api/invoiceApi'
-import { parseAndNormalizeInvoice, buildInvoiceDraft } from '../lib/invoiceIngestion'
+import { parseAndNormalizeInvoice, buildInvoiceDraft, finalizeInvoiceDraftAfterUpload } from '../lib/invoiceIngestion'
+import { canonicalizePropertyName } from '../data/propertyCatalog'
+import PropertySelect from './PropertySelect'
 
 export default function UploadInvoice({ onClose, onUploaded }) {
   const { user, isMockMode } = useAuth()
@@ -49,7 +51,7 @@ export default function UploadInvoice({ onClose, onUploaded }) {
       // Pre-fill form fields with parsed values — user can still override
       setFields({
         vendorName:    parsedInvoice?.vendorName    || '',
-        propertyName:  parsedInvoice?.propertyName  || '',
+        propertyName:  canonicalizePropertyName(parsedInvoice?.propertyName) || parsedInvoice?.propertyName || '',
         invoiceNumber: parsedInvoice?.invoiceNumber || '',
         amount:        parsedInvoice?.amount != null ? String(parsedInvoice.amount) : '',
       })
@@ -104,9 +106,24 @@ export default function UploadInvoice({ onClose, onUploaded }) {
 
       if (!isMockMode && supabase) {
         const fileUrl = await uploadInvoiceFile(file, user.id)
+        const { invoiceData: finalizedInvoiceData, createInvoiceInput, parsed: finalizedParsed, parseError: finalizedParseError } = await finalizeInvoiceDraftAfterUpload({
+          channel: 'internal',
+          source: 'upload',
+          submittedFields: fields,
+          parsed,
+          parseError,
+          file,
+          fileUrl,
+        })
+
+        setParsed(finalizedParsed)
+        setParseError(finalizedParseError)
+        console.debug('[UploadInvoice] finalized invoice data:', finalizedInvoiceData)
         const invoice = await createInvoice({
           fileUrl,
           uploadedBy:    user.id,
+          uploadedByEmail: user.email,
+          uploadedByName: user.full_name || user.user_metadata?.full_name || null,
           ...createInvoiceInput,
         })
         console.debug('[UploadInvoice] saved invoice from DB:', invoice)
@@ -298,9 +315,14 @@ export default function UploadInvoice({ onClose, onUploaded }) {
                   <label className="text-xs font-medium block mb-1" style={{ color: 'var(--text-5)' }}>
                     Property
                   </label>
-                  <input style={inputStyle} value={fields.propertyName}
-                    onChange={e => setFields(f => ({ ...f, propertyName: e.target.value }))}
-                    placeholder="e.g. SoJo North" />
+                  <PropertySelect
+                    value={fields.propertyName}
+                    parsedValue={parsed?.propertyName || ''}
+                    onChange={(propertyName) => setFields(f => ({ ...f, propertyName }))}
+                    selectStyle={inputStyle}
+                    inputStyle={inputStyle}
+                    emptyLabel="Select property"
+                  />
                 </div>
                 <div>
                   <label className="text-xs font-medium block mb-1" style={{ color: 'var(--text-5)' }}>

@@ -1,30 +1,12 @@
-import { DEFAULT_PORTFOLIO, PROPERTY_CATALOG } from '../data/propertyCatalog'
+import { normalizeGlCode } from '../data/chartOfAccounts'
+import { DEFAULT_PORTFOLIO, findPropertyCatalogEntry } from '../data/propertyCatalog'
 import { resolveBucket, CROSS_BUCKET_MEMBERS } from './invoiceRouting'
-
-function normalizeMatchValue(value) {
-  if (value == null) return ''
-  return String(value).trim().toLowerCase()
-}
-
-function entryMatchesValue(entry, normalizedValue) {
-  if (!normalizedValue) return false
-
-  if (normalizeMatchValue(entry.property_name) === normalizedValue) return true
-  if (normalizeMatchValue(entry.entity_code) === normalizedValue) return true
-  if (normalizeMatchValue(entry.entity_name) === normalizedValue) return true
-
-  if (Array.isArray(entry.property_codes) && entry.property_codes.some(code => normalizeMatchValue(code) === normalizedValue)) {
-    return true
-  }
-
-  return false
-}
 
 export function normalizeGlSplit(split = {}) {
   return {
     entity_code: typeof split.entity_code === 'string' ? split.entity_code : '',
     entity_name: typeof split.entity_name === 'string' ? split.entity_name : '',
-    gl_code: typeof split.gl_code === 'string' ? split.gl_code : '',
+    gl_code: typeof split.gl_code === 'string' ? normalizeGlCode(split.gl_code) : '',
     amount: split.amount == null || split.amount === '' || Number.isNaN(Number(split.amount)) ? null : Number(split.amount),
     description: typeof split.description === 'string' ? split.description : '',
   }
@@ -49,7 +31,7 @@ export function normalizeGlSplits(glSplits, invoice = null) {
     return [{
       entity_code: portfolio.entity_code,
       entity_name: portfolio.entity_name,
-      gl_code: invoice.gl_code,
+      gl_code: normalizeGlCode(invoice.gl_code),
       amount: invoice.amount ?? null,
       description: invoice.description || '',
     }]
@@ -79,6 +61,29 @@ export function createEmptyGlSplit(invoice = null) {
   }
 }
 
+export function syncGlSplitsWithProperty(glSplits, invoice = null) {
+  const portfolio = resolvePortfolio(invoice?.property_name, invoice?.portfolio_override)
+  const normalizedRows = normalizeGlSplits(glSplits, invoice)
+
+  if (portfolio.portfolio_key === DEFAULT_PORTFOLIO.portfolio_key) {
+    return normalizedRows
+  }
+
+  if (normalizedRows.length === 0 && invoice?.amount != null) {
+    return [createEmptyGlSplit(invoice)].map((row, index) => ({
+      ...row,
+      amount: index === 0 ? Number(invoice.amount) : row.amount,
+      description: invoice?.description || 'Default allocation',
+    }))
+  }
+
+  return normalizedRows.map(row => ({
+    ...row,
+    entity_code: row.entity_code || portfolio.entity_code,
+    entity_name: row.entity_name || portfolio.entity_name,
+  }))
+}
+
 export function calculateSplitTotal(glSplits = []) {
   return glSplits.reduce((total, split) => total + (Number(split.amount) || 0), 0)
 }
@@ -101,14 +106,18 @@ export function allocationBlockReason(invoiceAmount, glSplits = []) {
 export function resolvePortfolio(propertyName, portfolioOverride = null) {
   const normalizedOverride = typeof portfolioOverride === 'string' ? portfolioOverride.trim().toLowerCase() : ''
   if (normalizedOverride) {
-    const overrideMatch = PROPERTY_CATALOG.find(entry => entry.portfolio_key === normalizedOverride)
-    if (overrideMatch) return overrideMatch
+    const overridePortfolio = resolveBucket({ portfolio_override: normalizedOverride })
+    if (overridePortfolio) {
+      return {
+        portfolio_key: overridePortfolio.portfolio_key,
+        portfolio_label: overridePortfolio.portfolio_label,
+        entity_code: '',
+        entity_name: '',
+      }
+    }
   }
 
-  const normalizedProperty = normalizeMatchValue(propertyName)
-  if (!normalizedProperty) return DEFAULT_PORTFOLIO
-
-  const match = PROPERTY_CATALOG.find(entry => entryMatchesValue(entry, normalizedProperty))
+  const match = findPropertyCatalogEntry(propertyName)
   return match || DEFAULT_PORTFOLIO
 }
 
@@ -156,7 +165,7 @@ export function portfolioTabsForInvoices(invoices = []) {
   const counts = new Map()
 
   for (const invoice of invoices) {
-    const portfolio = resolvePortfolio(invoice.property_name, invoice.portfolio_override)
+    const portfolio = portfolioState(invoice)
     counts.set(portfolio.portfolio_key, (counts.get(portfolio.portfolio_key) || 0) + 1)
   }
 
